@@ -29,7 +29,7 @@ function useIsSignIn(): [boolean] {
 }
 
 const EmailItem = (props: MgtTemplateProps) => {
-  const message = props.dataContext as Message;
+  const message: Message = props.dataContext;
   return <div>{message.subject}</div>;
 };
 
