@@ -1,6 +1,6 @@
 ---
 marp: true
-headingDivider: 3
+headingDivider: 2
 paginate: true
 title: 解密和实战 Microsoft Identity Platform
 ---
@@ -33,32 +33,34 @@ title: 解密和实战 Microsoft Identity Platform
 
 本系列讲座分为十个模块。
 
-###
+##
 
 ![bg h:95%](images/microsoftidentityplatform.png)
 
 
-### 课程大纲
+## 课程大纲
 
-第一讲：基本概念
-第二讲：为单页应用程序集成 （React）
-第三讲：为Web应用程序集成 （Node.js）
-第四讲：使用Microsoft Identity 保护Web API （ASP.NET Core）
-第五讲：为移动或桌面应用程序集成 （Xamarin, WPF）
-第六讲：为守护程序或后端服务集成 (Azure function +Python，Power Automate)
-第七讲：Azure AD B2C应用集成 (React，手机验证码登录和微信登录） 
-第八讲：使用 Microsoft Graph API (Graph explorer & Postman)
-第九讲：使用 Azure AD PowerShell 模块 (PowerShell)
-第十讲：应用管理及最佳实践
+第一讲：[基本概念](module1-overview.md)
+第二讲：[为单页应用程序集成 （`React`）](module2-spa.md)
+第三讲：[为Web应用程序集成 （`Node.js`）](module3-webapp.md)
+第四讲：[使用Microsoft Identity 保护Web API （`ASP.NET Core`）](module4-webapi.md)
+第五讲：[为移动或桌面应用程序集成 （`Xamarin, WPF`）](module5-desktop-mobile.md)
+第六讲：[为守护程序或后端服务集成 (`Azure function +Python，Power Automate`)](module6-deamon-service.md)
+第七讲：[Azure AD B2C应用集成 (`React，手机验证码登录和微信登录`） ](module7-b2c.md)
+第八讲：[使用 Microsoft Graph API (`Graph explorer & Postman`)](module8-msgraph.md)
+第九讲：[使用 Azure AD PowerShell 模块 (`PowerShell`)](module9-powershell.md)
+第十讲：[应用管理及最佳实践](module10-bestpractices.md)
 
 
-## 相关资源
+## 申请开发者环境
 
-申请开发者账号：https://developer.microsoft.com/zh-CN/office/dev-program
+https://developer.microsoft.com/zh-CN/office/dev-program
 
-### 准备本地环境
+![](images/devprogram.png)
 
-本教程的范例在 `Windows 10` 的环境验证。
+## 准备本地开发环境
+
+本教程范例在 `Windows 10` 的环境验证，.NET的版本是`6.0`，Nodejs的版本是 `v16.30.0`
 
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; 
@@ -71,7 +73,7 @@ choco install visualstudio2022community --locale zh-cn
 
 ```
 
-### 熟悉在线工具
+## 熟悉在线工具
 
 1. Graph Explorer <https://aka.ms/ge>
 1. JWT 解码器 <https://jwt.ms>
