@@ -25,6 +25,11 @@ title: 解密和实战 Microsoft Identity Platform
 
 ![bg opacity:.5 left](images/chenxizhang.jpg)
 
+## 谁适合学习这个教程
+
+1. 项目经理 & 产品经理
+1. **开发人员**（公司自研，独立开发商，个人开发者）
+1. IT 管理员
 
 ## 内容
 <!--第二页的备注文字-->
