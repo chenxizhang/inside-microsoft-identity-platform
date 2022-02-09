@@ -1,6 +1,6 @@
 ---
 marp: true
-headingDivider: 2
+headingDivider: 3
 paginate: true
 title: 解密和实战 Microsoft Identity Platform
 ---
@@ -15,7 +15,7 @@ title: 解密和实战 Microsoft Identity Platform
 
 
 ## 概述
-<!--第一页的备注文字-->
+<!--为什么要讲这个课程呢-->
 
 
 这是一个系列课程，将带领大家
@@ -26,13 +26,13 @@ title: 解密和实战 Microsoft Identity Platform
 ![bg opacity:.5 left](images/chenxizhang.jpg)
 
 ## 谁适合学习这个教程
-
+<!-- 主要还是为了开发人员，Azure博大精深，这个课程只讲了其中一个很小的部分 -->
 1. 项目经理 & 产品经理
 1. **开发人员**（公司自研，独立开发商，个人开发者）
 1. IT 管理员
 
 ## 内容
-<!--第二页的备注文字-->
+<!--这个课程后续还可能会更新，每堂课大约30分钟，课程是收费的-->
 
 这个课程既有文字版，也有视频教程。文字版（演讲稿带备注）请通过 https://identityplatform.xizhang.com 访问，永久免费。视频教程将发布到网易云课堂上面，适当收费，请大家按需取用。
 
@@ -45,16 +45,16 @@ title: 解密和实战 Microsoft Identity Platform
 
 ## 课程大纲
 
-第一讲：[基本概念](module1-overview.md)
-第二讲：[为单页应用程序集成 （`React`）](module2-spa.md)
-第三讲：[为Web应用程序集成 （`Node.js`）](module3-webapp.md)
-第四讲：[使用Microsoft Identity 保护Web API （`ASP.NET Core`）](module4-webapi.md)
-第五讲：[为移动或桌面应用程序集成 （`Xamarin, WPF`）](module5-desktop-mobile.md)
-第六讲：[为守护程序或后端服务集成 (`Azure function +Python，Power Automate`)](module6-deamon-service.md)
-第七讲：[Azure AD B2C应用集成 (`React，手机验证码登录和微信登录`） ](module7-b2c.md)
-第八讲：[使用 Microsoft Graph API (`Graph explorer & Postman`)](module8-msgraph.md)
-第九讲：[使用 Azure AD PowerShell 模块 (`PowerShell`)](module9-powershell.md)
-第十讲：[应用管理及最佳实践](module10-bestpractices.md)
+1. [基本概念](module1-overview.md)
+1. [为单页应用程序集成 （`React`）](module2-spa.md)
+1. [为Web应用程序集成 （`Node.js`）](module3-webapp.md)
+1. [使用Microsoft Identity 保护Web API （`ASP.NET Core`）](module4-webapi.md)
+1. [为移动或桌面应用程序集成 （`Xamarin, WPF`）](module5-desktop-mobile.md)
+1. [为守护程序或后端服务集成 (`Azure function +Python，Power Automate`)](module6-deamon-service.md)
+1. [Azure AD B2C应用集成 (`React，手机验证码登录和微信登录`） ](module7-b2c.md)
+1. [使用 Microsoft Graph API (`Graph explorer & Postman`)](module8-msgraph.md)
+1. [使用 Azure AD PowerShell 模块 (`PowerShell`)](module9-powershell.md)
+1. [应用管理及最佳实践](module10-bestpractices.md)
 
 
 ## 申请开发者环境
