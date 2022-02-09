@@ -81,8 +81,8 @@ choco install visualstudio2022community --locale zh-cn
 
 你可以通过邮件 <ares@xizhang.com> 与我取得联系，也可以关注 `code365xyz` 这个微信公众号给我留言，还可以在这里 (<https://github.com/chenxizhang/inside-microsoft-identity-platform/discussions>) 给我提出问题或讨论。
 
+![](images/code365xyz.jpg)
 
-<br />
 
 陈希章 于上海
 2022年2月
