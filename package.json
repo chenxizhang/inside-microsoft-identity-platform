@@ -1,0 +1,35 @@
+{
+  "name": "inside-microsoft-identity-platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx marp . --engine ./engine.js"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^1.5.0"
+  },
+  "marp": {
+    "author": "陈希章",
+    "description": "Microsoft Identity Platform 解密和实战",
+    "lang": "zh-CN",
+    "theme": "default",
+    "keywords": "Microsoft Identity Platform, Azure AD, 数据科学, 微软人工智能",
+    "url": "https://identityplatform.xizhang.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenxizhang/inside-microsoft-identity-platform.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenxizhang/inside-microsoft-identity-platform/issues"
+  },
+  "homepage": "https://github.com/chenxizhang/inside-microsoft-identity-platform#readme"
+}
