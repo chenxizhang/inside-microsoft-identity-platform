@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx marp docs --engine ./docs/engine.js"
+    "build": "npx marp . --engine ./engine.js"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^1.5.0"
