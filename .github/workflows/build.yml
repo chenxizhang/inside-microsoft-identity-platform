@@ -1,0 +1,26 @@
+name: build docs
+
+on:
+  release:
+    types:
+      - created
+  
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install & BUild
+        run: |
+          cd docs
+          npm install
+          npm run build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.BOOK }}
+          publish_dir: ./docs
+          cname: identityplatform.xizhang.com
