@@ -1,0 +1,5 @@
+由于要单独部署，请访问这里的代码
+https://github.com/chenxizhang/static-web-app-with-easy-auth
+
+可以直接运行的例子，请用你的AAD账号登录，试试看效果
+https://icy-pebble-04e0d6900.1.azurestaticapps.net
