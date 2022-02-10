@@ -79,6 +79,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 
 ### 租户基本资源 (Azure Active Directory)
 <!-- _footer: ' ' -->
+
 - Azure Active Directory （简称AAD）是本门课程的核心，它是Azure 平台的一部分。
 - 基本资源包含用户，组，应用程序和设备。
 
@@ -110,8 +111,12 @@ Azure 是一个完整的IaaS，PaaS的平台，它在全球范围内提供了几
 <!-- _footer: '' -->
 <!-- 
     如果需要大量注册，则可以用脚本自动化 
+
     默认是所有人都可以注册，但可以关闭
-    演示时可以用demo-开始，后续可以用powershell一次性删除 Get-AzureADApplication | Where-Object {$_.DisplayName -like 'demo-*'} | Remove-AzureADApplication
+
+    演示时可以用demo-开始，后续可以用powershell一次性删除 
+    
+    Get-AzureADApplication | Where-Object {$_.DisplayName -like 'demo-*'} | Remove-AzureADApplication
 -->
 1. 决定受众范围
 1. 可接受的用户端
@@ -124,9 +129,13 @@ Azure 是一个完整的IaaS，PaaS的平台，它在全球范围内提供了几
 ## 管理员同意，分配用户和应用 (可选)
 <!-- 
 应用权限需要管理员同意，部分委托权限也可能需要。
+
 同意了后，用户不会受到提醒。
+
 多租户应用可能需要。 
+
 如果要控制级别，请到：企业应用程序 | 用户设置， 许可和权限 | 用户同意设置
+
 可以在界面上操作，也可以通过一个特殊的地址进行管理员同意
 -->
 1. 什么时候需要管理员同意
