@@ -1,7 +1,7 @@
 ﻿using Microsoft.Graph;
 using Microsoft.Identity.Client;
 
-var scopes = new[] { "api://d4755e4f-9ff6-463a-afed-ebd9c40d73d7/access_as_user", "mail.read" };
+var scopes = new[] { "api://d4755e4f-9ff6-463a-afed-ebd9c40d73d7/access_as_user", "mail.read", "user.read" };
 
 // Multi-tenant apps can use "common",
 // single-tenant apps must use the tenant ID from the Azure portal
