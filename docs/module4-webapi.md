@@ -15,8 +15,6 @@ style: |
     }
 ---
 
-
-
 # 第四讲：使用Microsoft Identity 保护Web API
 > **解密和实战 Microsoft Identity Platform**  https://identityplatform.xizhang.com
 ![bg fit left:30% opacity:0.2](images/aad.png)
@@ -48,7 +46,6 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. 注册应用程序
 1. 使用ASP.NET创建Web API 项目
 1. 在桌面客户端中调用Web API
-1. 在Web API项目中代表用户访问Microsoft Graph
 
 ## 注册应用程序
 
@@ -59,23 +56,109 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 
 
 ## 使用ASP.NET创建Web API 项目
-
-```powershell
-dotnet new webapi -o 项目名称 -au singleorg --client-id 应用程序编号 --tenant-id 租户编号
-```
-
-## 在桌面客户端中调用Web API
-
-
-
-## 在Web API项目中代表用户访问Microsoft Graph
-
-通过下面的命令可以创建项目
-
+<!-- _footer: '' -->
 ```powershell
 dotnet new webapi -o 项目名称 -au singleorg --client-id 应用程序编号 --tenant-id 租户编号 --call-graph $true --called-api-scopes "mail.read user.read"
 ```
 
+默认生成的配置文件
+
+```json
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "Domain": "qualified.domain.name",
+    "TenantId": "3a6831ab-6304-4c72-8d08-3afe544555dd",
+    "ClientId": "d4755e4f-9ff6-463a-afed-ebd9c40d73d7",
+    "ClientSecret": "3pT7Q~lj9QDuDc~JaTTNHsu02ZLY5WtaxWUze",
+    "ClientCertificates": [],
+    "Scopes": "access_as_user",
+    "CallbackPath": "/signin-oidc"
+  },
+  "DownstreamApi": {
+    "BaseUrl": "https://graph.microsoft.com/v1.0",
+    "Scopes": "mail.read user.read"
+  }
+}
+```
+
+### 依赖注入控制器
+
+```csharp
+
+private readonly IDownstreamWebApi _downstreamWebApi;
+private readonly ILogger<string> _logger;
+private readonly GraphServiceClient _client;
+
+public TestController(
+    IDownstreamWebApi downstreamWebApi, 
+    ILogger<string> logger, 
+    GraphServiceClient client)
+{
+    _downstreamWebApi = downstreamWebApi;
+    _client = client;
+    _logger = logger;
+}
+```
+
+
+### 调用下游API （ On-behalf-of 流程）
+使用 `DownstreamWebApi` 帮助类
+
+```csharp
+using var response = await _downstreamWebApi.CallWebApiForUserAsync("DownstreamApi", op => op.RelativePath = "/me/messages?$select=subject").ConfigureAwait(false);
+if (response.StatusCode == System.Net.HttpStatusCode.OK)
+{
+    var apiResult = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+    // Do something
+    return apiResult;
+}
+else
+{
+    var error = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+    throw new HttpRequestException($"Invalid status code in the HttpResponseMessage: {response.StatusCode}: {error}");
+}
+```
+
+使用 `GraphServiceClient`
+
+```csharp
+var result = await _client.Me.Messages.Request().Select(x => x.Subject).GetAsync().ConfigureAwait(false);
+return result.Select(x => x.Subject).ToArray();
+```
+
+## 在桌面客户端中调用Web API
+<!-- _footer: '' -->
+1. 注册应用程序（最好是单独注册一个）
+1. 使用 `Microsoft.Identity.Client` 登录并获取凭据
+
+    ```csharp
+        using Microsoft.Identity.Client;
+        var scopes = new[] { "api://d4755e4f-9ff6-463a-afed-ebd9c40d73d7/access_as_user", "mail.read", "user.read" };
+        var tenantId = "3a6831ab-6304-4c72-8d08-3afe544555dd";
+        var clientId = "1c6b9008-113d-4854-afd3-e3f5bd726ce7";
+
+        var pca = PublicClientApplicationBuilder
+            .Create(clientId)
+            .WithTenantId(tenantId)
+            .WithRedirectUri("http://localhost")
+            .Build();
+        var result = await pca.AcquireTokenInteractive(scopes)
+            .ExecuteAsync();
+    ```
+1. 使用凭据访问Webapi
+    ```csharp
+        var client = new HttpClient();
+        client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", result.AccessToken);
+        var temp = await client.GetAsync("https://localhost:7032/test");
+        Console.WriteLine(await temp.Content.ReadAsStringAsync());
+    ```
+
+
+## 思考题
+
+1. 如果有多个Webapi应该怎么办
+1. Microsoft Graph其实也是一系列API，到底怎么做出来的
 
 ## 课程反馈
 
