@@ -8,7 +8,7 @@ var scopes = new[] { "api://d4755e4f-9ff6-463a-afed-ebd9c40d73d7/access_as_user"
 var tenantId = "3a6831ab-6304-4c72-8d08-3afe544555dd";
 
 // Value from app registration
-var clientId = "d4755e4f-9ff6-463a-afed-ebd9c40d73d7";
+var clientId = "1c6b9008-113d-4854-afd3-e3f5bd726ce7";
 
 var pca = PublicClientApplicationBuilder
     .Create(clientId)
@@ -19,8 +19,6 @@ var pca = PublicClientApplicationBuilder
 
 var result = await pca.AcquireTokenInteractive(scopes)
     .ExecuteAsync();
-
-Console.WriteLine(result.AccessToken);
 
 
 var client = new HttpClient();
