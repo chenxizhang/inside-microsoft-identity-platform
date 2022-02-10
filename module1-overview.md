@@ -7,9 +7,11 @@ style: |
     section footer{
         margin-left:50px
     }
-
+    
     li>strong{
-        font-size:32px
+        font-size:32px;
+        padding:5px;
+        background-color:#CCCCCC
     }
 
 ---

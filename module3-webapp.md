@@ -9,7 +9,9 @@ style: |
     }
     
     li>strong{
-        font-size:32px
+        font-size:32px;
+        padding:5px;
+        background-color:#CCCCCC
     }
 ---
 
@@ -195,8 +197,9 @@ builder.services.AddRazorPages(options =>
 通过下面的命令可以创建项目
 
 ```powershell
-dotnet new webapp -o 项目名称 -au singleorg --client-id 应用程序编号 --tenant-id 租户编号 --call-graph $true --called-api-scopes mail.read,user.read
+dotnet new webapp -o 项目名称 -au singleorg --client-id 应用程序编号 --tenant-id 租户编号 --calls-graph $true --called-api-scopes "mail.read user.read"
 ```
+
 配置有关中间件
 ```csharp
 
