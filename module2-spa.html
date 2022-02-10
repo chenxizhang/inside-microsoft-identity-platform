@@ -430,7 +430,7 @@ li&gt;strong{
 }
 ;--theme:default;">
 <h3>在 React 应用中获取当前用户信息</h3>
-<p>在前端代码中直接请求一个特定的地址，就可以获取到当前用户信息。该信息其实是以Cookie保存在浏览器中的。.</p>
+<p>在前端代码中直接请求一个特定的地址，就可以获取到当前用户信息。该信息其实是以Cookie保存在浏览器中的。请注意，这里的用户id 并不是用户在AAD中真正的id，而是每个应用都不一样的，有点类似于微信开发中的openid.</p>
 <pre><code class="language-javascript"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUserInfo</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&#x27;/.auth/me&#x27;</span>);
