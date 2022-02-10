@@ -271,12 +271,23 @@ public async Task<IActionResult> Profile()
 
 
 ### 用户进行授权
+<!-- 
+    "login": {
+        "loginParameters": [
+        "response_type=code id_token",
+        "scope=openid offline_access profile https://graph.microsoft.com/Mail.Read"
+        ],
+        "disableWWWAuthenticate": false
+    },
 
+ -->
 1. 默认只读取基本profile
 1. 可以通过配置实现对Microsoft Graph的访问授权
 1. 代码中可以通过 `x-ms-token-aad-access-token` 进行后续调用
 
-![bg left fit](images/node-express-web-easy-auth-consent.png)
+![bg left fit](images/easy-auth-msgraph-settings.png)
+![bg fit](images/node-express-web-easy-auth-consent.png)
+
 
 ## 课程反馈
 
