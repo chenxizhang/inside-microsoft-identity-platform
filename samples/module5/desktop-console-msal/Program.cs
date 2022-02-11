@@ -3,12 +3,7 @@ using Microsoft.Graph;
 using Microsoft.Identity.Client;
 
 var scopes = new[] { "User.Read" };
-
-// Multi-tenant apps can use "common",
-// single-tenant apps must use the tenant ID from the Azure portal
 var tenantId = "3a6831ab-6304-4c72-8d08-3afe544555dd";
-
-// Value from app registration
 var clientId = "87700721-9a44-4470-9099-d079aab1c3d6";
 
 var pca = PublicClientApplicationBuilder
@@ -20,7 +15,6 @@ var pca = PublicClientApplicationBuilder
 #region 使用code grant机制
 var authProvider = new DelegateAuthenticationProvider(async (request) =>
 {
-    // Use Microsoft.Identity.Client to retrieve token
     var result = await pca.AcquireTokenInteractive(scopes)
         .ExecuteAsync();
     request.Headers.Authorization =

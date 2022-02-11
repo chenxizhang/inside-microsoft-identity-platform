@@ -101,6 +101,23 @@ public TestController(
 }
 ```
 
+### 检查调用者的身份
+<!-- https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-verification-scope-app-roles?tabs=aspnetcore -->
+
+1. 声明式
+    ```csharp
+    [Authorize]//要求身份认证
+    [Authorize(Roles = "access_as_application")]//是否要求指定角色访问，包括AAD内置角色，以及应用程序角色
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]// 读取配置文件
+    [RequiredScope(scopeRequiredByApi)]//直接用文本表达
+    ```
+1. 代码检查
+    ```csharp
+    HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+    HttpContext.ValidateAppRole("access_as_application");//验证用户或应用程序是否属于某个应用程序角色
+    ```
+
+
 
 ### 调用下游API （ On-behalf-of 流程）
 使用 `DownstreamWebApi` 帮助类
