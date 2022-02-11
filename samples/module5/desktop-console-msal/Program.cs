@@ -1,5 +1,4 @@
-﻿using System.Security;
-using Microsoft.Graph;
+﻿using Microsoft.Graph;
 using Microsoft.Identity.Client;
 
 var scopes = new[] { "User.Read" };
