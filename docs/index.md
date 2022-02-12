@@ -3,8 +3,21 @@ marp: true
 headingDivider: 3
 paginate: true
 title: 解密和实战 Microsoft Identity Platform
+style: |
+    section footer{
+        margin-left:50px
+    }
+    
+    li>strong{
+        font-size:32px;
+        padding:5px;
+        background-color:#CCCCCC
+    }
 ---
 
+<!--
+footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatform.xizhang.com'
+-->
 
 # 解密和实战 Microsoft Identity Platform
 
@@ -39,7 +52,7 @@ title: 解密和实战 Microsoft Identity Platform
 本系列讲座分为十个模块。
 
 ##
-
+<!-- _footer: '' -->
 ![bg h:95%](images/microsoftidentityplatform.png)
 
 
@@ -58,7 +71,7 @@ title: 解密和实战 Microsoft Identity Platform
 
 
 ## 申请开发者环境
-
+<!-- _footer: '' -->
 https://developer.microsoft.com/zh-CN/office/dev-program
 
 ![](images/devprogram.png)

@@ -14,7 +14,9 @@ token = app.acquire_token_for_client("https://graph.microsoft.com/.default")
 
 print(token)
 
-# 用证书来获取凭据
+# 用证书来获取凭据 
+# 这个可以通过openssl来生成 
+# openssl pkcs12 -in identityplatform.pfx -out out.pem -nodes
 key ="""-----BEGIN PRIVATE KEY-----
 MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDAVZpqBeRFQCfq
 PQqctj4twr+VgchsNE3LUEZn4hTO/ClYJLa4AlEfLIiXHjUoT5WIyWoO+bqbJGL6
@@ -52,5 +54,4 @@ client_certificate ={
 app = ConfidentialClientApplication(client_id,client_certificate,authority)
 token = app.acquire_token_for_client("https://graph.microsoft.com/.default")
 print(token)
-
 

@@ -146,7 +146,7 @@ Remove-AzureADGroup # 删除组
 
 ## 综合管理
 ```powershell
-# 获取所有用户授权过哪些应用程序，分别是什么权限
+# 获取所有用户授权过哪些应用程序，分别是什么权限, 必要时可以使用 Remove-AzureADOAuth2PermissionGrant 进行删除
 Get-AzureADOAuth2PermissionGrant `
     | Where-Object {$_.PrincipalId -ne $null} `
     | Select-Object `
