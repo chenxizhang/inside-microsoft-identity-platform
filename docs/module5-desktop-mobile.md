@@ -7,6 +7,11 @@ style: |
     section footer{
         margin-left:50px
     }
+
+    header{
+        position:absolute;
+        right:10px
+    }
     
     li>strong{
         font-size:32px;
@@ -44,10 +49,12 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 
 1. 注册应用程序
 1. 初始化应用程序
-1. 使用交互式身份验证
-1. 使用Windows集成验证
-1. 使用用户名和密码
-1. 使用设备代码
+1. 利用SDK进行编程
+    1. 使用交互式身份验证
+    1. 使用Windows集成验证
+    1. 使用用户名和密码
+    1. 使用设备代码
+1. 利用PowerShell进行编程
 
 
 ![bg](images/ios-andorid.png)
@@ -173,6 +180,33 @@ var me = await graphClient.Me.Request().GetAsync();
 Console.WriteLine(me.DisplayName);
 
 ```
+
+
+## 利用 ![](images/powershell.png) 进行编程
+
+```powershell
+Install-Module -Name MSAL.PS -Scope CurrentUser
+# MSAL.PS 不是官方库，但也是由微软员工编写的
+
+$token = Get-MsalToken `
+    -ClientId 87700721-9a44-4470-9099-d079aab1c3d6 `
+    -TenantId 3a6831ab-6304-4c72-8d08-3afe544555dd `
+    -Scopes Mail.read
+
+# 这里会弹出对话框进行身份验证
+# 有了 AccessToken 就可以做服务调用了，通过REST接口即可
+
+# 如果后续目的纯粹是为了访问MicrosoftGraph, 则可以安装下面的模块 
+Install-Module Microsoft.Graph -Scope CurrentUser
+
+# 详情参考 
+https://docs.microsoft.com/zh-cn/graph/powershell/get-started
+```
+
+![bg right fit](images/get-msal-token.png)
+
+
+
 
 ## 课程反馈
 

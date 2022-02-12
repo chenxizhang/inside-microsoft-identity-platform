@@ -82,9 +82,48 @@ Export-PfxCertificate -Cert $cert -FilePath c:\temp\identityplatform.pfx -Passwo
 
 ![bg right fit](images/aad-app-certification.png)
 
+## 使用 PowerShell Msal SDK
+
+```powershell
+Install-Module -Name MSAL.PS -Scope CurrentUser
+# MSAL.PS 不是官方库，但也是由微软员工编写的
+
+$token= Get-MsalToken `
+    -ClientId 85e5dba4-9cad-4191-87e2-c75ab83c957e `
+    -TenantId 3a6831ab-6304-4c72-8d08-3afe544555dd `
+    -ClientSecret (ConvertTo-SecureString `
+        "MtQ7Q~hJpoaXFzyZBoBUnvhK7X~U-mLRngZ7N" `
+        -Force -AsPlainText)
+# 或用证书
+$token= Get-MsalToken `
+    -ClientId 85e5dba4-9cad-4191-87e2-c75ab83c957e `
+    -TenantId 3a6831ab-6304-4c72-8d08-3afe544555dd `
+    -ClientCertificate `
+        (Get-ChildItem `
+            "Cert:\LocalMachine\My\A639157B5BBC31DC007CC014B077F8D70A082122")
+```
+![bg right fit](images/powershell-token-app.png)
+
 
 ## 使用MSAL for python 编程
 
+```python
+# 安装sdk
+# pip install msal
+
+from msal import ConfidentialClientApplication
+
+client_id = "85e5dba4-9cad-4191-87e2-c75ab83c957e"
+authority = "https://login.microsoftonline.com/3a6831ab-6304-4c72-8d08-3afe544555dd"
+client_secret = "MtQ7Q~hJpoaXFzyZBoBUnvhK7X~U-mLRngZ7N"
+
+app = ConfidentialClientApplication(client_id, client_secret, authority)
+token = app.acquire_token_for_client("https://graph.microsoft.com/.default")
+
+# 如果要用证书，则需要先把pfx转换为pem
+
+
+```
 
 ## 在Power Automate中使用
 
