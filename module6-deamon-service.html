@@ -341,7 +341,8 @@ li&gt;strong{
 <ol>
 <li>导出私钥 (Linux自带该工具，可以用<code>WSL</code>)<br />
 <code>openssl pkcs12 -in identityplatform.pfx -out out.pem -nodes</code></li>
-<li>编程访问<pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>key =<span class="hljs-string">&quot;&quot;&quot;-----BEGIN PRIVATE KEY-----
+<li>编程访问<pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment"># 以下的private key信息只是范例</span>
+key =<span class="hljs-string">&quot;&quot;&quot;-----BEGIN PRIVATE KEY-----
 MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDAVZpqBeRFQCfq
 VhQM9/W8BtBu/w1my+jfdMUSyQ==
 -----END PRIVATE KEY-----&quot;&quot;&quot;</span>

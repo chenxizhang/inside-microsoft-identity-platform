@@ -472,7 +472,7 @@ li&gt;strong{
 }
 ;--theme:default;">
 <h2>综合管理</h2>
-<pre><code class="language-powershell"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment"># 获取所有用户授权过哪些应用程序，分别是什么权限</span>
+<pre><code class="language-powershell"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment"># 获取所有用户授权过哪些应用程序，分别是什么权限, 必要时可以使用 Remove-AzureADOAuth2PermissionGrant 进行删除</span>
 <span class="hljs-built_in">Get-AzureADOAuth2PermissionGrant</span> `
     | <span class="hljs-built_in">Where-Object</span> {<span class="hljs-variable">$_</span>.PrincipalId <span class="hljs-operator">-ne</span> <span class="hljs-variable">$null</span>} `
     | <span class="hljs-built_in">Select-Object</span> `

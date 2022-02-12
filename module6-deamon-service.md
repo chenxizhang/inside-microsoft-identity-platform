@@ -126,6 +126,7 @@ token = app.acquire_token_for_client("https://graph.microsoft.com/.default")
     `openssl pkcs12 -in identityplatform.pfx -out out.pem -nodes`
 1. 编程访问
     ``` python
+    # 以下的private key信息只是范例
     key ="""-----BEGIN PRIVATE KEY-----
     MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDAVZpqBeRFQCfq
     VhQM9/W8BtBu/w1my+jfdMUSyQ==
