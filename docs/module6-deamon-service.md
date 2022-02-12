@@ -119,15 +119,33 @@ client_secret = "MtQ7Q~hJpoaXFzyZBoBUnvhK7X~U-mLRngZ7N"
 
 app = ConfidentialClientApplication(client_id, client_secret, authority)
 token = app.acquire_token_for_client("https://graph.microsoft.com/.default")
-
-# 如果要用证书，则需要先把pfx转换为pem
-
-
 ```
+
+## 使用MSAL for python 编程(证书)
+1. 导出私钥 (Linux自带该工具，可以用`WSL`)
+    `openssl pkcs12 -in identityplatform.pfx -out out.pem -nodes`
+1. 编程访问
+    ``` python
+    key ="""-----BEGIN PRIVATE KEY-----
+    MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDAVZpqBeRFQCfq
+    VhQM9/W8BtBu/w1my+jfdMUSyQ==
+    -----END PRIVATE KEY-----"""
+
+    client_certificate ={
+        "private_key":key,
+        "thumbprint":"A639157B5BBC31DC007CC014B077F8D70A082122"
+    }
+
+    app = ConfidentialClientApplication(client_id,client_certificate,authority)
+    token = app.acquire_token_for_client("https://graph.microsoft.com/.default")
+    ```
 
 ## 在Power Automate中使用
 
+1. 默认支持委托的权限
+1. 应用权限通过配置实现
 
+![bg right:70% fit](images/powerautomate.png)
 
 ## 课程反馈
 
