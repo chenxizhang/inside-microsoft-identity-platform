@@ -14,3 +14,5 @@ https://graph.microsoft.com/mail.send
 ## RBAC
 ## 自定义token属性
 ## 令牌生存期 https://docs.microsoft.com/zh-cn/azure/active-directory/develop/configure-token-lifetimes
+## 两套SDK, MSAL，MicrosoftGraph
+两套Client，public和confidential
