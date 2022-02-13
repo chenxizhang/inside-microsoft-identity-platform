@@ -62,11 +62,12 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 # 安装PowerShell模块
 Install-Module MSAL.PS -Scope CurrentUser
 
-# 仅作身份验证
+# 仅作身份验证, 返回值中IdToken包含了用户基本信息，可以直接解码
 $token = Get-MsalToken `
     -ClientId 14308ef0-3c9c-4100-96ba-5d2d805cac0f
 
 # 获取个人基本信息
+
 curl -Uri "https://graph.microsoft.com/v1.0/me" `
     -Headers @{"Authorization"="Bearer $($token.AccessToken)"}
 
@@ -133,6 +134,8 @@ curl -Uri "https://graph.microsoft.com/v1.0/me/drive/root" `
 1. 默认是两小时。
 
 ```powershell
+Install-Module AzureADPreview
+
 Connect-AzureAD -Confirm
 # 创建一个策略
 $policy = New-AzureADPolicy `
