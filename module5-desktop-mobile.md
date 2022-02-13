@@ -45,7 +45,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. [使用 Azure AD PowerShell 模块 (`PowerShell`)](module9-powershell.md)
 1. [应用管理及最佳实践](module10-bestpractices.md)
 
-## 为移动或桌面应用程序集成
+## <!-- fit --> 为移动或桌面应用程序集成
 
 1. 注册应用程序
 1. 初始化应用程序
