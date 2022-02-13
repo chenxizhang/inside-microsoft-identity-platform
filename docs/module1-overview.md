@@ -42,7 +42,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. [应用管理及最佳实践](module10-bestpractices.md)
 
 
-## 基本概念
+## <!-- fit --> 基本概念
 
 1. 租户（默认租户，多租户，B2B协作，B2C租户）
 1. 资源（用户，组，设备，应用程序）

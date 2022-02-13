@@ -40,7 +40,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. [使用 Azure AD PowerShell 模块 (`PowerShell`)](module9-powershell.md)
 1. [应用管理及最佳实践](module10-bestpractices.md)
 
-## 单页应用程序 
+## <!-- fit --> 单页应用程序 
 
 1. 一个页面 + 客户端路由
 1. 用Javascript编写界面

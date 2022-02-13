@@ -41,7 +41,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. **[应用管理及最佳实践](module10-bestpractices.md)**
 
 
-## 应用管理及最佳实践
+## <!-- fit --> 应用管理及最佳实践
 
 1. 多租户应用
 1. 国内版应用
@@ -114,6 +114,7 @@ curl -Uri "https://graph.microsoft.com/v1.0/me/drive/root" `
 
 
 ## 国内版应用开发
+
 
 
 ## 自定义令牌

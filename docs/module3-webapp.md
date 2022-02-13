@@ -41,7 +41,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. [应用管理及最佳实践](module10-bestpractices.md)
 
 
-## 为 Web 应用程序集成
+## <!-- fit --> 为 Web 应用程序集成
 
 这里的Web应用程序是指区分于以React等纯前端框架开发的静态网站，需要一个服务器处理请求的应用。
 
