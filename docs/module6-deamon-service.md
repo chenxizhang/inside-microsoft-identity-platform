@@ -148,6 +148,10 @@ token = app.acquire_token_for_client("https://graph.microsoft.com/.default")
 
 ![bg right:70% fit](images/powerautomate.png)
 
+## 如果为自定义Web API 定义应用权限
+
+![](images/app-permission-web-api.png)
+
 ## 课程反馈
 
 你可以通过邮件 <ares@xizhang.com> 与我取得联系，也可以关注 `code365xyz` 这个微信公众号给我留言，还可以在这里 (<https://github.com/chenxizhang/inside-microsoft-identity-platform/discussions>) 给我提出问题或讨论。

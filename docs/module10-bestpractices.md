@@ -47,7 +47,6 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. 国内版应用
 1. 自定义令牌设置
 
-
 ## 多租户应用
 1. 注册应用程序
 1. 测试应用程序
@@ -115,7 +114,31 @@ curl -Uri "https://graph.microsoft.com/v1.0/me/drive/root" `
 
 ## 国内版应用开发
 
+1. 门户 https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade
+1. 登录（Authority） https://login.partner.microsoftonline.cn
+1. Microsoft Graph 端点地址 https://microsoftgraph.chinacloudapi.cn
 
+![bg fit right](images/azure-china-endpoint.png)
+
+## 国内版应用开发（使用PowerShell）
+
+```powershell
+# 关于使用PowerShell,请参考第五讲结尾部分
+Install-Module MSAL.PS -Scope CurrentUser
+
+$app = New-MsalClientApplication `
+    -ClientId 2b183a93-03a2-46a3-bc06-4711e57d2caa `
+    -AzureCloudInstance AzureChina `
+    -Authority https://login.partner.microsoftonline.cn/2dce9a6e-6fe1-4dc8-ac10-f571cdefc583
+
+
+Get-MsalToken `
+    -PublicClientApplication $app `
+    -Scopes "https://microsoftgraph.chinacloudapi.cn/.default"
+
+```
+
+![bg right fit](images/aad-msaltoken-china.png)
 
 ## 自定义令牌
 
