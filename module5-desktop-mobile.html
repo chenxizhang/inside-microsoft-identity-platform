@@ -639,6 +639,10 @@ li&gt;strong{
 <span class="hljs-comment"># 这里会弹出对话框进行身份验证</span>
 <span class="hljs-comment"># 有了 AccessToken 就可以做服务调用了，通过REST接口即可</span>
 
+<span class="hljs-built_in">curl</span> <span class="hljs-literal">-Uri</span> <span class="hljs-string">&quot;https://graph.microsoft.com/v1.0/me/messages&quot;</span> `
+    <span class="hljs-literal">-Headers</span> <span class="hljs-selector-tag">@</span>{<span class="hljs-string">&quot;Authorization&quot;</span>=<span class="hljs-string">&quot;Bearer <span class="hljs-variable">$</span>(<span class="hljs-variable">$token</span>.AccessToken)&quot;</span>} `
+    <span class="hljs-literal">-UseBasicParsing</span>
+
 <span class="hljs-comment"># 如果后续目的纯粹是为了访问MicrosoftGraph, 则可以安装下面的模块 </span>
 <span class="hljs-built_in">Install-Module</span> Microsoft.Graph <span class="hljs-literal">-Scope</span> CurrentUser
 

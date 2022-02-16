@@ -196,6 +196,10 @@ $token = Get-MsalToken `
 # 这里会弹出对话框进行身份验证
 # 有了 AccessToken 就可以做服务调用了，通过REST接口即可
 
+curl -Uri "https://graph.microsoft.com/v1.0/me/messages" `
+    -Headers @{"Authorization"="Bearer $($token.AccessToken)"} `
+    -UseBasicParsing
+
 # 如果后续目的纯粹是为了访问MicrosoftGraph, 则可以安装下面的模块 
 Install-Module Microsoft.Graph -Scope CurrentUser
 
