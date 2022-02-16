@@ -1,5 +1,6 @@
 ﻿using Microsoft.Graph;
 using Microsoft.Identity.Client;
+using System.Security;
 
 var scopes = new[] { "User.Read" };
 var tenantId = "3a6831ab-6304-4c72-8d08-3afe544555dd";
