@@ -85,7 +85,7 @@ Console.WriteLine(me.DisplayName);
 //     // Use Microsoft.Identity.Client to retrieve token
 //     var result = await pca.AcquireTokenWithDeviceCode(scopes, r =>
 //     {
-//         Console.WriteLine(r.UserCode);
+//         Console.WriteLine(r.Message);
 //         return Task.FromResult(0);
 //     }).ExecuteAsync();
 
