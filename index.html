@@ -268,12 +268,18 @@ li&gt;strong{
 ;--theme:default;">
 <h2>准备本地开发环境</h2>
 <p>本教程范例在 <code>Windows 10</code> 的环境验证，.NET的版本是<code>6.0</code>，Nodejs的版本是 <code>v16.30.0</code></p>
-<pre><code class="language-powershell"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-built_in">Set-ExecutionPolicy</span> Bypass <span class="hljs-literal">-Scope</span> <span class="hljs-keyword">Process</span> <span class="hljs-literal">-Force</span>; 
+<pre><code class="language-powershell"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment"># 安装choco这个工具</span>
+<span class="hljs-built_in">Set-ExecutionPolicy</span> Bypass <span class="hljs-literal">-Scope</span> <span class="hljs-keyword">Process</span> <span class="hljs-literal">-Force</span>; 
 [<span class="hljs-type">System.Net.ServicePointManager</span>]::SecurityProtocol =[<span class="hljs-type">System.Net.ServicePointManager</span>]::SecurityProtocol <span class="hljs-operator">-bor</span> <span class="hljs-number">3072</span>; 
 <span class="hljs-built_in">iex</span> ((<span class="hljs-built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="hljs-string">&#x27;https://community.chocolatey.org/install.ps1&#x27;</span>))
 
-choco install dotnet vscode nodejs<span class="hljs-literal">-lts</span> postman git –y
+<span class="hljs-comment"># 安装有关常用软件</span>
+choco install dotnet vscode nodejs<span class="hljs-literal">-lts</span> postman git python -
+<span class="hljs-comment"># 刷新环境变量，让下面能直接用code命令</span>
+refreshenv
+<span class="hljs-comment"># 安装VS Code的插件</span>
 code -<span class="hljs-literal">-install</span><span class="hljs-literal">-extension</span> MS<span class="hljs-literal">-CEINTL</span>.vscode<span class="hljs-literal">-language</span><span class="hljs-literal">-pack</span><span class="hljs-literal">-zh</span><span class="hljs-literal">-hans</span>
+<span class="hljs-comment"># 安装Visual Studio 2022社区版【可选】</span>
 choco install visualstudio2022community -<span class="hljs-literal">-locale</span> zh<span class="hljs-literal">-cn</span>
 
 </span></span></foreignObject></svg></code></pre>
