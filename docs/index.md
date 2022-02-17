@@ -81,12 +81,18 @@ https://developer.microsoft.com/zh-CN/office/dev-program
 本教程范例在 `Windows 10` 的环境验证，.NET的版本是`6.0`，Nodejs的版本是 `v16.30.0`
 
 ```powershell
+# 安装choco这个工具
 Set-ExecutionPolicy Bypass -Scope Process -Force; 
 [System.Net.ServicePointManager]::SecurityProtocol =[System.Net.ServicePointManager]::SecurityProtocol -bor 3072; 
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
-choco install dotnet vscode nodejs-lts postman git –y
+# 安装有关常用软件
+choco install dotnet vscode nodejs-lts postman git python -
+# 刷新环境变量，让下面能直接用code命令
+refreshenv
+# 安装VS Code的插件
 code --install-extension MS-CEINTL.vscode-language-pack-zh-hans
+# 安装Visual Studio 2022社区版【可选】
 choco install visualstudio2022community --locale zh-cn
 
 ```
