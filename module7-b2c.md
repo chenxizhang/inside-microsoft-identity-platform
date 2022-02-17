@@ -62,6 +62,13 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 ![](images/use-b2c-3steps.png)
 
 ## 配置身份提供程序
+<!-- 
+请注意github中的redirectUrl的配置
+
+https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-github?pivots=b2c-user-flow 
+ 
+ -->
+
 
 ![](images/b2c-identityprovider.png)
 
@@ -121,29 +128,25 @@ render(
 <!-- 范例 https://codesandbox.io/s/module7-spa-b2c-dnvqu -->
 
 ```tsx
-import "./styles.css";
 import { useMsal } from "@azure/msal-react";
 import { useState } from "react";
 import { AccountInfo } from "@azure/msal-common";
+import ReactJson from "react-json-view";
 export default function App() {
   const { instance } = useMsal();
   const [account, setAccount] = useState<AccountInfo>();
   return (
-    <div className="App">
-      <button
-        onClick={() => {
-          instance
-            .loginPopup()
-            .then((v) => {
-              if (v.account) setAccount(v.account);
-            })
-            .catch((reason) => alert(reason));
-        }}
-      >请登录</button>
-      {account && <pre>{JSON.stringify(account.idTokenClaims)}</pre>}
+    <div>
+      <button onClick={() => {
+          instance.loginPopup().then((x) => {
+            if (x && x.account) setAccount(x.account);
+          });}}>请登录</button>
+      <hr />
+      {account && <ReactJson src={account} />}
     </div>
   );
 }
+
 ```
 ![](images/b2c-accountinfo.png)
 ![bg right fit](images/b2c-login.png)
