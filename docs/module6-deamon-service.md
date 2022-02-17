@@ -34,7 +34,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. [为Web应用程序集成 （`Node.js`）](module3-webapp.md)
 1. [使用Microsoft Identity 保护Web API （`ASP.NET Core`）](module4-webapi.md)
 1. [为移动或桌面应用程序集成 （`Xamarin, WPF`）](module5-desktop-mobile.md)
-1. [为守护程序或后端服务集成 (`Azure function + Python，Power Automate`)](module6-deamon-service.md)
+1. **[为守护程序或后端服务集成 (`Azure function + Python，Power Automate`)](module6-deamon-service.md)**
 1. [Azure AD B2C应用集成 (`React，手机验证码登录和微信登录`） ](module7-b2c.md)
 1. [使用 Microsoft Graph API (`Graph explorer & Postman`)](module8-msgraph.md)
 1. [使用 Azure AD PowerShell 模块 (`PowerShell`)](module9-powershell.md)
