@@ -26,14 +26,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 
 ![bg fit left:60% opacity:0.2](images/aad.png)
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9SFKP3FJEJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-9SFKP3FJEJ');
-</script>
 
 ## 概述
 <!--为什么要讲这个课程呢-->
