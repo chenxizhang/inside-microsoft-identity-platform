@@ -1,4 +1,4 @@
-const google = `
+const script = `
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SFKP3FJEJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
