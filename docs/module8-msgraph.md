@@ -104,7 +104,7 @@ Invoke-GraphRequest `
 ![bg fit right](images/graph-consent-dialog.png)
 
 
-## <!-- fit --> 深度学习Microsoft Grpah
+## <!-- fit --> 深度学习Microsoft Graph
 所有的SDKs 请参考 https://docs.microsoft.com/zh-cn/graph/sdks/sdks-overview
 
 请关注另外一个课程 《Microsoft Graph 从入门到精通》
