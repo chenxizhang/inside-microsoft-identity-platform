@@ -23,14 +23,6 @@ style: |
 作者：陈希章
 时间：2022年2月
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9SFKP3FJEJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9SFKP3FJEJ');
-</script>
 
 ## 课程大纲
 <!--

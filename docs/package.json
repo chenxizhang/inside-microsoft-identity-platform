@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx marp . --html --engine ./engine.js",
+    "build": "npx marp . --engine ./engine.js",
     "pdf": "npx marp --pdf -I . --output c:\\temp\\output --allow-local-files",
     "png": "npx marp --images png -I . --output c:\\temp\\output --allow-local-files"
   },
