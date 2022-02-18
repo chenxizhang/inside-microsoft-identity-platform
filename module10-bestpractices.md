@@ -41,7 +41,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. **[应用管理及最佳实践](module10-bestpractices.md)**
 
 
-## <!-- fit --> 应用管理及最佳实践
+##  应用管理及最佳实践
 
 1. 多租户应用
 1. 国内版应用
