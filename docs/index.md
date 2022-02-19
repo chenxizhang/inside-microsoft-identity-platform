@@ -88,7 +88,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force;
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 # 安装有关常用软件
-choco install dotnet vscode nodejs-lts postman git python -
+choco install dotnet vscode nodejs-lts postman git python -y
 # 刷新环境变量，让下面能直接用code命令
 refreshenv
 # 安装VS Code的插件
