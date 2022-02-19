@@ -153,7 +153,27 @@ export declare type AccountInfo = {
 
 
 ### 配置安全性
+<!-- 
+默认的那个登录页面是英文的，而且无法定制，如果要支持自定义验证，也很简单，请参考 https://docs.microsoft.com/en-us/azure/static-web-apps/authentication-custom?tabs=aad
+1. 注册一个应用程序，添加一个密钥
+1. 选择Web应用程序，redirect地址是：https://icy-pebble-04e0d6900.1.azurestaticapps.net/.auth/login/aad/callback
+1. 勾选上 隐式授权中的 id_token 这个选项
 
+配置文件中添加
+    "auth": {
+        "identityProviders": {
+            "azureActiveDirectory": {
+                "registration": {
+                    "openIdIssuer": "https://login.microsoftonline.com/3a6831ab-6304-4c72-8d08-3afe544555dd/v2.0",
+                    "clientIdSettingName": "AZURE_CLIENT_ID",
+                    "clientSecretSettingName": "AZURE_CLIENT_SECRET"
+                }
+            }
+        }
+    },
+
+在静态网站中添加配置项 AZURE_CLIENT_ID 和 AZURE_CLIENT_SECRET
+ -->
 在网站根目录下面创建 staticwebapp.config.json，默认支持 `aad`,`github`, `twitter`三种验证器，也支持自定义 OpenID Connect 提供程序。
 
 ```json
@@ -175,6 +195,8 @@ export declare type AccountInfo = {
 }
 
 ```
+
+
 
 ### 在 React 应用中获取当前用户信息
 
