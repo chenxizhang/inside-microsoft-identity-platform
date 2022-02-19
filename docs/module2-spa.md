@@ -172,7 +172,7 @@ export declare type AccountInfo = {
         }
     },
 
-在静态网站中添加配置项 AZURE_CLIENT_ID 和 AZURE_CLIENT_SECRET
+在静态网站启用标准价格层（这样才能支持自定义），然后添加配置项 AZURE_CLIENT_ID 和 AZURE_CLIENT_SECRET
  -->
 在网站根目录下面创建 staticwebapp.config.json，默认支持 `aad`,`github`, `twitter`三种验证器，也支持自定义 OpenID Connect 提供程序。
 
