@@ -151,6 +151,43 @@ Get-MsalToken `
 ![bg fit](images/custom-token-settings.png)
 ![bg fit](images/custom-token-group-claims.png)
 
+<!-- 
+勾选上了组的话，groups是安全组编号（可以通过这里找到 https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups），
+wids是系统角色编号，所有这些编号，在每个租户都是固定的，通过  Get-AzureADDirectoryRoleTemplate 可以获取到
+自定义令牌，组属性中，注意有一个显示为role的选项
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "Mr5-AUibfBii7Nd1jBebaxboXW0"
+}.{
+  "aud": "1b87e032-fd57-4f67-b2f3-d9ff5e1c583f",
+  "iss": "https://login.microsoftonline.com/3a6831ab-6304-4c72-8d08-3afe544555dd/v2.0",
+  "iat": 1645428113,
+  "nbf": 1645428113,
+  "exp": 1645432013,
+  "groups": [
+    "b956c237-7c9a-4ff5-bfff-79a832b0c4bf",
+    "6b759766-2ecb-4299-b31f-965ef23f2931",
+    "da86cab9-1cee-4456-b9e2-b18615b023ca",
+    "c17dcde0-5dba-4cc8-b7df-5d2390069de4",
+    "7467cf68-fa42-473d-9f2e-c3d72e9620ee"
+  ],
+  "name": "希章",
+  "oid": "b238fd07-6513-46b0-b133-55c9ff8b09e9",
+  "preferred_username": "ares@code365.xyz",
+  "rh": "0.AXAAqzFoOgRjckyNCDr-VEVV3TLghxtX_WdPsvPZ_14cWD9wAAY.",
+  "sub": "xE4rtpK7Ro2qbhjqCh6AX3w18ETIVGHYE0YG03TZqCY",
+  "tid": "3a6831ab-6304-4c72-8d08-3afe544555dd",
+  "uti": "R5k7foDhLEyokhm9eWklAQ",
+  "ver": "2.0",
+  "wids": [
+    "62e90394-69f5-4237-9190-012177145e10",
+    "b79fbf4d-3ef9-4689-8143-76b194e85509"
+  ]
+}.[Signature]
+
+ -->
+
 
 ### 配置令牌生命周期
 
