@@ -48,9 +48,11 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 ## 内容
 <!--这个课程后续还可能会更新，每堂课大约30分钟，课程是收费的-->
 
-这个课程既有文字版，也有视频教程。文字版（演讲稿带备注）请通过 https://identityplatform.xizhang.com 访问，永久免费。视频教程将发布到网易云课堂上面，适当收费，请大家按需取用。
+这个课程分为十个模块，既有文字版，也有视频教程。文字版（演讲稿带备注）请通过 https://identityplatform.xizhang.com 访问，永久免费。
 
-本系列讲座分为十个模块。
+视频教程已发布到网易云课堂，适当收费，请按需取用。[点击这里](https://study.163.com/course/introduction.htm?courseId=1212500806&share=2&shareId=400000000620030) 或扫码访问。
+
+![bg right:30% fit](images/videocourse.png)
 
 ##
 <!-- _footer: '' -->
@@ -106,11 +108,15 @@ choco install visualstudio2022community --locale zh-cn
 
 ## 课程反馈
 
-你可以通过邮件 <ares@xizhang.com> 与我取得联系，也可以关注 `code365xyz` 这个微信公众号给我留言，还可以在这里 (<https://github.com/chenxizhang/inside-microsoft-identity-platform/discussions>) 给我提出问题或讨论。
+你可以通过邮件 <ares@xizhang.com> 与我取得联系，也可以关注 `code365xyz` 这个微信公众号给我留言。
 
-![](images/code365xyz.jpg)
+#### 视频教程
+
+[点击这里](https://study.163.com/course/introduction.htm?courseId=1212500806&share=2&shareId=400000000620030) 或扫码可以访问配套视频教程。
+
+![bg right:30% fit](images/videocourse.png)
 
 
-陈希章 于上海
-2022年2月
+陈希章 2022年2月 于上海
+
 

@@ -116,10 +116,13 @@ https://graph.xizhang.com
 
 ## 课程反馈
 
-你可以通过邮件 <ares@xizhang.com> 与我取得联系，也可以关注 `code365xyz` 这个微信公众号给我留言，还可以在这里 (<https://github.com/chenxizhang/inside-microsoft-identity-platform/discussions>) 给我提出问题或讨论。
+你可以通过邮件 <ares@xizhang.com> 与我取得联系，也可以关注 `code365xyz` 这个微信公众号给我留言。
 
-![](images/code365xyz.jpg)
+#### 视频教程
+
+[点击这里](https://study.163.com/course/introduction.htm?courseId=1212500806&share=2&shareId=400000000620030) 或扫码可以访问配套视频教程。
+
+![bg right:30% fit](images/videocourse.png)
 
 
-陈希章 于上海
-2022年2月
+陈希章 2022年2月 于上海
