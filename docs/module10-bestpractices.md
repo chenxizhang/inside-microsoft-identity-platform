@@ -203,16 +203,13 @@ $policy = New-AzureADPolicy `
     -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00"}}') `
     -DisplayName "WebPolicyScenario" `
     -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
-
 # 获取某个企业应用程序的引用
 $sp = Get-AzureADServicePrincipal `
     -Filter "DisplayName eq '<service principal display name>'"
-
 # 为该应用程序指派该策略
 Add-AzureADServicePrincipalPolicy `
     -Id $sp.ObjectId `
     -RefObjectId $policy.Id
-
 ```
 
 ## 课程反馈

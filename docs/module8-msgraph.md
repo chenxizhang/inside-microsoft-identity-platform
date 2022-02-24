@@ -41,7 +41,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. [应用管理及最佳实践](module10-bestpractices.md)
 
 
-## <!-- fit -->使用 Microsoft Graph API
+## 使用 Microsoft Graph API
 
 这是我们努力学习Microsoft Identity Platform的一个主要原因
 
@@ -104,7 +104,7 @@ Invoke-GraphRequest `
 ![bg fit right](images/graph-consent-dialog.png)
 
 
-## <!-- fit --> 深度学习Microsoft Graph
+## 深度学习Microsoft Graph
 所有的SDKs 请参考 https://docs.microsoft.com/zh-cn/graph/sdks/sdks-overview
 
 请关注另外一个课程 《Microsoft Graph 从入门到精通》
