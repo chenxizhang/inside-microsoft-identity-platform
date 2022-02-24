@@ -546,16 +546,13 @@ li&gt;strong{
     <span class="hljs-literal">-Definition</span> <span class="hljs-selector-tag">@</span>(<span class="hljs-string">&#x27;{&quot;TokenLifetimePolicy&quot;:{&quot;Version&quot;:1,&quot;AccessTokenLifetime&quot;:&quot;02:00:00&quot;}}&#x27;</span>) `
     <span class="hljs-literal">-DisplayName</span> <span class="hljs-string">&quot;WebPolicyScenario&quot;</span> `
     <span class="hljs-literal">-IsOrganizationDefault</span> <span class="hljs-variable">$false</span> <span class="hljs-literal">-Type</span> <span class="hljs-string">&quot;TokenLifetimePolicy&quot;</span>
-
 <span class="hljs-comment"># 获取某个企业应用程序的引用</span>
 <span class="hljs-variable">$sp</span> = <span class="hljs-built_in">Get-AzureADServicePrincipal</span> `
     <span class="hljs-literal">-Filter</span> <span class="hljs-string">&quot;DisplayName eq &#x27;&lt;service principal display name&gt;&#x27;&quot;</span>
-
 <span class="hljs-comment"># 为该应用程序指派该策略</span>
 <span class="hljs-built_in">Add-AzureADServicePrincipalPolicy</span> `
     <span class="hljs-literal">-Id</span> <span class="hljs-variable">$sp</span>.ObjectId `
     <span class="hljs-literal">-RefObjectId</span> <span class="hljs-variable">$policy</span>.Id
-
 </span></span></foreignObject></svg></code></pre>
 <footer><strong>解密和实战 Microsoft Identity Platform</strong>  <a href="https://identityplatform.xizhang.com">https://identityplatform.xizhang.com</a></footer>
 </section>

@@ -181,9 +181,7 @@ export declare type AccountInfo = {
     "routes": [
         {
             "route": "/*",
-            "allowedRoles": [
-                "authenticated"
-            ]
+            "allowedRoles": ["authenticated"]
         }
     ],
     "responseOverrides": {
@@ -193,7 +191,6 @@ export declare type AccountInfo = {
         }
     }
 }
-
 ```
 
 

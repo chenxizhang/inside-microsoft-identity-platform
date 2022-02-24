@@ -41,7 +41,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. [使用 Azure AD PowerShell 模块 (`PowerShell`)](module9-powershell.md)
 1. [应用管理及最佳实践](module10-bestpractices.md)
 
-## <!-- fit -->  Azure AD B2C应用集成
+##  Azure AD B2C应用集成
 1. 创建租户
 1. 选择身份提供程序
 1. 定义用户流

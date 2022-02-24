@@ -41,7 +41,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. [应用管理及最佳实践](module10-bestpractices.md)
 
 
-## <!-- fit --> 使用 Azure AD PowerShell 模块
+##  使用 Azure AD PowerShell 模块
 
 1. 安装模块
 1. 连接到Azure AD

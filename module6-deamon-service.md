@@ -146,7 +146,7 @@ token = app.acquire_token_for_client("https://graph.microsoft.com/.default")
 1. 默认支持委托的权限
 1. 应用权限通过配置实现
 
-![bg right:70% fit](images/powerautomate.png)
+![bg right:60% fit](images/powerautomate.png)
 
 ## 如果为自定义Web API 定义应用权限
 

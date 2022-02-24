@@ -41,7 +41,7 @@ footer: '**解密和实战 Microsoft Identity Platform**  https://identityplatfo
 1. [应用管理及最佳实践](module10-bestpractices.md)
 
 
-## <!-- fit --> 为 Web 应用程序集成
+##  为 Web 应用程序集成
 
 这里的Web应用程序是指区分于以React等纯前端框架开发的静态网站，需要一个服务器处理请求的应用。
 
@@ -252,7 +252,6 @@ public async Task<IActionResult> Profile()
 
  return View();
 }
-
 ```
 
 
@@ -261,7 +260,7 @@ public async Task<IActionResult> Profile()
 
 <!-- _footer: '' -->
 
-无需在代码里面实现身份验证和授权，服务器将自动发送如下的header信息
+无需在代码里面实现身份验证和授权，服务器将发送如下的header信息
 
 1. x-ms-client-principal-name
 1. x-ms-client-principal-id
