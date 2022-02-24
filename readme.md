@@ -9,4 +9,10 @@
 
 讲义永久地址：<https://identityplatform.xizhang.com>
 
-课程永久地址：网易云课堂（待定）
+## 视频教程
+
+[点击这里](https://study.163.com/course/introduction.htm?courseId=1212500806&share=2&shareId=400000000620030) 或扫码可以访问配套视频教程。
+
+
+![](docs/images/videocourse.png)
+
