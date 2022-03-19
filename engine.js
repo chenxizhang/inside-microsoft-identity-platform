@@ -1,4 +1,5 @@
 const script = `
+<link href="docs.css" rel="stylesheet" type="text/css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SFKP3FJEJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -38,7 +39,7 @@ module.exports = ({ marp }) => marp.use((md) => {
         const { meta } = tokens[i]
 
         // If it is the first slide, prepend <script> tag before the rendered tag.
-        if (meta && meta.marpitSlide === 0) return script + rendered
+        if (meta && meta.marpitSlide === 0) return rendered + script
 
         return rendered
     }

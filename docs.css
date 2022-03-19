@@ -1,0 +1,16 @@
+/* @theme xizhang */
+
+@import 'default';
+
+section footer{
+    margin-left: 50px !important;
+}
+/* 这个设置适合于所有的背景图片*/
+section figure{
+    margin-right: 10px !important;
+}
+
+/* 这个设置适合于左侧的背景图片 */
+section figure:first-child{
+    margin-left: 10px !important;
+}
