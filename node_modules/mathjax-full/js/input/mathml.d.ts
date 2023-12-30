@@ -12,7 +12,7 @@ export declare class MathML<N, T, D> extends AbstractInputJax<N, T, D> {
     static OPTIONS: OptionList;
     protected findMathML: FindMathML<N, T, D>;
     protected mathml: MathMLCompile<N, T, D>;
-    protected mmlFilters: FunctionList;
+    mmlFilters: FunctionList;
     constructor(options?: OptionList);
     setAdaptor(adaptor: DOMAdaptor<N, T, D>): void;
     setMmlFactory(mmlFactory: MmlFactory): void;

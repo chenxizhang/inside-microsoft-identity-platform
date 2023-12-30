@@ -1,18 +1,16 @@
 import { AbstractDOMAdaptor } from '../core/DOMAdaptor.js';
+import { Constructor } from './NodeMixin.js';
 import { LiteDocument } from './lite/Document.js';
 import { LiteElement, LiteNode } from './lite/Element.js';
 import { LiteText, LiteComment } from './lite/Text.js';
 import { LiteWindow } from './lite/Window.js';
 import { LiteParser } from './lite/Parser.js';
 import { OptionList } from '../util/Options.js';
-export declare class LiteAdaptor extends AbstractDOMAdaptor<LiteElement, LiteText, LiteDocument> {
-    static OPTIONS: OptionList;
-    static cjkPattern: RegExp;
-    options: OptionList;
+export declare class LiteBase extends AbstractDOMAdaptor<LiteElement, LiteText, LiteDocument> {
     document: LiteDocument;
     window: LiteWindow;
     parser: LiteParser;
-    constructor(options?: OptionList);
+    constructor();
     parse(text: string, format?: string): LiteDocument;
     protected create(kind: string, _ns?: string): LiteElement;
     text(text: string): LiteText;
@@ -62,9 +60,9 @@ export declare class LiteAdaptor extends AbstractDOMAdaptor<LiteElement, LiteTex
     getStyle(node: LiteElement, name: string): string;
     allStyles(node: LiteElement): any;
     insertRules(node: LiteElement, rules: string[]): void;
-    fontSize(_node: LiteElement): any;
-    fontFamily(_node: LiteElement): any;
-    nodeSize(node: LiteElement, _em?: number, _local?: boolean): [number, number];
+    fontSize(_node: LiteElement): number;
+    fontFamily(_node: LiteElement): string;
+    nodeSize(_node: LiteElement, _em?: number, _local?: boolean): [number, number];
     nodeBBox(_node: LiteElement): {
         left: number;
         right: number;
@@ -72,4 +70,8 @@ export declare class LiteAdaptor extends AbstractDOMAdaptor<LiteElement, LiteTex
         bottom: number;
     };
 }
+declare const LiteAdaptor_base: Constructor<LiteBase>;
+export declare class LiteAdaptor extends LiteAdaptor_base {
+}
 export declare function liteAdaptor(options?: OptionList): LiteAdaptor;
+export {};

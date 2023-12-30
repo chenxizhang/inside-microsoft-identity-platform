@@ -61,8 +61,8 @@ var SVGmfrac = (function (_super) {
         var svg = this.element;
         var _a = this.node.attributes.getList('numalign', 'denomalign'), numalign = _a.numalign, denomalign = _a.denomalign;
         var _b = __read(this.childNodes, 2), num = _b[0], den = _b[1];
-        var nbox = num.getBBox();
-        var dbox = den.getBBox();
+        var nbox = num.getOuterBBox();
+        var dbox = den.getOuterBBox();
         var tex = this.font.params;
         var a = tex.axis_height;
         var d = .1;
@@ -84,8 +84,8 @@ var SVGmfrac = (function (_super) {
         var svg = this.element;
         var _a = this.node.attributes.getList('numalign', 'denomalign'), numalign = _a.numalign, denomalign = _a.denomalign;
         var _b = __read(this.childNodes, 2), num = _b[0], den = _b[1];
-        var nbox = num.getBBox();
-        var dbox = den.getBBox();
+        var nbox = num.getOuterBBox();
+        var dbox = den.getOuterBBox();
         var tex = this.font.params;
         var pad = (this.node.getProperty('withDelims') ? 0 : tex.nulldelimiterspace);
         var W = Math.max((nbox.L + nbox.w + nbox.R) * nbox.rscale, (dbox.L + dbox.w + dbox.R) * dbox.rscale);
@@ -107,10 +107,10 @@ var SVGmfrac = (function (_super) {
         den.toSVG(svg);
         num.place(nbox.L * nbox.rscale, u);
         this.bevel.place(w - delta / 2, 0);
-        den.place(w + this.bevel.getBBox().w + dbox.L * dbox.rscale - delta, v);
+        den.place(w + this.bevel.getOuterBBox().w + dbox.L * dbox.rscale - delta, v);
     };
     SVGmfrac.kind = mfrac_js_2.MmlMfrac.prototype.kind;
     return SVGmfrac;
-}(mfrac_js_1.CommonMfracMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mfrac_js_1.CommonMfracMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmfrac = SVGmfrac;
 //# sourceMappingURL=mfrac.js.map

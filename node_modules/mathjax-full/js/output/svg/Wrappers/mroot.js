@@ -43,12 +43,12 @@ var SVGmroot = (function (_super) {
     SVGmroot.prototype.addRoot = function (ROOT, root, sbox, H) {
         root.toSVG(ROOT);
         var _a = __read(this.getRootDimens(sbox, H), 3), x = _a[0], h = _a[1], dx = _a[2];
-        var bbox = root.getBBox();
+        var bbox = root.getOuterBBox();
         root.place(dx * bbox.rscale, h);
         this.dx = x;
     };
     SVGmroot.kind = mroot_js_2.MmlMroot.prototype.kind;
     return SVGmroot;
-}(mroot_js_1.CommonMrootMixin(msqrt_js_1.SVGmsqrt)));
+}((0, mroot_js_1.CommonMrootMixin)(msqrt_js_1.SVGmsqrt)));
 exports.SVGmroot = SVGmroot;
 //# sourceMappingURL=mroot.js.map

@@ -14,10 +14,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MultlinedItem = void 0;
 var AmsItems_js_1 = require("../ams/AmsItems.js");
-var NodeUtil_js_1 = require("../NodeUtil.js");
+var NodeUtil_js_1 = __importDefault(require("../NodeUtil.js"));
 var TexConstants_js_1 = require("../TexConstants.js");
 var MultlinedItem = (function (_super) {
     __extends(MultlinedItem, _super);

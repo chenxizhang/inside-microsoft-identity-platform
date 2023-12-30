@@ -143,6 +143,6 @@ var CHTMLmaction = (function (_super) {
                 }]]
     ]);
     return CHTMLmaction;
-}(maction_js_1.CommonMactionMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, maction_js_1.CommonMactionMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmaction = CHTMLmaction;
 //# sourceMappingURL=maction.js.map

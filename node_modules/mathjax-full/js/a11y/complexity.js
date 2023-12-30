@@ -41,10 +41,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -63,7 +67,7 @@ var MathItem_js_1 = require("../core/MathItem.js");
 var semantic_enrich_js_1 = require("./semantic-enrich.js");
 var visitor_js_1 = require("./complexity/visitor.js");
 var Options_js_1 = require("../util/Options.js");
-MathItem_js_1.newState('COMPLEXITY', 40);
+(0, MathItem_js_1.newState)('COMPLEXITY', 40);
 function ComplexityMathItemMixin(BaseMathItem, computeComplexity) {
     return (function (_super) {
         __extends(class_1, _super);
@@ -93,12 +97,12 @@ function ComplexityMathDocumentMixin(BaseDocument) {
                 for (var _i = 0; _i < arguments.length; _i++) {
                     args[_i] = arguments[_i];
                 }
-                var _this = _super.apply(this, __spreadArray([], __read(args))) || this;
+                var _this = _super.apply(this, __spreadArray([], __read(args), false)) || this;
                 var ProcessBits = _this.constructor.ProcessBits;
                 if (!ProcessBits.has('complexity')) {
                     ProcessBits.allocate('complexity');
                 }
-                var visitorOptions = Options_js_1.selectOptionsFromKeys(_this.options, _this.options.ComplexityVisitor.OPTIONS);
+                var visitorOptions = (0, Options_js_1.selectOptionsFromKeys)(_this.options, _this.options.ComplexityVisitor.OPTIONS);
                 _this.complexityVisitor = new _this.options.ComplexityVisitor(_this.mmlFactory, visitorOptions);
                 var computeComplexity = (function (node) { return _this.complexityVisitor.visitTree(node); });
                 _this.options.MathItem =
@@ -137,14 +141,14 @@ function ComplexityMathDocumentMixin(BaseDocument) {
             };
             return class_2;
         }(BaseDocument)),
-        _a.OPTIONS = __assign(__assign(__assign({}, BaseDocument.OPTIONS), visitor_js_1.ComplexityVisitor.OPTIONS), { enableComplexity: true, ComplexityVisitor: visitor_js_1.ComplexityVisitor, renderActions: Options_js_1.expandable(__assign(__assign({}, BaseDocument.OPTIONS.renderActions), { complexity: [MathItem_js_1.STATE.COMPLEXITY] })) }),
+        _a.OPTIONS = __assign(__assign(__assign({}, BaseDocument.OPTIONS), visitor_js_1.ComplexityVisitor.OPTIONS), { enableComplexity: true, ComplexityVisitor: visitor_js_1.ComplexityVisitor, renderActions: (0, Options_js_1.expandable)(__assign(__assign({}, BaseDocument.OPTIONS.renderActions), { complexity: [MathItem_js_1.STATE.COMPLEXITY] })) }),
         _a;
 }
 exports.ComplexityMathDocumentMixin = ComplexityMathDocumentMixin;
 function ComplexityHandler(handler, MmlJax) {
     if (MmlJax === void 0) { MmlJax = null; }
     if (!handler.documentClass.prototype.enrich && MmlJax) {
-        handler = semantic_enrich_js_1.EnrichHandler(handler, MmlJax);
+        handler = (0, semantic_enrich_js_1.EnrichHandler)(handler, MmlJax);
     }
     handler.documentClass = ComplexityMathDocumentMixin(handler.documentClass);
     return handler;

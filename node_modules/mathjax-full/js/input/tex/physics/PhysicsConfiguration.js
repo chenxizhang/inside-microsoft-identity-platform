@@ -10,7 +10,8 @@ exports.PhysicsConfiguration = Configuration_js_1.Configuration.create('physics'
         macro: [
             'Physics-automatic-bracing-macros',
             'Physics-vector-macros',
-            'Physics-vector-chars',
+            'Physics-vector-mo',
+            'Physics-vector-mi',
             'Physics-derivative-macros',
             'Physics-expressions-macros',
             'Physics-quick-quad-macros',

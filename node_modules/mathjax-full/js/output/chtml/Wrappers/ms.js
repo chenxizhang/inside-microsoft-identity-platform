@@ -26,6 +26,6 @@ var CHTMLms = (function (_super) {
     }
     CHTMLms.kind = ms_js_2.MmlMs.prototype.kind;
     return CHTMLms;
-}(ms_js_1.CommonMsMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, ms_js_1.CommonMsMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLms = CHTMLms;
 //# sourceMappingURL=ms.js.map

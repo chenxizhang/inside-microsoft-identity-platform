@@ -121,7 +121,9 @@ var MmlMo = (function (_super) {
         if (parent.isEmbellished) {
             return parent.coreMO().getText();
         }
-        while ((((parent.isKind('mrow') || parent.isKind('TeXAtom') || parent.isKind('mstyle') ||
+        while ((((parent.isKind('mrow') ||
+            (parent.isKind('TeXAtom') && parent.texClass !== MmlNode_js_1.TEXCLASS.VCENTER) ||
+            parent.isKind('mstyle') ||
             parent.isKind('mphantom')) && parent.childNodes.length === 1) ||
             parent.isKind('munderover')) && parent.childNodes[0]) {
             parent = parent.childNodes[0];
@@ -254,7 +256,7 @@ var MmlMo = (function (_super) {
             this.rspace = (def[1] + 1) / 18;
         }
         else {
-            var range = OperatorDictionary_js_1.getRange(mo);
+            var range = (0, OperatorDictionary_js_1.getRange)(mo);
             if (range) {
                 if (this.getProperty('texClass') === undefined) {
                     this.texClass = range[2];
@@ -308,7 +310,7 @@ var MmlMo = (function (_super) {
         if (!mo.match(PRIMES))
             return;
         var REMAP = this.constructor.remapPrimes;
-        var primes = string_js_1.unicodeString(string_js_1.unicodeChars(mo).map(function (c) { return REMAP[c]; }));
+        var primes = (0, string_js_1.unicodeString)((0, string_js_1.unicodeChars)(mo).map(function (c) { return REMAP[c]; }));
         this.setProperty('primes', primes);
     };
     MmlMo.prototype.checkMathAccent = function (mo) {

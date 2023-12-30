@@ -41,10 +41,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommonTeXFontMixin = void 0;
@@ -60,7 +64,8 @@ function CommonTeXFontMixin(Base) {
             };
             return class_1;
         }(Base)),
-        _a.defaultVariants = __spreadArray(__spreadArray([], __read(Base.defaultVariants)), [
+        _a.NAME = 'TeX',
+        _a.defaultVariants = __spreadArray(__spreadArray([], __read(Base.defaultVariants), false), [
             ['-smallop', 'normal'],
             ['-largeop', 'normal'],
             ['-size3', 'normal'],
@@ -71,7 +76,7 @@ function CommonTeXFontMixin(Base) {
             ['-tex-bold-oldstyle', 'bold'],
             ['-tex-mathit', 'italic'],
             ['-tex-variant', 'normal']
-        ]),
+        ], false),
         _a.defaultCssFonts = __assign(__assign({}, Base.defaultCssFonts), { '-smallop': ['serif', false, false], '-largeop': ['serif', false, false], '-size3': ['serif', false, false], '-size4': ['serif', false, false], '-tex-calligraphic': ['cursive', true, false], '-tex-bold-calligraphic': ['cursive', true, true], '-tex-oldstyle': ['serif', false, false], '-tex-bold-oldstyle': ['serif', false, true], '-tex-mathit': ['serif', true, false] }),
         _a.defaultSizeVariants = ['normal', '-smallop', '-largeop', '-size3', '-size4', '-tex-variant'],
         _a.defaultStretchVariants = ['-size4'],

@@ -67,6 +67,8 @@ new SymbolMap_js_1.CommandMap('text-macros', {
     huge: ['SetSize', 2.07],
     Huge: ['SetSize', 2.49],
     Bbb: ['Macro', '{\\bbFont #1}', 1],
+    textnormal: ['Macro', '{\\rm #1}', 1],
+    textup: ['Macro', '{\\rm #1}', 1],
     textrm: ['Macro', '{\\rm #1}', 1],
     textit: ['Macro', '{\\it #1}', 1],
     textbf: ['Macro', '{\\bf #1}', 1],

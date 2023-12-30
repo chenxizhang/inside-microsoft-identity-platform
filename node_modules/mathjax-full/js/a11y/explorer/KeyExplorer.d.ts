@@ -1,5 +1,6 @@
 import { A11yDocument, Region } from './Region.js';
 import { Explorer, AbstractExplorer } from './Explorer.js';
+import Sre from '../sre.js';
 export interface KeyExplorer extends Explorer {
     KeyDown(event: KeyboardEvent): void;
     FocusIn(event: FocusEvent): void;
@@ -7,7 +8,7 @@ export interface KeyExplorer extends Explorer {
 }
 export declare abstract class AbstractKeyExplorer<T> extends AbstractExplorer<T> implements KeyExplorer {
     attached: boolean;
-    protected walker: sre.Walker;
+    protected walker: Sre.walker;
     private eventsAttached;
     protected events: [string, (x: Event) => void][];
     private oldIndex;
@@ -25,14 +26,15 @@ export declare class SpeechExplorer extends AbstractKeyExplorer<string> {
     protected region: Region<string>;
     protected node: HTMLElement;
     private mml;
-    speechGenerator: sre.SpeechGenerator;
+    private static updatePromise;
+    speechGenerator: Sre.speechGenerator;
     showRegion: string;
     private init;
     private restarted;
-    constructor(document: A11yDocument, region: Region<string>, node: HTMLElement, mml: HTMLElement);
+    constructor(document: A11yDocument, region: Region<string>, node: HTMLElement, mml: string);
     Start(): void;
     Update(force?: boolean): void;
-    Speech(walker: sre.Walker): void;
+    Speech(walker: Sre.walker): void;
     KeyDown(event: KeyboardEvent): void;
     protected triggerLink(code: number): boolean;
     Move(key: number): void;
@@ -44,7 +46,7 @@ export declare class Magnifier extends AbstractKeyExplorer<HTMLElement> {
     protected region: Region<HTMLElement>;
     protected node: HTMLElement;
     private mml;
-    constructor(document: A11yDocument, region: Region<HTMLElement>, node: HTMLElement, mml: HTMLElement);
+    constructor(document: A11yDocument, region: Region<HTMLElement>, node: HTMLElement, mml: string);
     Update(force?: boolean): void;
     Start(): void;
     private showFocus;

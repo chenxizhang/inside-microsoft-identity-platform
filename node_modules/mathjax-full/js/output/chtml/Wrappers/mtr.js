@@ -54,7 +54,7 @@ var CHTMLmtr = (function (_super) {
         }
     };
     return CHTMLmtr;
-}(mtr_js_1.CommonMtrMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mtr_js_1.CommonMtrMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmtr = CHTMLmtr;
 var CHTMLmlabeledtr = (function (_super) {
     __extends(CHTMLmlabeledtr, _super);
@@ -98,6 +98,6 @@ var CHTMLmlabeledtr = (function (_super) {
         }
     };
     return CHTMLmlabeledtr;
-}(mtr_js_2.CommonMlabeledtrMixin(CHTMLmtr)));
+}((0, mtr_js_2.CommonMlabeledtrMixin)(CHTMLmtr)));
 exports.CHTMLmlabeledtr = CHTMLmlabeledtr;
 //# sourceMappingURL=mtr.js.map

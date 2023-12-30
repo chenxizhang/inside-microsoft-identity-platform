@@ -26,6 +26,6 @@ var CHTMLmtext = (function (_super) {
     }
     CHTMLmtext.kind = mtext_js_2.MmlMtext.prototype.kind;
     return CHTMLmtext;
-}(mtext_js_1.CommonMtextMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mtext_js_1.CommonMtextMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmtext = CHTMLmtext;
 //# sourceMappingURL=mtext.js.map

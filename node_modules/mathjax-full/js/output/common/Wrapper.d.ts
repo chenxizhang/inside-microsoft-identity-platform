@@ -48,6 +48,7 @@ export declare class CommonWrapper<J extends CommonOutputJax<any, any, any, W, C
     constructor(factory: CommonWrapperFactory<J, W, C, CC, DD, FD>, node: MmlNode, parent?: W);
     wrap(node: MmlNode, parent?: W): W;
     getBBox(save?: boolean): BBox;
+    getOuterBBox(save?: boolean): BBox;
     protected computeBBox(bbox: BBox, recompute?: boolean): void;
     setChildPWidths(recompute: boolean, w?: (number | null), clear?: boolean): boolean;
     invalidateBBox(): void;

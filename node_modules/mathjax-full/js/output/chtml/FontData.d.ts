@@ -19,6 +19,7 @@ export declare class CHTMLFontData extends FontData<CHTMLCharOptions, CHTMLVaria
     static OPTIONS: {
         fontURL: string;
     };
+    static JAX: string;
     protected static defaultVariantClasses: StringMap;
     protected static defaultVariantLetters: StringMap;
     protected static defaultStyles: {
@@ -42,6 +43,7 @@ export declare class CHTMLFontData extends FontData<CHTMLCharOptions, CHTMLVaria
     defineChars(name: string, chars: CHTMLCharMap): void;
     get styles(): StyleList;
     updateStyles(styles: StyleList): StyleList;
+    protected allStyles(styles: StyleList): void;
     protected addFontURLs(styles: StyleList, fonts: StyleList, url: string): void;
     protected addDelimiterStyles(styles: StyleList, n: number, data: CHTMLDelimiterData): void;
     protected addDelimiterVStyles(styles: StyleList, c: string, data: CHTMLDelimiterData): void;

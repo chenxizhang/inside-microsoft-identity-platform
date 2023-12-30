@@ -101,8 +101,8 @@ function CommonMsubsupMixin(Base) {
             });
             class_3.prototype.computeBBox = function (bbox, recompute) {
                 if (recompute === void 0) { recompute = false; }
-                var basebox = this.baseChild.getBBox();
-                var _a = __read([this.subChild.getBBox(), this.supChild.getBBox()], 2), subbox = _a[0], supbox = _a[1];
+                var basebox = this.baseChild.getOuterBBox();
+                var _a = __read([this.subChild.getOuterBBox(), this.supChild.getOuterBBox()], 2), subbox = _a[0], supbox = _a[1];
                 bbox.empty();
                 bbox.append(basebox);
                 var w = this.getBaseWidth();
@@ -115,9 +115,9 @@ function CommonMsubsupMixin(Base) {
                 this.setChildPWidths(recompute);
             };
             class_3.prototype.getUVQ = function (subbox, supbox) {
-                if (subbox === void 0) { subbox = this.subChild.getBBox(); }
-                if (supbox === void 0) { supbox = this.supChild.getBBox(); }
-                var basebox = this.baseCore.getBBox();
+                if (subbox === void 0) { subbox = this.subChild.getOuterBBox(); }
+                if (supbox === void 0) { supbox = this.supChild.getOuterBBox(); }
+                var basebox = this.baseCore.getOuterBBox();
                 if (this.UVQ)
                     return this.UVQ;
                 var tex = this.font.params;

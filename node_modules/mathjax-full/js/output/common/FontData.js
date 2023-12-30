@@ -26,10 +26,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -58,10 +62,10 @@ var FontData = (function () {
         this.remapChars = {};
         this.skewIcFactor = .75;
         var CLASS = this.constructor;
-        this.options = Options_js_1.userOptions(Options_js_1.defaultOptions({}, CLASS.OPTIONS), options);
+        this.options = (0, Options_js_1.userOptions)((0, Options_js_1.defaultOptions)({}, CLASS.OPTIONS), options);
         this.params = __assign({}, CLASS.defaultParams);
-        this.sizeVariants = __spreadArray([], __read(CLASS.defaultSizeVariants));
-        this.stretchVariants = __spreadArray([], __read(CLASS.defaultStretchVariants));
+        this.sizeVariants = __spreadArray([], __read(CLASS.defaultSizeVariants), false);
+        this.stretchVariants = __spreadArray([], __read(CLASS.defaultStretchVariants), false);
         this.cssFontMap = __assign({}, CLASS.defaultCssFonts);
         try {
             for (var _c = __values(Object.keys(this.cssFontMap)), _d = _c.next(); !_d.done; _d = _c.next()) {
@@ -255,6 +259,8 @@ var FontData = (function () {
     FontData.OPTIONS = {
         unknownFamily: 'serif'
     };
+    FontData.JAX = 'common';
+    FontData.NAME = '';
     FontData.defaultVariants = [
         ['normal'],
         ['bold', 'normal'],

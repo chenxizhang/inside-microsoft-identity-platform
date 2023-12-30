@@ -48,6 +48,8 @@ exports.PathFilters = {
 };
 var Loader;
 (function (Loader) {
+    var VERSION = global_js_1.MathJax.version;
+    Loader.versions = new Map();
     function ready() {
         var e_2, _a;
         var names = [];
@@ -85,16 +87,25 @@ var Loader;
             return Promise.resolve();
         }
         var promises = [];
+        var _loop_1 = function (name_2) {
+            var extension = package_js_1.Package.packages.get(name_2);
+            if (!extension) {
+                extension = new package_js_1.Package(name_2);
+                extension.provides(exports.CONFIG.provides[name_2]);
+            }
+            extension.checkNoLoad();
+            promises.push(extension.promise.then(function () {
+                if (!exports.CONFIG.versionWarnings)
+                    return;
+                if (extension.isLoaded && !Loader.versions.has(package_js_1.Package.resolvePath(name_2))) {
+                    console.warn("No version information available for component ".concat(name_2));
+                }
+            }));
+        };
         try {
             for (var names_2 = __values(names), names_2_1 = names_2.next(); !names_2_1.done; names_2_1 = names_2.next()) {
                 var name_2 = names_2_1.value;
-                var extension = package_js_1.Package.packages.get(name_2);
-                if (!extension) {
-                    extension = new package_js_1.Package(name_2);
-                    extension.provides(exports.CONFIG.provides[name_2]);
-                }
-                extension.checkNoLoad();
-                promises.push(extension.promise);
+                _loop_1(name_2);
             }
         }
         catch (e_3_1) { e_3 = { error: e_3_1 }; }
@@ -151,6 +162,15 @@ var Loader;
         return root;
     }
     Loader.getRoot = getRoot;
+    function checkVersion(name, version, _type) {
+        Loader.versions.set(package_js_1.Package.resolvePath(name), VERSION);
+        if (exports.CONFIG.versionWarnings && version !== VERSION) {
+            console.warn("Component ".concat(name, " uses ").concat(version, " of MathJax; version in use is ").concat(VERSION));
+            return true;
+        }
+        return false;
+    }
+    Loader.checkVersion = checkVersion;
     Loader.pathFilters = new FunctionList_js_1.FunctionList();
     Loader.pathFilters.add(exports.PathFilters.source, 0);
     Loader.pathFilters.add(exports.PathFilters.normalize, 10);
@@ -158,7 +178,7 @@ var Loader;
 })(Loader = exports.Loader || (exports.Loader = {}));
 exports.MathJax = global_js_1.MathJax;
 if (typeof exports.MathJax.loader === 'undefined') {
-    global_js_1.combineDefaults(exports.MathJax.config, 'loader', {
+    (0, global_js_1.combineDefaults)(exports.MathJax.config, 'loader', {
         paths: {
             mathjax: Loader.getRoot()
         },
@@ -167,11 +187,12 @@ if (typeof exports.MathJax.loader === 'undefined') {
         provides: {},
         load: [],
         ready: Loader.defaultReady.bind(Loader),
-        failed: function (error) { return console.log("MathJax(" + (error.package || '?') + "): " + error.message); },
+        failed: function (error) { return console.log("MathJax(".concat(error.package || '?', "): ").concat(error.message)); },
         require: null,
         pathFilters: [],
+        versionWarnings: true
     });
-    global_js_1.combineWithMathJax({
+    (0, global_js_1.combineWithMathJax)({
         loader: Loader
     });
     try {

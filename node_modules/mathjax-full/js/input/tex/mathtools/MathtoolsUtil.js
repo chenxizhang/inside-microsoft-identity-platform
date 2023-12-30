@@ -15,12 +15,15 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MathtoolsUtil = void 0;
 var BaseItems_js_1 = require("../base/BaseItems.js");
-var ParseUtil_js_1 = require("../ParseUtil.js");
-var TexParser_js_1 = require("../TexParser.js");
-var TexError_js_1 = require("../TexError.js");
+var ParseUtil_js_1 = __importDefault(require("../ParseUtil.js"));
+var TexParser_js_1 = __importDefault(require("../TexParser.js"));
+var TexError_js_1 = __importDefault(require("../TexError.js"));
 var Symbol_js_1 = require("../Symbol.js");
 var Options_js_1 = require("../../../util/Options.js");
 var MathtoolsMethods_js_1 = require("./MathtoolsMethods.js");
@@ -29,7 +32,7 @@ exports.MathtoolsUtil = {
     setDisplayLevel: function (mml, style) {
         if (!style)
             return;
-        var _a = __read(Options_js_1.lookup(style, {
+        var _a = __read((0, Options_js_1.lookup)(style, {
             '\\displaystyle': [true, 0],
             '\\textstyle': [false, 0],
             '\\scriptstyle': [false, 1],
@@ -79,8 +82,8 @@ exports.MathtoolsUtil = {
         if (arg === '') {
             return parser.create('node', 'none');
         }
-        var format = parser.options.mathtools["prescript-" + pos + "-format"];
-        format && (arg = format + "{" + arg + "}");
+        var format = parser.options.mathtools["prescript-".concat(pos, "-format")];
+        format && (arg = "".concat(format, "{").concat(arg, "}"));
         return new TexParser_js_1.default(arg, parser.stack.env, parser.configuration).mml();
     }
 };

@@ -18,7 +18,6 @@ var _a, _b, _c;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HoverRegion = exports.LiveRegion = exports.ToolTip = exports.StringRegion = exports.DummyRegion = exports.AbstractRegion = void 0;
 var StyleList_js_1 = require("../../util/StyleList.js");
-require("../sre.js");
 var AbstractRegion = (function () {
     function AbstractRegion(document) {
         this.document = document;

@@ -67,7 +67,7 @@ var CommonOutputJax = (function (_super) {
         if (defaultFactory === void 0) { defaultFactory = null; }
         if (defaultFont === void 0) { defaultFont = null; }
         var _this = this;
-        var _a = __read(Options_js_1.separateOptions(options, defaultFont.OPTIONS), 2), jaxOptions = _a[0], fontOptions = _a[1];
+        var _a = __read((0, Options_js_1.separateOptions)(options, defaultFont.OPTIONS), 2), jaxOptions = _a[0], fontOptions = _a[1];
         _this = _super.call(this, jaxOptions) || this;
         _this.factory = _this.options.wrapperFactory ||
             new defaultFactory();
@@ -90,7 +90,7 @@ var CommonOutputJax = (function (_super) {
     CommonOutputJax.prototype.setScale = function (node) {
         var scale = this.math.metrics.scale * this.options.scale;
         if (scale !== 1) {
-            this.adaptor.setStyle(node, 'fontSize', lengths_js_1.percent(scale));
+            this.adaptor.setStyle(node, 'fontSize', (0, lengths_js_1.percent)(scale));
         }
     };
     CommonOutputJax.prototype.toDOM = function (math, node, html) {
@@ -111,7 +111,7 @@ var CommonOutputJax = (function (_super) {
         this.math = math;
         math.root.setTeXclass(null);
         this.nodeMap = new Map();
-        var bbox = this.factory.wrap(math.root).getBBox();
+        var bbox = this.factory.wrap(math.root).getOuterBBox();
         this.nodeMap = null;
         return bbox;
     };

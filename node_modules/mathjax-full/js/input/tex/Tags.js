@@ -25,9 +25,12 @@ var __values = (this && this.__values) || function(o) {
     };
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TagsFactory = exports.AllTags = exports.NoTags = exports.AbstractTags = exports.TagInfo = exports.Label = void 0;
-var TexParser_js_1 = require("./TexParser.js");
+var TexParser_js_1 = __importDefault(require("./TexParser.js"));
 var Label = (function () {
     function Label(tag, id) {
         if (tag === void 0) { tag = '???'; }

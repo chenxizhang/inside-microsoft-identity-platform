@@ -30,10 +30,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SVGmtable = void 0;
@@ -68,7 +72,7 @@ var SVGmtable = (function (_super) {
         var _d = this.getTableData(), H = _d.H, D = _d.D;
         var HD = this.getEqualRowHeight();
         var rSpace = this.getRowHalfSpacing();
-        var rLines = __spreadArray(__spreadArray([this.fLine], __read(this.rLines)), [this.fLine]);
+        var rLines = __spreadArray(__spreadArray([this.fLine], __read(this.rLines), false), [this.fLine], false);
         var y = this.getBBox().h - rLines[0];
         for (var i = 0; i < this.numRows; i++) {
             var row = this.childNodes[i];
@@ -229,8 +233,8 @@ var SVGmtable = (function (_super) {
         var _b = __read(this.getPadAlignShift(side), 3), align = _b[1], shift = _b[2];
         var dx = shift + (align === 'right' ? -W : align === 'center' ? -W / 2 : 0) + L;
         var matrix = 'matrix(1 0 0 -1 0 0)';
-        var scale = "scale(" + this.jax.fixed((this.font.params.x_height * 1000) / this.metrics.ex, 2) + ")";
-        var transform = "translate(0 " + this.fixed(h) + ") " + matrix + " " + scale;
+        var scale = "scale(".concat(this.jax.fixed((this.font.params.x_height * 1000) / this.metrics.ex, 2), ")");
+        var transform = "translate(0 ".concat(this.fixed(h), ") ").concat(matrix, " ").concat(scale);
         var table = this.svg('svg', {
             'data-table': true,
             preserveAspectRatio: (align === 'left' ? 'xMinYMid' : align === 'right' ? 'xMaxYMid' : 'xMidYMid'),
@@ -280,6 +284,6 @@ var SVGmtable = (function (_super) {
         }
     };
     return SVGmtable;
-}(mtable_js_1.CommonMtableMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mtable_js_1.CommonMtableMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmtable = SVGmtable;
 //# sourceMappingURL=mtable.js.map

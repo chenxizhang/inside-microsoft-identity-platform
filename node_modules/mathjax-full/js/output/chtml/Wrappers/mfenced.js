@@ -30,6 +30,6 @@ var CHTMLmfenced = (function (_super) {
     };
     CHTMLmfenced.kind = mfenced_js_2.MmlMfenced.prototype.kind;
     return CHTMLmfenced;
-}(mfenced_js_1.CommonMfencedMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mfenced_js_1.CommonMfencedMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmfenced = CHTMLmfenced;
 //# sourceMappingURL=mfenced.js.map

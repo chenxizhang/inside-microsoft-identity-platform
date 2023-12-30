@@ -12,6 +12,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MathJax = exports.combineWithMathJax = exports.combineDefaults = exports.combineConfig = exports.isObject = void 0;
+var version_js_1 = require("./version.js");
 function isObject(x) {
     return typeof x === 'object' && x !== null;
 }
@@ -78,7 +79,7 @@ if (typeof global.MathJax === 'undefined') {
 }
 if (!global.MathJax.version) {
     global.MathJax = {
-        version: '3.2.0',
+        version: version_js_1.VERSION,
         _: {},
         config: global.MathJax
     };

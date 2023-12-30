@@ -44,7 +44,7 @@ var CHTMLmsqrt = (function (_super) {
         var surd = this.childNodes[this.surd];
         var base = this.childNodes[this.base];
         var sbox = surd.getBBox();
-        var bbox = base.getBBox();
+        var bbox = base.getOuterBBox();
         var _a = __read(this.getPQ(sbox), 2), q = _a[1];
         var t = this.font.params.rule_thickness;
         var H = bbox.h + q + t;
@@ -90,6 +90,6 @@ var CHTMLmsqrt = (function (_super) {
         }
     };
     return CHTMLmsqrt;
-}(msqrt_js_1.CommonMsqrtMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, msqrt_js_1.CommonMsqrtMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmsqrt = CHTMLmsqrt;
 //# sourceMappingURL=msqrt.js.map

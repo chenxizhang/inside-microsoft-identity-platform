@@ -7,5 +7,6 @@ export declare class CHTMLscriptbase<N, T, D> extends CHTMLscriptbase_base {
     protected setDeltaW(nodes: N[], dx: number[]): void;
     protected adjustOverDepth(over: N, overbox: BBox): void;
     protected adjustUnderDepth(under: N, underbox: BBox): void;
+    protected adjustBaseHeight(base: N, basebox: BBox): void;
 }
 export {};

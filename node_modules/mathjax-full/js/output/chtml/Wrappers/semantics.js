@@ -33,7 +33,7 @@ var CHTMLsemantics = (function (_super) {
     };
     CHTMLsemantics.kind = semantics_js_2.MmlSemantics.prototype.kind;
     return CHTMLsemantics;
-}(semantics_js_1.CommonSemanticsMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, semantics_js_1.CommonSemanticsMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLsemantics = CHTMLsemantics;
 var CHTMLannotation = (function (_super) {
     __extends(CHTMLannotation, _super);

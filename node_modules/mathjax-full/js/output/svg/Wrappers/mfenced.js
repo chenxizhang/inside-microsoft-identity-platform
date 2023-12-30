@@ -59,6 +59,6 @@ var SVGmfenced = (function (_super) {
     };
     SVGmfenced.kind = mfenced_js_2.MmlMfenced.prototype.kind;
     return SVGmfenced;
-}(mfenced_js_1.CommonMfencedMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mfenced_js_1.CommonMfencedMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmfenced = SVGmfenced;
 //# sourceMappingURL=mfenced.js.map

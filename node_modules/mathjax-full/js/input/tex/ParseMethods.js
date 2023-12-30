@@ -15,23 +15,31 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var NodeUtil_js_1 = require("./NodeUtil.js");
+var NodeUtil_js_1 = __importDefault(require("./NodeUtil.js"));
 var TexConstants_js_1 = require("./TexConstants.js");
-var ParseUtil_js_1 = require("./ParseUtil.js");
+var ParseUtil_js_1 = __importDefault(require("./ParseUtil.js"));
 var ParseMethods;
 (function (ParseMethods) {
     function variable(parser, c) {
         var def = ParseUtil_js_1.default.getFontDef(parser);
-        if (parser.stack.env.multiLetterIdentifiers && parser.stack.env.font !== '') {
-            c = parser.string.substr(parser.i - 1).match(/^[a-z]+/i)[0];
+        var env = parser.stack.env;
+        if (env.multiLetterIdentifiers && env.font !== '') {
+            c = parser.string.substr(parser.i - 1).match(env.multiLetterIdentifiers)[0];
             parser.i += c.length - 1;
-            if (def.mathvariant === TexConstants_js_1.TexConstant.Variant.NORMAL) {
+            if (def.mathvariant === TexConstants_js_1.TexConstant.Variant.NORMAL && env.noAutoOP && c.length > 1) {
                 def.autoOP = false;
             }
         }
@@ -93,7 +101,7 @@ var ParseMethods;
     function environment(parser, env, func, args) {
         var end = args[0];
         var mml = parser.itemFactory.create('begin').setProperties({ name: env, end: end });
-        mml = func.apply(void 0, __spreadArray([parser, mml], __read(args.slice(1))));
+        mml = func.apply(void 0, __spreadArray([parser, mml], __read(args.slice(1)), false));
         parser.Push(mml);
     }
     ParseMethods.environment = environment;

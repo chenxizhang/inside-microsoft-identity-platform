@@ -49,6 +49,6 @@ var SVGscriptbase = (function (_super) {
     };
     SVGscriptbase.kind = 'scriptbase';
     return SVGscriptbase;
-}(scriptbase_js_1.CommonScriptbaseMixin(Wrapper_js_1.SVGWrapper)));
+}((0, scriptbase_js_1.CommonScriptbaseMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGscriptbase = SVGscriptbase;
 //# sourceMappingURL=scriptbase.js.map

@@ -41,6 +41,8 @@ var CHTMLTextNode = (function (_super) {
         var adaptor = this.adaptor;
         var variant = this.parent.variant;
         var text = this.node.getText();
+        if (text.length === 0)
+            return;
         if (variant === '-explicitFont') {
             adaptor.append(parent, this.jax.unknownText(text, variant, this.getBBox().w));
         }
@@ -79,6 +81,6 @@ var CHTMLTextNode = (function (_super) {
         }
     };
     return CHTMLTextNode;
-}(TextNode_js_1.CommonTextNodeMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, TextNode_js_1.CommonTextNodeMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLTextNode = CHTMLTextNode;
 //# sourceMappingURL=TextNode.js.map

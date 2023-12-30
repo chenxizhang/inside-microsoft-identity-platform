@@ -30,10 +30,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -59,13 +63,13 @@ function CommonMtableMixin(Base) {
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            var _this = _super.apply(this, __spreadArray([], __read(args))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(args), false)) || this;
             _this.numCols = 0;
             _this.numRows = 0;
             _this.data = null;
             _this.pwidthCells = [];
             _this.pWidth = 0;
-            _this.numCols = numeric_js_1.max(_this.tableRows.map(function (row) { return row.numCells; }));
+            _this.numCols = (0, numeric_js_1.max)(_this.tableRows.map(function (row) { return row.numCells; }));
             _this.numRows = _this.childNodes.length;
             _this.hasLabels = _this.childNodes.reduce(function (value, row) { return value || row.node.isKind('mlabeledtr'); }, false);
             _this.findContainer();
@@ -110,7 +114,7 @@ function CommonMtableMixin(Base) {
             }
             else {
                 var width = this.node.attributes.get('width');
-                if (string_js_1.isPercent(width)) {
+                if ((0, string_js_1.isPercent)(width)) {
                     this.bbox.pwidth = width;
                 }
             }
@@ -279,14 +283,14 @@ function CommonMtableMixin(Base) {
             var height, width;
             if (this.node.attributes.get('equalrows')) {
                 var HD = this.getEqualRowHeight();
-                height = numeric_js_1.sum([].concat(this.rLines, this.rSpace)) + HD * this.numRows;
+                height = (0, numeric_js_1.sum)([].concat(this.rLines, this.rSpace)) + HD * this.numRows;
             }
             else {
-                height = numeric_js_1.sum(H.concat(D, this.rLines, this.rSpace));
+                height = (0, numeric_js_1.sum)(H.concat(D, this.rLines, this.rSpace));
             }
             height += 2 * (this.fLine + this.fSpace[1]);
             var CW = this.getComputedWidths();
-            width = numeric_js_1.sum(CW.concat(this.cLines, this.cSpace)) + 2 * (this.fLine + this.fSpace[0]);
+            width = (0, numeric_js_1.sum)(CW.concat(this.cLines, this.cSpace)) + 2 * (this.fLine + this.fSpace[0]);
             var w = this.node.attributes.get('width');
             if (w !== 'auto') {
                 width = Math.max(this.length2em(w, 0) + 2 * this.fLine, width);
@@ -298,13 +302,13 @@ function CommonMtableMixin(Base) {
             var _c = __read(this.getBBoxLR(), 2), L = _c[0], R = _c[1];
             bbox.L = L;
             bbox.R = R;
-            if (!string_js_1.isPercent(w)) {
+            if (!(0, string_js_1.isPercent)(w)) {
                 this.setColumnPWidths();
             }
         };
         class_1.prototype.setChildPWidths = function (_recompute, cwidth, _clear) {
             var width = this.node.attributes.get('width');
-            if (!string_js_1.isPercent(width))
+            if (!(0, string_js_1.isPercent)(width))
                 return false;
             if (!this.hasLabels) {
                 this.bbox.pwidth = '';
@@ -318,7 +322,7 @@ function CommonMtableMixin(Base) {
                 this.getColumnAttributes('columnwidth', 0));
             this.cWidths = this.getColumnWidthsFixed(cols, W);
             var CW = this.getComputedWidths();
-            this.pWidth = numeric_js_1.sum(CW.concat(this.cLines, this.cSpace)) + 2 * (this.fLine + this.fSpace[0]);
+            this.pWidth = (0, numeric_js_1.sum)(CW.concat(this.cLines, this.cSpace)) + 2 * (this.fLine + this.fSpace[0]);
             if (this.isTop) {
                 this.bbox.w = this.pWidth;
             }
@@ -415,7 +419,7 @@ function CommonMtableMixin(Base) {
                 return (typeof _this.cWidths[i] === 'number' ? _this.cWidths[i] : W[i]);
             });
             if (this.node.attributes.get('equalcolumns')) {
-                CW = Array(CW.length).fill(numeric_js_1.max(CW));
+                CW = Array(CW.length).fill((0, numeric_js_1.max)(CW));
             }
             return CW;
         };
@@ -428,7 +432,7 @@ function CommonMtableMixin(Base) {
             if (width === 'auto') {
                 return this.getColumnWidthsAuto(swidths);
             }
-            if (string_js_1.isPercent(width)) {
+            if ((0, string_js_1.isPercent)(width)) {
                 return this.getColumnWidthsPercent(swidths);
             }
             return this.getColumnWidthsFixed(swidths, this.length2em(width));
@@ -438,13 +442,13 @@ function CommonMtableMixin(Base) {
             var cwidth;
             if (width === 'auto') {
                 var W = this.getTableData().W;
-                cwidth = numeric_js_1.max(W);
+                cwidth = (0, numeric_js_1.max)(W);
             }
-            else if (string_js_1.isPercent(width)) {
+            else if ((0, string_js_1.isPercent)(width)) {
                 cwidth = this.percent(1 / n);
             }
             else {
-                var w = numeric_js_1.sum([].concat(this.cLines, this.cSpace)) + 2 * this.fSpace[0];
+                var w = (0, numeric_js_1.sum)([].concat(this.cLines, this.cSpace)) + 2 * this.fSpace[0];
                 cwidth = Math.max(0, this.length2em(width) - w) / n;
             }
             return Array(this.numCols).fill(cwidth);
@@ -454,7 +458,7 @@ function CommonMtableMixin(Base) {
             return swidths.map(function (x) {
                 if (x === 'auto' || x === 'fit')
                     return null;
-                if (string_js_1.isPercent(x))
+                if ((0, string_js_1.isPercent)(x))
                     return x;
                 return _this.length2em(x);
             });
@@ -469,7 +473,7 @@ function CommonMtableMixin(Base) {
                     return null;
                 if (x === 'auto')
                     return (hasFit ? W[i] : null);
-                if (string_js_1.isPercent(x))
+                if ((0, string_js_1.isPercent)(x))
                     return x;
                 return _this.length2em(x);
             });
@@ -481,7 +485,7 @@ function CommonMtableMixin(Base) {
             var auto = indices.filter(function (i) { return swidths[i] === 'auto'; });
             var n = fit.length || auto.length;
             var W = (n ? this.getTableData() : { W: null }).W;
-            var cwidth = width - numeric_js_1.sum([].concat(this.cLines, this.cSpace)) - 2 * this.fSpace[0];
+            var cwidth = width - (0, numeric_js_1.sum)([].concat(this.cLines, this.cSpace)) - 2 * this.fSpace[0];
             var dw = cwidth;
             indices.forEach(function (i) {
                 var x = swidths[i];
@@ -538,7 +542,7 @@ function CommonMtableMixin(Base) {
             return space;
         };
         class_1.prototype.getAlignmentRow = function () {
-            var _a = __read(string_js_1.split(this.node.attributes.get('align')), 2), align = _a[0], row = _a[1];
+            var _a = __read((0, string_js_1.split)(this.node.attributes.get('align')), 2), align = _a[0], row = _a[1];
             if (row == null)
                 return [align, null];
             var i = parseInt(row);
@@ -578,7 +582,7 @@ function CommonMtableMixin(Base) {
             var value = this.node.attributes.get(name);
             if (!value)
                 return [this.node.attributes.getDefault(name)];
-            return string_js_1.split(value);
+            return (0, string_js_1.split)(value);
         };
         class_1.prototype.addEm = function (list, n) {
             var _this = this;

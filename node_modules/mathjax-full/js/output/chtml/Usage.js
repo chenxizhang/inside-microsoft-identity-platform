@@ -7,13 +7,14 @@ var Usage = (function () {
         this.needsUpdate = [];
     }
     Usage.prototype.add = function (item) {
-        if (!this.used.has(item)) {
+        var name = JSON.stringify(item);
+        if (!this.used.has(name)) {
             this.needsUpdate.push(item);
         }
-        this.used.add(item);
+        this.used.add(name);
     };
     Usage.prototype.has = function (item) {
-        return this.used.has(item);
+        return this.used.has(JSON.stringify(item));
     };
     Usage.prototype.clear = function () {
         this.used.clear();

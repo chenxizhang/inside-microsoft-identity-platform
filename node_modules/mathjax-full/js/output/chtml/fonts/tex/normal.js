@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.normal = void 0;
 var FontData_js_1 = require("../../FontData.js");
 var normal_js_1 = require("../../../common/fonts/tex/normal.js");
-exports.normal = FontData_js_1.AddCSS(normal_js_1.normal, {
+exports.normal = (0, FontData_js_1.AddCSS)(normal_js_1.normal, {
     0xA3: { f: 'MI' },
     0xA5: { f: 'A' },
     0xAE: { f: 'A' },

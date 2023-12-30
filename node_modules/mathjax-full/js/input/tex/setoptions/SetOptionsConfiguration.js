@@ -10,14 +10,17 @@ var __values = (this && this.__values) || function(o) {
     };
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SetOptionsConfiguration = exports.SetOptionsUtil = void 0;
 var Configuration_js_1 = require("../Configuration.js");
 var SymbolMap_js_1 = require("../SymbolMap.js");
-var TexError_js_1 = require("../TexError.js");
-var ParseUtil_js_1 = require("../ParseUtil.js");
+var TexError_js_1 = __importDefault(require("../TexError.js"));
+var ParseUtil_js_1 = __importDefault(require("../ParseUtil.js"));
 var Symbol_js_1 = require("../Symbol.js");
-var BaseMethods_js_1 = require("../base/BaseMethods.js");
+var BaseMethods_js_1 = __importDefault(require("../base/BaseMethods.js"));
 var Options_js_1 = require("../../../util/Options.js");
 exports.SetOptionsUtil = {
     filterPackage: function (parser, extension) {
@@ -35,7 +38,7 @@ exports.SetOptionsUtil = {
         var _a;
         var config = parser.options.setoptions;
         var options = config.allowOptions[extension] || {};
-        var allow = (options.hasOwnProperty(option) && !Options_js_1.isObject(options[option]) ? options[option] : null);
+        var allow = (options.hasOwnProperty(option) && !(0, Options_js_1.isObject)(options[option]) ? options[option] : null);
         if (allow === false || (allow === null && !config.allowOptionsDefault)) {
             throw new TexError_js_1.default('OptionNotSettable', 'Option "%1" is not allowed to be set', option);
         }
@@ -99,7 +102,7 @@ exports.SetOptionsConfiguration = Configuration_js_1.Configuration.create('setop
             filterValue: exports.SetOptionsUtil.filterValue,
             allowPackageDefault: true,
             allowOptionsDefault: true,
-            allowOptions: Options_js_1.expandable({
+            allowOptions: (0, Options_js_1.expandable)({
                 tex: {
                     FindTeX: false,
                     formatError: false,

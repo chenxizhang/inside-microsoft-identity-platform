@@ -15,20 +15,22 @@ function createTransform() {
     var fs = nodeRequire('fs');
     var xsltFile = path.resolve(dirname, 'mml3.sef.json');
     var xslt = JSON.parse(fs.readFileSync(xsltFile));
-    return function (mml) {
+    return function (node, doc) {
+        var adaptor = doc.adaptor;
+        var mml = adaptor.outerHTML(node);
         if (!mml.match(/ xmlns[=:]/)) {
             mml = mml.replace(/<(?:(\w+)(:))?math/, '<$1$2math xmlns$2$1="http://www.w3.org/1998/Math/MathML"');
         }
         var result;
         try {
-            result = Saxon.transform({
+            result = adaptor.firstChild(adaptor.body(adaptor.parse(Saxon.transform({
                 stylesheetInternal: xslt,
                 sourceText: mml,
                 destination: 'serialized'
-            }).principalResult;
+            }).principalResult)));
         }
         catch (err) {
-            result = mml;
+            result = node;
         }
         return result;
     };

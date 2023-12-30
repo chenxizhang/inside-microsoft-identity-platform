@@ -511,6 +511,7 @@ var AbstractMmlNode = (function (_super) {
             return null;
         }
         var merror = this.factory.create('merror');
+        merror.attributes.set('data-mjx-message', message);
         if (options['fullErrors'] || short) {
             var mtext = this.factory.create('mtext');
             var text = this.factory.create('text');
@@ -849,6 +850,7 @@ var AbstractMmlEmptyNode = (function (_super) {
     AbstractMmlEmptyNode.prototype.verifyTree = function (_options) { };
     AbstractMmlEmptyNode.prototype.mError = function (_message, _options, _short) {
         if (_short === void 0) { _short = false; }
+        return null;
     };
     return AbstractMmlEmptyNode;
 }(Node_js_1.AbstractEmptyNode));

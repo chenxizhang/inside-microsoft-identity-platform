@@ -26,6 +26,10 @@ var SVGmglyph = (function (_super) {
     }
     SVGmglyph.prototype.toSVG = function (parent) {
         var svg = this.standardSVGnode(parent);
+        if (this.charWrapper) {
+            this.charWrapper.toSVG(svg);
+            return;
+        }
         var _a = this.node.attributes.getList('src', 'alt'), src = _a.src, alt = _a.alt;
         var h = this.fixed(this.height);
         var w = this.fixed(this.width);
@@ -42,6 +46,6 @@ var SVGmglyph = (function (_super) {
     };
     SVGmglyph.kind = mglyph_js_2.MmlMglyph.prototype.kind;
     return SVGmglyph;
-}(mglyph_js_1.CommonMglyphMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mglyph_js_1.CommonMglyphMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmglyph = SVGmglyph;
 //# sourceMappingURL=mglyph.js.map

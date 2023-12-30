@@ -65,7 +65,7 @@ var CHTMLmath = (function (_super) {
         if (this.bbox.pwidth === BBox_js_1.BBox.fullWidth) {
             adaptor.setAttribute(parent, 'width', 'full');
             if (this.jax.table) {
-                var _b = this.jax.table.getBBox(), L = _b.L, w = _b.w, R = _b.R;
+                var _b = this.jax.table.getOuterBBox(), L = _b.L, w = _b.w, R = _b.R;
                 if (align === 'right') {
                     R = Math.max(R || -shift, -shift);
                 }
@@ -109,6 +109,7 @@ var CHTMLmath = (function (_super) {
             'font-size': '100%',
             'font-size-adjust': 'none',
             'letter-spacing': 'normal',
+            'border-collapse': 'collapse',
             'word-wrap': 'normal',
             'word-spacing': 'normal',
             'white-space': 'nowrap',
@@ -134,6 +135,6 @@ var CHTMLmath = (function (_super) {
         }
     };
     return CHTMLmath;
-}(math_js_1.CommonMathMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, math_js_1.CommonMathMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmath = CHTMLmath;
 //# sourceMappingURL=math.js.map

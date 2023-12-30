@@ -111,7 +111,7 @@ var MmlMtable = (function (_super) {
             rowalign: 'center'
         });
         var cramped = this.attributes.getExplicit('data-cramped');
-        var ralign = string_js_1.split(this.attributes.get('rowalign'));
+        var ralign = (0, string_js_1.split)(this.attributes.get('rowalign'));
         try {
             for (var _e = __values(this.childNodes), _f = _e.next(); !_f.done; _f = _e.next()) {
                 var child = _f.value;
@@ -128,28 +128,36 @@ var MmlMtable = (function (_super) {
         }
     };
     MmlMtable.prototype.verifyChildren = function (options) {
-        var e_4, _a;
-        if (!options['fixMtables']) {
-            try {
-                for (var _b = __values(this.childNodes), _c = _b.next(); !_c.done; _c = _b.next()) {
-                    var child = _c.value;
-                    if (!child.isKind('mtr')) {
-                        this.mError('Children of ' + this.kind + ' must be mtr or mlabeledtr', options);
-                    }
-                }
+        var mtr = null;
+        var factory = this.factory;
+        for (var i = 0; i < this.childNodes.length; i++) {
+            var child = this.childNodes[i];
+            if (child.isKind('mtr')) {
+                mtr = null;
             }
-            catch (e_4_1) { e_4 = { error: e_4_1 }; }
-            finally {
-                try {
-                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            else {
+                var isMtd = child.isKind('mtd');
+                if (mtr) {
+                    this.removeChild(child);
+                    i--;
                 }
-                finally { if (e_4) throw e_4.error; }
+                else {
+                    mtr = this.replaceChild(factory.create('mtr'), child);
+                }
+                mtr.appendChild(isMtd ? child : factory.create('mtd', {}, [child]));
+                if (!options['fixMtables']) {
+                    child.parent.removeChild(child);
+                    child.parent = this;
+                    isMtd && mtr.appendChild(factory.create('mtd'));
+                    var merror = child.mError('Children of ' + this.kind + ' must be mtr or mlabeledtr', options, isMtd);
+                    mtr.childNodes[mtr.childNodes.length - 1].appendChild(merror);
+                }
             }
         }
         _super.prototype.verifyChildren.call(this, options);
     };
     MmlMtable.prototype.setTeXclass = function (prev) {
-        var e_5, _a;
+        var e_4, _a;
         this.getPrevClass(prev);
         try {
             for (var _b = __values(this.childNodes), _c = _b.next(); !_c.done; _c = _b.next()) {
@@ -157,12 +165,12 @@ var MmlMtable = (function (_super) {
                 child.setTeXclass(null);
             }
         }
-        catch (e_5_1) { e_5 = { error: e_5_1 }; }
+        catch (e_4_1) { e_4 = { error: e_4_1 }; }
         finally {
             try {
                 if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
             }
-            finally { if (e_5) throw e_5.error; }
+            finally { if (e_4) throw e_4.error; }
         }
         return this;
     };

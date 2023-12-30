@@ -249,6 +249,6 @@ var TeXFont = (function (_super) {
             src: 'url("%%URL%%/MathJax_Vector-Bold.woff") format("woff")'
         } });
     return TeXFont;
-}(tex_js_1.CommonTeXFontMixin(FontData_js_1.CHTMLFontData)));
+}((0, tex_js_1.CommonTeXFontMixin)(FontData_js_1.CHTMLFontData)));
 exports.TeXFont = TeXFont;
 //# sourceMappingURL=tex.js.map

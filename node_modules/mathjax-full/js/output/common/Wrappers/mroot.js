@@ -37,13 +37,13 @@ function CommonMrootMixin(Base) {
             configurable: true
         });
         class_1.prototype.combineRootBBox = function (BBOX, sbox, H) {
-            var bbox = this.childNodes[this.root].getBBox();
+            var bbox = this.childNodes[this.root].getOuterBBox();
             var h = this.getRootDimens(sbox, H)[1];
             BBOX.combine(bbox, 0, h);
         };
         class_1.prototype.getRootDimens = function (sbox, H) {
             var surd = this.childNodes[this.surd];
-            var bbox = this.childNodes[this.root].getBBox();
+            var bbox = this.childNodes[this.root].getOuterBBox();
             var offset = (surd.size < 0 ? .5 : .6) * sbox.w;
             var w = bbox.w, rscale = bbox.rscale;
             var W = Math.max(w, offset / rscale);

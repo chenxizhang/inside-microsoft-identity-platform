@@ -41,9 +41,12 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MathtoolsTagFormat = void 0;
-var TexError_js_1 = require("../TexError.js");
+var TexError_js_1 = __importDefault(require("../TexError.js"));
 var Tags_js_1 = require("../Tags.js");
 var tagID = 0;
 function MathtoolsTagFormat(config, jax) {
@@ -81,7 +84,7 @@ function MathtoolsTagFormat(config, jax) {
         TagFormat.prototype.formatTag = function (tag) {
             if (this.mtCurrent) {
                 var _a = __read(this.mtCurrent, 3), left = _a[0], right = _a[1], format = _a[2];
-                return (format ? "" + left + format + "{" + tag + "}" + right : "" + left + tag + right);
+                return (format ? "".concat(left).concat(format, "{").concat(tag, "}").concat(right) : "".concat(left).concat(tag).concat(right));
             }
             return _super.prototype.formatTag.call(this, tag);
         };

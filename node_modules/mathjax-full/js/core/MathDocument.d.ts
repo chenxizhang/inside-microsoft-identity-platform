@@ -91,7 +91,6 @@ export interface MathDocument<N, T, D> {
     updateDocument(): MathDocument<N, T, D>;
     removeFromDocument(restore?: boolean): MathDocument<N, T, D>;
     state(state: number, restore?: boolean): MathDocument<N, T, D>;
-    rerender(start?: number, end?: number): MathDocument<N, T, D>;
     reset(options?: ResetList): MathDocument<N, T, D>;
     clear(): MathDocument<N, T, D>;
     concat(list: MathList<N, T, D>): MathDocument<N, T, D>;

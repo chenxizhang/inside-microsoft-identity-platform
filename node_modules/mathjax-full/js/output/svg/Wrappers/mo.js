@@ -68,7 +68,7 @@ var SVGmo = (function (_super) {
             var u = (symmetric || attributes.get('largeop') ? this.fixed(this.getCenterOffset()) : '0');
             var v = (this.node.getProperty('mathaccent') ? this.fixed(this.getAccentOffset()) : '0');
             if (u !== '0' || v !== '0') {
-                this.adaptor.setAttribute(svg, 'transform', "translate(" + v + " " + u + ")");
+                this.adaptor.setAttribute(svg, 'transform', "translate(".concat(v, " ").concat(u, ")"));
             }
             this.addChildren(svg);
         }
@@ -165,7 +165,7 @@ var SVGmo = (function (_super) {
         });
         this.addGlyph(n, v, 0, 0, svg);
         var glyph = adaptor.lastChild(svg);
-        adaptor.setAttribute(glyph, 'transform', "scale(1," + this.jax.fixed(s) + ")");
+        adaptor.setAttribute(glyph, 'transform', "scale(1,".concat(this.jax.fixed(s), ")"));
         adaptor.append(this.element, svg);
     };
     SVGmo.prototype.addBot = function (n, v, D, W) {
@@ -226,6 +226,6 @@ var SVGmo = (function (_super) {
     };
     SVGmo.kind = mo_js_2.MmlMo.prototype.kind;
     return SVGmo;
-}(mo_js_1.CommonMoMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mo_js_1.CommonMoMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmo = SVGmo;
 //# sourceMappingURL=mo.js.map

@@ -14,14 +14,17 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CasesConfiguration = exports.CasesMethods = exports.CasesTags = exports.CasesBeginItem = void 0;
 var Configuration_js_1 = require("../Configuration.js");
 var SymbolMap_js_1 = require("../SymbolMap.js");
-var ParseUtil_js_1 = require("../ParseUtil.js");
-var BaseMethods_js_1 = require("../base/BaseMethods.js");
-var TexError_js_1 = require("../TexError.js");
+var ParseUtil_js_1 = __importDefault(require("../ParseUtil.js"));
+var BaseMethods_js_1 = __importDefault(require("../base/BaseMethods.js"));
+var TexError_js_1 = __importDefault(require("../TexError.js"));
 var BaseItems_js_1 = require("../base/BaseItems.js");
 var AmsConfiguration_js_1 = require("../ams/AmsConfiguration.js");
 var EmpheqUtil_js_1 = require("../empheq/EmpheqUtil.js");

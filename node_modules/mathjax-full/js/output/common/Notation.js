@@ -64,12 +64,12 @@ exports.diagonalArrowDef = {
     northwestsoutheast: [1, 0, true, 'downdiagonalstrike northwestarrow southeastarrow']
 };
 exports.arrowBBox = {
-    up: function (node) { return exports.arrowBBoxW(node, [exports.arrowHead(node), 0, node.padding, 0]); },
-    down: function (node) { return exports.arrowBBoxW(node, [node.padding, 0, exports.arrowHead(node), 0]); },
-    right: function (node) { return exports.arrowBBoxHD(node, [0, exports.arrowHead(node), 0, node.padding]); },
-    left: function (node) { return exports.arrowBBoxHD(node, [0, node.padding, 0, exports.arrowHead(node)]); },
-    updown: function (node) { return exports.arrowBBoxW(node, [exports.arrowHead(node), 0, exports.arrowHead(node), 0]); },
-    leftright: function (node) { return exports.arrowBBoxHD(node, [0, exports.arrowHead(node), 0, exports.arrowHead(node)]); }
+    up: function (node) { return (0, exports.arrowBBoxW)(node, [(0, exports.arrowHead)(node), 0, node.padding, 0]); },
+    down: function (node) { return (0, exports.arrowBBoxW)(node, [node.padding, 0, (0, exports.arrowHead)(node), 0]); },
+    right: function (node) { return (0, exports.arrowBBoxHD)(node, [0, (0, exports.arrowHead)(node), 0, node.padding]); },
+    left: function (node) { return (0, exports.arrowBBoxHD)(node, [0, node.padding, 0, (0, exports.arrowHead)(node)]); },
+    updown: function (node) { return (0, exports.arrowBBoxW)(node, [(0, exports.arrowHead)(node), 0, (0, exports.arrowHead)(node), 0]); },
+    leftright: function (node) { return (0, exports.arrowBBoxHD)(node, [0, (0, exports.arrowHead)(node), 0, (0, exports.arrowHead)(node)]); }
 };
 var CommonBorder = function (render) {
     return function (side) {

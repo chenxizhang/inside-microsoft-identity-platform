@@ -49,16 +49,16 @@ var HTMLAdaptor = (function (_super) {
         return this.document.createTextNode(text);
     };
     HTMLAdaptor.prototype.head = function (doc) {
-        return doc.head;
+        return doc.head || doc;
     };
     HTMLAdaptor.prototype.body = function (doc) {
-        return doc.body;
+        return doc.body || doc;
     };
     HTMLAdaptor.prototype.root = function (doc) {
-        return doc.documentElement;
+        return doc.documentElement || doc;
     };
     HTMLAdaptor.prototype.doctype = function (doc) {
-        return (doc.doctype ? "<!DOCTYPE " + doc.doctype.name + ">" : '');
+        return (doc.doctype ? "<!DOCTYPE ".concat(doc.doctype.name, ">") : '');
     };
     HTMLAdaptor.prototype.tags = function (node, name, ns) {
         if (ns === void 0) { ns = null; }
@@ -218,7 +218,7 @@ var HTMLAdaptor = (function (_super) {
                     node.sheet.insertRule(rule, 0);
                 }
                 catch (e) {
-                    console.warn("MathJax: can't insert css rule '" + rule + "': " + e.message);
+                    console.warn("MathJax: can't insert css rule '".concat(rule, "': ").concat(e.message));
                 }
             }
         }

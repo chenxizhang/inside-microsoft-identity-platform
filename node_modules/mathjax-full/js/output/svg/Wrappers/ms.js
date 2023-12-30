@@ -26,6 +26,6 @@ var SVGms = (function (_super) {
     }
     SVGms.kind = ms_js_2.MmlMs.prototype.kind;
     return SVGms;
-}(ms_js_1.CommonMsMixin(Wrapper_js_1.SVGWrapper)));
+}((0, ms_js_1.CommonMsMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGms = SVGms;
 //# sourceMappingURL=ms.js.map

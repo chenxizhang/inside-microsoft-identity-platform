@@ -78,7 +78,7 @@ var MmlMtr = (function (_super) {
             }
             finally { if (e_1) throw e_1.error; }
         }
-        var calign = string_js_1.split(this.attributes.get('columnalign'));
+        var calign = (0, string_js_1.split)(this.attributes.get('columnalign'));
         if (this.arity === 1) {
             calign.unshift(this.parent.attributes.get('side'));
         }
@@ -107,23 +107,24 @@ var MmlMtr = (function (_super) {
             this.mError(this.kind + ' can only be a child of an mtable', options, true);
             return;
         }
-        if (!options['fixMtables']) {
-            try {
-                for (var _b = __values(this.childNodes), _c = _b.next(); !_c.done; _c = _b.next()) {
-                    var child = _c.value;
-                    if (!child.isKind('mtd')) {
-                        var mtr = this.replaceChild(this.factory.create('mtr'), child);
-                        mtr.mError('Children of ' + this.kind + ' must be mtd', options, true);
+        try {
+            for (var _b = __values(this.childNodes), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var child = _c.value;
+                if (!child.isKind('mtd')) {
+                    var mtd = this.replaceChild(this.factory.create('mtd'), child);
+                    mtd.appendChild(child);
+                    if (!options['fixMtables']) {
+                        child.mError('Children of ' + this.kind + ' must be mtd', options);
                     }
                 }
             }
-            catch (e_3_1) { e_3 = { error: e_3_1 }; }
-            finally {
-                try {
-                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-                }
-                finally { if (e_3) throw e_3.error; }
+        }
+        catch (e_3_1) { e_3 = { error: e_3_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
             }
+            finally { if (e_3) throw e_3.error; }
         }
         _super.prototype.verifyChildren.call(this, options);
     };

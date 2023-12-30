@@ -30,10 +30,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -56,7 +60,7 @@ function CommonMfencedMixin(Base) {
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            var _this = _super.apply(this, __spreadArray([], __read(args))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(args), false)) || this;
             _this.mrow = null;
             _this.createMrow();
             _this.addMrowChildren();
@@ -104,7 +108,7 @@ function CommonMfencedMixin(Base) {
         };
         class_1.prototype.computeBBox = function (bbox, recompute) {
             if (recompute === void 0) { recompute = false; }
-            bbox.updateFrom(this.mrow.getBBox());
+            bbox.updateFrom(this.mrow.getOuterBBox());
             this.setChildPWidths(recompute);
         };
         return class_1;

@@ -31,7 +31,7 @@ export declare const sideIndex: {
     left: number;
 };
 export declare type Side = keyof typeof sideIndex;
-export declare const sideNames: ("left" | "right" | "bottom" | "top")[];
+export declare const sideNames: ("left" | "top" | "bottom" | "right")[];
 export declare const fullBBox: BBoxExtender<Menclose>;
 export declare const fullPadding: BBoxExtender<Menclose>;
 export declare const fullBorder: BBoxBorder<Menclose>;
@@ -47,7 +47,7 @@ export declare const diagonalArrowDef: {
 export declare const arrowBBox: {
     [name: string]: BBoxExtender<Menclose>;
 };
-export declare const CommonBorder: <W extends Menclose, N>(render: Renderer<W, N>) => DefPairF<"left" | "right" | "bottom" | "top", W, N>;
+export declare const CommonBorder: <W extends Menclose, N>(render: Renderer<W, N>) => DefPairF<"left" | "top" | "bottom" | "right", W, N>;
 export declare const CommonBorder2: <W extends Menclose, N>(render: Renderer<W, N>) => (name: string, side1: Side, side2: Side) => DefPair<W, N>;
 export declare const CommonDiagonalStrike: <W extends Menclose, N>(render: (sname: string) => Renderer<W, N>) => DefPairF<string, W, N>;
 export declare const CommonDiagonalArrow: <W extends Menclose, N>(render: Renderer<W, N>) => DefPairF<string, W, N>;

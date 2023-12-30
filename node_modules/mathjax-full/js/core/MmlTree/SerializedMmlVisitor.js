@@ -153,6 +153,8 @@ var SerializedMmlVisitor = (function (_super) {
         node.getProperty('variantForm') && this.setDataAttribute(data, 'alternate', '1');
         node.getProperty('pseudoscript') && this.setDataAttribute(data, 'pseudoscript', 'true');
         node.getProperty('autoOP') === false && this.setDataAttribute(data, 'auto-op', 'false');
+        var scriptalign = node.getProperty('scriptalign');
+        scriptalign && this.setDataAttribute(data, 'script-align', scriptalign);
         var texclass = node.getProperty('texClass');
         if (texclass !== undefined) {
             var setclass = true;

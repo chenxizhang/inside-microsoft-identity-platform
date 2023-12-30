@@ -25,12 +25,15 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FlalignItem = exports.MultlineItem = void 0;
 var BaseItems_js_1 = require("../base/BaseItems.js");
-var ParseUtil_js_1 = require("../ParseUtil.js");
-var NodeUtil_js_1 = require("../NodeUtil.js");
-var TexError_js_1 = require("../TexError.js");
+var ParseUtil_js_1 = __importDefault(require("../ParseUtil.js"));
+var NodeUtil_js_1 = __importDefault(require("../NodeUtil.js"));
+var TexError_js_1 = __importDefault(require("../TexError.js"));
 var TexConstants_js_1 = require("../TexConstants.js");
 var MultlineItem = (function (_super) {
     __extends(MultlineItem, _super);

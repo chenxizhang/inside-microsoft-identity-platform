@@ -26,6 +26,6 @@ var SVGmtext = (function (_super) {
     }
     SVGmtext.kind = mtext_js_2.MmlMtext.prototype.kind;
     return SVGmtext;
-}(mtext_js_1.CommonMtextMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mtext_js_1.CommonMtextMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmtext = SVGmtext;
 //# sourceMappingURL=mtext.js.map

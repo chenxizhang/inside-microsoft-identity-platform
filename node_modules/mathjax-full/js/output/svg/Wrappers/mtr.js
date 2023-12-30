@@ -30,10 +30,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SVGmlabeledtr = exports.SVGmtr = void 0;
@@ -53,7 +57,7 @@ var SVGmtr = (function (_super) {
     };
     SVGmtr.prototype.placeCells = function (svg) {
         var cSpace = this.parent.getColumnHalfSpacing();
-        var cLines = __spreadArray(__spreadArray([this.parent.fLine], __read(this.parent.cLines)), [this.parent.fLine]);
+        var cLines = __spreadArray(__spreadArray([this.parent.fLine], __read(this.parent.cLines), false), [this.parent.fLine], false);
         var cWidth = this.parent.getComputedWidths();
         var scale = 1 / this.getBBox().rscale;
         var x = cLines[0];
@@ -91,7 +95,7 @@ var SVGmtr = (function (_super) {
     };
     SVGmtr.kind = mtr_js_3.MmlMtr.prototype.kind;
     return SVGmtr;
-}(mtr_js_1.CommonMtrMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mtr_js_1.CommonMtrMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmtr = SVGmtr;
 var SVGmlabeledtr = (function (_super) {
     __extends(SVGmlabeledtr, _super);
@@ -107,6 +111,6 @@ var SVGmlabeledtr = (function (_super) {
     };
     SVGmlabeledtr.kind = mtr_js_3.MmlMlabeledtr.prototype.kind;
     return SVGmlabeledtr;
-}(mtr_js_2.CommonMlabeledtrMixin(SVGmtr)));
+}((0, mtr_js_2.CommonMlabeledtrMixin)(SVGmtr)));
 exports.SVGmlabeledtr = SVGmlabeledtr;
 //# sourceMappingURL=mtr.js.map

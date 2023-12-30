@@ -76,7 +76,7 @@ var SVG = (function (_super) {
     };
     SVG.prototype.setScale = function (node) {
         if (this.options.scale !== 1) {
-            this.adaptor.setStyle(node, 'fontSize', lengths_js_1.percent(this.options.scale));
+            this.adaptor.setStyle(node, 'fontSize', (0, lengths_js_1.percent)(this.options.scale));
         }
     };
     SVG.prototype.escaped = function (math, html) {
@@ -116,7 +116,7 @@ var SVG = (function (_super) {
         this.container = container;
     };
     SVG.prototype.createRoot = function (wrapper) {
-        var _a = wrapper.getBBox(), w = _a.w, h = _a.h, d = _a.d, pwidth = _a.pwidth;
+        var _a = wrapper.getOuterBBox(), w = _a.w, h = _a.h, d = _a.d, pwidth = _a.pwidth;
         var px = wrapper.metrics.em / 1000;
         var W = Math.max(w, px);
         var H = Math.max(h + d, px);
@@ -143,7 +143,7 @@ var SVG = (function (_super) {
             adaptor.setAttribute(svg, 'width', pwidth);
             adaptor.removeAttribute(svg, 'viewBox');
             var scale = this.fixed(wrapper.metrics.ex / (this.font.params.x_height * 1000), 6);
-            adaptor.setAttribute(g, 'transform', "scale(" + scale + ",-" + scale + ") translate(0, " + this.fixed(-h * 1000, 1) + ")");
+            adaptor.setAttribute(g, 'transform', "scale(".concat(scale, ",-").concat(scale, ") translate(0, ").concat(this.fixed(-h * 1000, 1), ")"));
         }
         if (this.options.fontCache !== 'none') {
             adaptor.setAttribute(svg, 'xmlns:xlink', exports.XLINKNS);
@@ -195,7 +195,7 @@ var SVG = (function (_super) {
         }, [this.text(text)]);
         var adaptor = this.adaptor;
         if (variant !== '-explicitFont') {
-            var c = string_js_1.unicodeChars(text);
+            var c = (0, string_js_1.unicodeChars)(text);
             if (c.length !== 1 || c[0] < 0x1D400 || c[0] > 0x1D7FF) {
                 var _a = __read(this.font.getCssFont(variant), 3), family = _a[0], italic = _a[1], bold = _a[2];
                 adaptor.setAttribute(svg, 'font-family', family);

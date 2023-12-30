@@ -10,12 +10,15 @@ var __values = (this && this.__values) || function(o) {
     };
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MathtoolsConfiguration = exports.fixPrescripts = exports.PAIREDDELIMS = void 0;
 var Configuration_js_1 = require("../Configuration.js");
 var SymbolMap_js_1 = require("../SymbolMap.js");
-var NodeUtil_js_1 = require("../NodeUtil.js");
+var NodeUtil_js_1 = __importDefault(require("../NodeUtil.js"));
 var Options_js_1 = require("../../../util/Options.js");
 require("./MathtoolsMappings.js");
 var MathtoolsUtil_js_1 = require("./MathtoolsUtil.js");
@@ -43,7 +46,7 @@ function configMathtools(config, jax) {
         }
         finally { if (e_1) throw e_1.error; }
     }
-    MathtoolsTags_js_1.MathtoolsTagFormat(config, jax);
+    (0, MathtoolsTags_js_1.MathtoolsTagFormat)(config, jax);
 }
 function fixPrescripts(_a) {
     var e_2, _b, e_3, _c, e_4, _d;
@@ -131,8 +134,8 @@ exports.MathtoolsConfiguration = Configuration_js_1.Configuration.create('mathto
             'prescript-sup-format': '',
             'prescript-arg-format': '',
             'allow-mathtoolsset': true,
-            pairedDelimiters: Options_js_1.expandable({}),
-            tagforms: Options_js_1.expandable({}),
+            pairedDelimiters: (0, Options_js_1.expandable)({}),
+            tagforms: (0, Options_js_1.expandable)({}),
         }
     }
 });

@@ -23,6 +23,9 @@ export declare function LazyMathItemMixin<N, T, D, B extends Constructor<HTMLMat
 export interface LazyMathDocument<N, T, D> extends HTMLDocument<N, T, D> {
     lazyObserver: IntersectionObserver;
     lazyList: LazyList<N, T, D>;
+    lazyAlwaysContainers: N[];
+    lazyTypesetAll(): Promise<void>;
+    lazyAlways(): void;
 }
 export declare function LazyMathDocumentMixin<N, T, D, B extends MathDocumentConstructor<HTMLDocument<N, T, D>>>(BaseDocument: B): MathDocumentConstructor<HTMLDocument<N, T, D>> & B;
 export declare function LazyHandler<N, T, D>(handler: HTMLHandler<N, T, D>): HTMLHandler<N, T, D>;

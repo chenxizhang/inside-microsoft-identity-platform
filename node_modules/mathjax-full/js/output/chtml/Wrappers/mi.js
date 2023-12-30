@@ -26,6 +26,6 @@ var CHTMLmi = (function (_super) {
     }
     CHTMLmi.kind = mi_js_2.MmlMi.prototype.kind;
     return CHTMLmi;
-}(mi_js_1.CommonMiMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mi_js_1.CommonMiMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmi = CHTMLmi;
 //# sourceMappingURL=mi.js.map

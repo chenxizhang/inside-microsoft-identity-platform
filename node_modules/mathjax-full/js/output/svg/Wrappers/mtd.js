@@ -47,6 +47,6 @@ var SVGmtd = (function (_super) {
     };
     SVGmtd.kind = mtd_js_2.MmlMtd.prototype.kind;
     return SVGmtd;
-}(mtd_js_1.CommonMtdMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mtd_js_1.CommonMtdMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmtd = SVGmtd;
 //# sourceMappingURL=mtd.js.map

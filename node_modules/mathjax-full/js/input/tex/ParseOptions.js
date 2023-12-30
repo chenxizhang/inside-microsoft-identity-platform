@@ -15,10 +15,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -31,10 +35,13 @@ var __values = (this && this.__values) || function(o) {
     };
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var StackItemFactory_js_1 = require("./StackItemFactory.js");
+var StackItemFactory_js_1 = __importDefault(require("./StackItemFactory.js"));
 var NodeFactory_js_1 = require("./NodeFactory.js");
-var NodeUtil_js_1 = require("./NodeUtil.js");
+var NodeUtil_js_1 = __importDefault(require("./NodeUtil.js"));
 var Options_js_1 = require("../../util/Options.js");
 var ParseOptions = (function () {
     function ParseOptions(configuration, options) {
@@ -51,8 +58,8 @@ var ParseOptions = (function () {
         this.nodeFactory.setCreators(configuration.nodes);
         this.itemFactory = new StackItemFactory_js_1.default(configuration.items);
         this.itemFactory.configuration = this;
-        Options_js_1.defaultOptions.apply(void 0, __spreadArray([this.options], __read(options)));
-        Options_js_1.defaultOptions(this.options, configuration.options);
+        Options_js_1.defaultOptions.apply(void 0, __spreadArray([this.options], __read(options), false));
+        (0, Options_js_1.defaultOptions)(this.options, configuration.options);
     }
     ParseOptions.prototype.pushParser = function (parser) {
         this.parsers.unshift(parser);

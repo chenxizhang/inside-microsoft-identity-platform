@@ -72,7 +72,7 @@ var SVGmath = (function (_super) {
         if (this.bbox.pwidth === BBox_js_1.BBox.fullWidth) {
             this.adaptor.setAttribute(this.jax.container, 'width', 'full');
             if (this.jax.table) {
-                var _b = this.jax.table.getBBox(), L = _b.L, w = _b.w, R = _b.R;
+                var _b = this.jax.table.getOuterBBox(), L = _b.L, w = _b.w, R = _b.R;
                 if (align === 'right') {
                     R = Math.max(R || -shift, -shift);
                 }
@@ -141,6 +141,6 @@ var SVGmath = (function (_super) {
         }
     };
     return SVGmath;
-}(math_js_1.CommonMathMixin(Wrapper_js_1.SVGWrapper)));
+}((0, math_js_1.CommonMathMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmath = SVGmath;
 //# sourceMappingURL=math.js.map

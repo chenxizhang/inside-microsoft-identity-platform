@@ -1,9 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TextMacrosMethods = void 0;
-var TexParser_js_1 = require("../TexParser.js");
+var TexParser_js_1 = __importDefault(require("../TexParser.js"));
 var Retries_js_1 = require("../../../util/Retries.js");
-var BaseMethods_js_1 = require("../base/BaseMethods.js");
+var BaseMethods_js_1 = __importDefault(require("../base/BaseMethods.js"));
 exports.TextMacrosMethods = {
     Comment: function (parser, _c) {
         while (parser.i < parser.string.length && parser.string.charAt(parser.i) !== '\n') {
@@ -123,7 +126,7 @@ exports.TextMacrosMethods = {
             texParser.parse('macro', [texParser, name]);
             if (!macro)
                 return;
-            Retries_js_1.retryAfter(Promise.resolve());
+            (0, Retries_js_1.retryAfter)(Promise.resolve());
         }
         texParser.parse('macro', [parser, name]);
     },

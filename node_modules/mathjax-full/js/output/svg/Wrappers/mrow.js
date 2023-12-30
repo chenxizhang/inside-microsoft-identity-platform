@@ -31,7 +31,7 @@ var SVGmrow = (function (_super) {
     };
     SVGmrow.kind = mrow_js_3.MmlMrow.prototype.kind;
     return SVGmrow;
-}(mrow_js_1.CommonMrowMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mrow_js_1.CommonMrowMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmrow = SVGmrow;
 var SVGinferredMrow = (function (_super) {
     __extends(SVGinferredMrow, _super);
@@ -40,6 +40,6 @@ var SVGinferredMrow = (function (_super) {
     }
     SVGinferredMrow.kind = mrow_js_3.MmlInferredMrow.prototype.kind;
     return SVGinferredMrow;
-}(mrow_js_2.CommonInferredMrowMixin(SVGmrow)));
+}((0, mrow_js_2.CommonInferredMrowMixin)(SVGmrow)));
 exports.SVGinferredMrow = SVGinferredMrow;
 //# sourceMappingURL=mrow.js.map

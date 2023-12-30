@@ -42,7 +42,16 @@ var MmlMglyph = (function (_super) {
         enumerable: false,
         configurable: true
     });
-    MmlMglyph.defaults = __assign(__assign({}, MmlNode_js_1.AbstractMmlTokenNode.defaults), { alt: '', src: '', width: 'auto', height: 'auto', valign: '0em' });
+    MmlMglyph.prototype.verifyAttributes = function (options) {
+        var _a = this.attributes.getList('src', 'fontfamily', 'index'), src = _a.src, fontfamily = _a.fontfamily, index = _a.index;
+        if (src === '' && (fontfamily === '' || index === '')) {
+            this.mError('mglyph must have either src or fontfamily and index attributes', options, true);
+        }
+        else {
+            _super.prototype.verifyAttributes.call(this, options);
+        }
+    };
+    MmlMglyph.defaults = __assign(__assign({}, MmlNode_js_1.AbstractMmlTokenNode.defaults), { alt: '', src: '', index: '', width: 'auto', height: 'auto', valign: '0em' });
     return MmlMglyph;
 }(MmlNode_js_1.AbstractMmlTokenNode));
 exports.MmlMglyph = MmlMglyph;

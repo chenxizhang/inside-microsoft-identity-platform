@@ -49,7 +49,7 @@ var SVGmunder = (function (_super) {
         }
         var svg = this.standardSVGnode(parent);
         var _a = __read([this.baseChild, this.scriptChild], 2), base = _a[0], script = _a[1];
-        var _b = __read([base.getBBox(), script.getBBox()], 2), bbox = _b[0], sbox = _b[1];
+        var _b = __read([base.getOuterBBox(), script.getOuterBBox()], 2), bbox = _b[0], sbox = _b[1];
         base.toSVG(svg);
         script.toSVG(svg);
         var delta = (this.isLineBelow ? 0 : this.getDelta(true));
@@ -60,7 +60,7 @@ var SVGmunder = (function (_super) {
     };
     SVGmunder.kind = munderover_js_4.MmlMunder.prototype.kind;
     return SVGmunder;
-}(munderover_js_1.CommonMunderMixin(msubsup_js_1.SVGmsub)));
+}((0, munderover_js_1.CommonMunderMixin)(msubsup_js_1.SVGmsub)));
 exports.SVGmunder = SVGmunder;
 var SVGmover = (function (_super) {
     __extends(SVGmover, _super);
@@ -74,7 +74,7 @@ var SVGmover = (function (_super) {
         }
         var svg = this.standardSVGnode(parent);
         var _a = __read([this.baseChild, this.scriptChild], 2), base = _a[0], script = _a[1];
-        var _b = __read([base.getBBox(), script.getBBox()], 2), bbox = _b[0], sbox = _b[1];
+        var _b = __read([base.getOuterBBox(), script.getOuterBBox()], 2), bbox = _b[0], sbox = _b[1];
         base.toSVG(svg);
         script.toSVG(svg);
         var delta = (this.isLineAbove ? 0 : this.getDelta());
@@ -85,7 +85,7 @@ var SVGmover = (function (_super) {
     };
     SVGmover.kind = munderover_js_4.MmlMover.prototype.kind;
     return SVGmover;
-}(munderover_js_2.CommonMoverMixin(msubsup_js_1.SVGmsup)));
+}((0, munderover_js_2.CommonMoverMixin)(msubsup_js_1.SVGmsup)));
 exports.SVGmover = SVGmover;
 var SVGmunderover = (function (_super) {
     __extends(SVGmunderover, _super);
@@ -99,7 +99,7 @@ var SVGmunderover = (function (_super) {
         }
         var svg = this.standardSVGnode(parent);
         var _a = __read([this.baseChild, this.overChild, this.underChild], 3), base = _a[0], over = _a[1], under = _a[2];
-        var _b = __read([base.getBBox(), over.getBBox(), under.getBBox()], 3), bbox = _b[0], obox = _b[1], ubox = _b[2];
+        var _b = __read([base.getOuterBBox(), over.getOuterBBox(), under.getOuterBBox()], 3), bbox = _b[0], obox = _b[1], ubox = _b[2];
         base.toSVG(svg);
         under.toSVG(svg);
         over.toSVG(svg);
@@ -113,6 +113,6 @@ var SVGmunderover = (function (_super) {
     };
     SVGmunderover.kind = munderover_js_4.MmlMunderover.prototype.kind;
     return SVGmunderover;
-}(munderover_js_3.CommonMunderoverMixin(msubsup_js_1.SVGmsubsup)));
+}((0, munderover_js_3.CommonMunderoverMixin)(msubsup_js_1.SVGmsubsup)));
 exports.SVGmunderover = SVGmunderover;
 //# sourceMappingURL=munderover.js.map

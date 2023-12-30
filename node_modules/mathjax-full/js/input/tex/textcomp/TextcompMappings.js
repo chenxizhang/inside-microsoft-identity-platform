@@ -1,9 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var SymbolMap_js_1 = require("../SymbolMap.js");
 var TexConstants_js_1 = require("../TexConstants.js");
 var TextMacrosMethods_js_1 = require("../textmacros/TextMacrosMethods.js");
-var ParseUtil_js_1 = require("../ParseUtil.js");
+var ParseUtil_js_1 = __importDefault(require("../ParseUtil.js"));
 var TextParser_js_1 = require("../textmacros/TextParser.js");
 new SymbolMap_js_1.CommandMap('textcomp-macros', {
     'textasciicircum': ['Insert', '\u005E'],

@@ -26,15 +26,22 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var ParseUtil_js_1 = require("./ParseUtil.js");
-var Stack_js_1 = require("./Stack.js");
-var TexError_js_1 = require("./TexError.js");
+var ParseUtil_js_1 = __importDefault(require("./ParseUtil.js"));
+var Stack_js_1 = __importDefault(require("./Stack.js"));
+var TexError_js_1 = __importDefault(require("./TexError.js"));
 var MmlNode_js_1 = require("../../core/MmlTree/MmlNode.js");
 var TexParser = (function () {
     function TexParser(_string, env, configuration) {
@@ -355,7 +362,7 @@ var TexParser = (function () {
         for (var _i = 1; _i < arguments.length; _i++) {
             rest[_i - 1] = arguments[_i];
         }
-        return (_a = this.configuration.nodeFactory).create.apply(_a, __spreadArray([kind], __read(rest)));
+        return (_a = this.configuration.nodeFactory).create.apply(_a, __spreadArray([kind], __read(rest), false));
     };
     return TexParser;
 }());

@@ -42,10 +42,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -79,7 +83,7 @@ var LinkedList = (function () {
         }
         this.list = new ListItem(exports.END);
         this.list.next = this.list.prev = this.list;
-        this.push.apply(this, __spreadArray([], __read(args)));
+        this.push.apply(this, __spreadArray([], __read(args), false));
     }
     LinkedList.prototype.isBefore = function (a, b) {
         return a < b;

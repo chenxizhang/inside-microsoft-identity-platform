@@ -38,6 +38,6 @@ var CHTMLTeXAtom = (function (_super) {
     };
     CHTMLTeXAtom.kind = TeXAtom_js_2.TeXAtom.prototype.kind;
     return CHTMLTeXAtom;
-}(TeXAtom_js_1.CommonTeXAtomMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, TeXAtom_js_1.CommonTeXAtomMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLTeXAtom = CHTMLTeXAtom;
 //# sourceMappingURL=TeXAtom.js.map

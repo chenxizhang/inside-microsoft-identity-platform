@@ -10,15 +10,18 @@ var __values = (this && this.__values) || function(o) {
     };
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfigMacrosConfiguration = void 0;
 var Configuration_js_1 = require("../Configuration.js");
 var Options_js_1 = require("../../../util/Options.js");
 var SymbolMap_js_1 = require("../SymbolMap.js");
-var ParseMethods_js_1 = require("../ParseMethods.js");
+var ParseMethods_js_1 = __importDefault(require("../ParseMethods.js"));
 var Symbol_js_1 = require("../Symbol.js");
-var NewcommandMethods_js_1 = require("../newcommand/NewcommandMethods.js");
+var NewcommandMethods_js_1 = __importDefault(require("../newcommand/NewcommandMethods.js"));
 var NewcommandItems_js_1 = require("../newcommand/NewcommandItems.js");
 var MACROSMAP = 'configmacros-map';
 var ENVIRONMENTMAP = 'configmacros-env-map';
@@ -84,8 +87,8 @@ exports.ConfigMacrosConfiguration = Configuration_js_1.Configuration.create('con
         _a[NewcommandItems_js_1.BeginEnvItem.prototype.kind] = NewcommandItems_js_1.BeginEnvItem,
         _a),
     options: {
-        macros: Options_js_1.expandable({}),
-        environments: Options_js_1.expandable({})
+        macros: (0, Options_js_1.expandable)({}),
+        environments: (0, Options_js_1.expandable)({})
     }
 });
 //# sourceMappingURL=ConfigMacrosConfiguration.js.map

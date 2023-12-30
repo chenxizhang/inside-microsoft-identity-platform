@@ -53,6 +53,6 @@ var SVGmpadded = (function (_super) {
     };
     SVGmpadded.kind = mpadded_js_2.MmlMpadded.prototype.kind;
     return SVGmpadded;
-}(mpadded_js_1.CommonMpaddedMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mpadded_js_1.CommonMpaddedMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmpadded = SVGmpadded;
 //# sourceMappingURL=mpadded.js.map

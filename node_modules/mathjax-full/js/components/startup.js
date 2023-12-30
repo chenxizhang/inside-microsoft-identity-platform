@@ -37,10 +37,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CONFIG = exports.MathJax = exports.Startup = void 0;
@@ -244,7 +248,7 @@ var Startup;
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            return input.reset.apply(input, __spreadArray([], __read(args)));
+            return input.reset.apply(input, __spreadArray([], __read(args), false));
         };
     }
     Startup.makeResetMethod = makeResetMethod;
@@ -329,7 +333,7 @@ var Startup;
 })(Startup = exports.Startup || (exports.Startup = {}));
 exports.MathJax = global_js_1.MathJax;
 if (typeof exports.MathJax._.startup === 'undefined') {
-    global_js_1.combineDefaults(exports.MathJax.config, 'startup', {
+    (0, global_js_1.combineDefaults)(exports.MathJax.config, 'startup', {
         input: [],
         output: '',
         handler: null,
@@ -340,7 +344,7 @@ if (typeof exports.MathJax._.startup === 'undefined') {
         ready: Startup.defaultReady.bind(Startup),
         pageReady: Startup.defaultPageReady.bind(Startup)
     });
-    global_js_1.combineWithMathJax({
+    (0, global_js_1.combineWithMathJax)({
         startup: Startup,
         options: {}
     });

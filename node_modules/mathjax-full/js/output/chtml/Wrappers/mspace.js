@@ -44,6 +44,6 @@ var CHTMLmspace = (function (_super) {
     };
     CHTMLmspace.kind = mspace_js_2.MmlMspace.prototype.kind;
     return CHTMLmspace;
-}(mspace_js_1.CommonMspaceMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mspace_js_1.CommonMspaceMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmspace = CHTMLmspace;
 //# sourceMappingURL=mspace.js.map

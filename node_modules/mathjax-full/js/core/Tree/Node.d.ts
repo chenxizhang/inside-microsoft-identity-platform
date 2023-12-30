@@ -17,6 +17,7 @@ export interface Node {
     setChildren(children: Node[]): void;
     appendChild(child: Node): Node;
     replaceChild(newChild: Node, oldChild: Node): Node;
+    removeChild(child: Node): Node;
     childIndex(child: Node): number;
     copy(): Node;
     findNodes(kind: string): Node[];
@@ -41,6 +42,7 @@ export declare abstract class AbstractNode implements Node {
     setChildren(children: Node[]): void;
     appendChild(child: Node): Node;
     replaceChild(newChild: Node, oldChild: Node): Node;
+    removeChild(child: Node): Node;
     childIndex(node: Node): number;
     copy(): AbstractNode;
     findNodes(kind: string): Node[];

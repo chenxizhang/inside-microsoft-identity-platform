@@ -14,9 +14,12 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BeginEnvItem = void 0;
-var TexError_js_1 = require("../TexError.js");
+var TexError_js_1 = __importDefault(require("../TexError.js"));
 var StackItem_js_1 = require("../StackItem.js");
 var BeginEnvItem = (function (_super) {
     __extends(BeginEnvItem, _super);

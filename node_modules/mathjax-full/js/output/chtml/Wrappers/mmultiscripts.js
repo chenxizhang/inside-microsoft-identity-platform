@@ -35,6 +35,7 @@ exports.CHTMLmmultiscripts = void 0;
 var msubsup_js_1 = require("./msubsup.js");
 var mmultiscripts_js_1 = require("../../common/Wrappers/mmultiscripts.js");
 var mmultiscripts_js_2 = require("../../../core/MmlTree/MmlNodes/mmultiscripts.js");
+var string_js_1 = require("../../../util/string.js");
 var CHTMLmmultiscripts = (function (_super) {
     __extends(CHTMLmmultiscripts, _super);
     function CHTMLmmultiscripts() {
@@ -43,15 +44,19 @@ var CHTMLmmultiscripts = (function (_super) {
     CHTMLmmultiscripts.prototype.toCHTML = function (parent) {
         var chtml = this.standardCHTMLnode(parent);
         var data = this.scriptData;
+        var scriptalign = this.node.getProperty('scriptalign') || 'right left';
+        var _a = __read((0, string_js_1.split)(scriptalign + ' ' + scriptalign), 2), preAlign = _a[0], postAlign = _a[1];
         var sub = this.combinePrePost(data.sub, data.psub);
         var sup = this.combinePrePost(data.sup, data.psup);
-        var _a = __read(this.getUVQ(sub, sup), 2), u = _a[0], v = _a[1];
+        var _b = __read(this.getUVQ(sub, sup), 2), u = _b[0], v = _b[1];
         if (data.numPrescripts) {
-            this.addScripts(u, -v, true, data.psub, data.psup, this.firstPrescript, data.numPrescripts);
+            var scripts = this.addScripts(u, -v, true, data.psub, data.psup, this.firstPrescript, data.numPrescripts);
+            preAlign !== 'right' && this.adaptor.setAttribute(scripts, 'script-align', preAlign);
         }
         this.childNodes[0].toCHTML(chtml);
         if (data.numScripts) {
-            this.addScripts(u, -v, false, data.sub, data.sup, 1, data.numScripts);
+            var scripts = this.addScripts(u, -v, false, data.sub, data.sup, 1, data.numScripts);
+            postAlign !== 'left' && this.adaptor.setAttribute(scripts, 'script-align', postAlign);
         }
     };
     CHTMLmmultiscripts.prototype.addScripts = function (u, v, isPre, sub, sup, i, n) {
@@ -64,12 +69,12 @@ var CHTMLmmultiscripts = (function (_super) {
         var sepRow = this.html('mjx-row', rowdef);
         var subRow = this.html('mjx-row');
         var name = 'mjx-' + (isPre ? 'pre' : '') + 'scripts';
-        adaptor.append(this.chtml, this.html(name, tabledef, [supRow, sepRow, subRow]));
         var m = i + 2 * n;
         while (i < m) {
             this.childNodes[i++].toCHTML(adaptor.append(subRow, this.html('mjx-cell')));
             this.childNodes[i++].toCHTML(adaptor.append(supRow, this.html('mjx-cell')));
         }
+        return adaptor.append(this.chtml, this.html(name, tabledef, [supRow, sepRow, subRow]));
     };
     CHTMLmmultiscripts.kind = mmultiscripts_js_2.MmlMmultiscripts.prototype.kind;
     CHTMLmmultiscripts.styles = {
@@ -83,9 +88,18 @@ var CHTMLmmultiscripts = (function (_super) {
         },
         'mjx-prescripts > mjx-row > mjx-cell': {
             'text-align': 'right'
+        },
+        '[script-align="left"] > mjx-row > mjx-cell': {
+            'text-align': 'left'
+        },
+        '[script-align="center"] > mjx-row > mjx-cell': {
+            'text-align': 'center'
+        },
+        '[script-align="right"] > mjx-row > mjx-cell': {
+            'text-align': 'right'
         }
     };
     return CHTMLmmultiscripts;
-}(mmultiscripts_js_1.CommonMmultiscriptsMixin(msubsup_js_1.CHTMLmsubsup)));
+}((0, mmultiscripts_js_1.CommonMmultiscriptsMixin)(msubsup_js_1.CHTMLmsubsup)));
 exports.CHTMLmmultiscripts = CHTMLmmultiscripts;
 //# sourceMappingURL=mmultiscripts.js.map

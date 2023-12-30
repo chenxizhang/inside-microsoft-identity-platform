@@ -1,9 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TextMacrosConfiguration = exports.TextBaseConfiguration = void 0;
 var Configuration_js_1 = require("../Configuration.js");
-var ParseOptions_js_1 = require("../ParseOptions.js");
+var ParseOptions_js_1 = __importDefault(require("../ParseOptions.js"));
 var Tags_js_1 = require("../Tags.js");
 var BaseItems_js_1 = require("../base/BaseItems.js");
 var TextParser_js_1 = require("./TextParser.js");

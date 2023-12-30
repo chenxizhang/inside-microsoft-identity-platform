@@ -26,6 +26,6 @@ var SVGmspace = (function (_super) {
     }
     SVGmspace.kind = mspace_js_2.MmlMspace.prototype.kind;
     return SVGmspace;
-}(mspace_js_1.CommonMspaceMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mspace_js_1.CommonMspaceMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmspace = SVGmspace;
 //# sourceMappingURL=mspace.js.map

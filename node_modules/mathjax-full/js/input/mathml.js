@@ -42,7 +42,7 @@ var MathML = (function (_super) {
     function MathML(options) {
         if (options === void 0) { options = {}; }
         var _this = this;
-        var _a = __read(Options_js_1.separateOptions(options, FindMathML_js_1.FindMathML.OPTIONS, MathMLCompile_js_1.MathMLCompile.OPTIONS), 3), mml = _a[0], find = _a[1], compile = _a[2];
+        var _a = __read((0, Options_js_1.separateOptions)(options, FindMathML_js_1.FindMathML.OPTIONS, MathMLCompile_js_1.MathMLCompile.OPTIONS), 3), mml = _a[0], find = _a[1], compile = _a[2];
         _this = _super.call(this, mml) || this;
         _this.findMathML = _this.options['FindMathML'] || new FindMathML_js_1.FindMathML(find);
         _this.mathml = _this.options['MathMLCompile'] || new MathMLCompile_js_1.MathMLCompile(compile);
@@ -68,7 +68,7 @@ var MathML = (function (_super) {
     MathML.prototype.compile = function (math, document) {
         var mml = math.start.node;
         if (!mml || !math.end.node || this.options['forceReparse'] || this.adaptor.kind(mml) === '#text') {
-            var mathml = this.executeFilters(this.preFilters, math, document, math.math || '<math></math>');
+            var mathml = this.executeFilters(this.preFilters, math, document, (math.math || '<math></math>').trim());
             var doc = this.checkForErrors(this.adaptor.parse(mathml, 'text/' + this.options['parseAs']));
             var body = this.adaptor.body(doc);
             if (this.adaptor.childNodes(body).length !== 1) {
@@ -99,7 +99,7 @@ var MathML = (function (_super) {
         return this.findMathML.findMath(node);
     };
     MathML.NAME = 'MathML';
-    MathML.OPTIONS = Options_js_1.defaultOptions({
+    MathML.OPTIONS = (0, Options_js_1.defaultOptions)({
         parseAs: 'html',
         forceReparse: false,
         FindMathML: null,

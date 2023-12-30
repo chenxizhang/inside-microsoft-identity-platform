@@ -368,7 +368,7 @@ var CHTMLmtable = (function (_super) {
         var _a = this.getBBox(), w = _a.w, L = _a.L, R = _a.R;
         adaptor.setStyle(this.chtml, 'minWidth', this.em(L + w + R));
         var W = this.node.attributes.get('width');
-        if (string_js_1.isPercent(W)) {
+        if ((0, string_js_1.isPercent)(W)) {
             adaptor.setStyle(this.chtml, 'width', '');
             adaptor.setAttribute(this.chtml, 'width', 'full');
         }
@@ -436,7 +436,7 @@ var CHTMLmtable = (function (_super) {
             var W = this.node.attributes.get('width');
             var _b = this.getBBox(), w = _b.w, L = _b.L, R = _b.R;
             styles.style = {
-                width: (string_js_1.isPercent(W) ? 'calc(' + W + ' + ' + this.em(L + R) + ')' : this.em(L + w + R))
+                width: ((0, string_js_1.isPercent)(W) ? 'calc(' + W + ' + ' + this.em(L + R) + ')' : this.em(L + w + R))
             };
         }
         this.adaptor.append(this.chtml, this.html('mjx-labels', styles, [this.labels]));
@@ -541,6 +541,6 @@ var CHTMLmtable = (function (_super) {
         }
     };
     return CHTMLmtable;
-}(mtable_js_1.CommonMtableMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mtable_js_1.CommonMtableMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmtable = CHTMLmtable;
 //# sourceMappingURL=mtable.js.map

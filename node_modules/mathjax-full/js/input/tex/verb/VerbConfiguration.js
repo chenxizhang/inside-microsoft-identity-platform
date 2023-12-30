@@ -1,10 +1,13 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.VerbConfiguration = exports.VerbMethods = void 0;
 var Configuration_js_1 = require("../Configuration.js");
 var TexConstants_js_1 = require("../TexConstants.js");
 var SymbolMap_js_1 = require("../SymbolMap.js");
-var TexError_js_1 = require("../TexError.js");
+var TexError_js_1 = __importDefault(require("../TexError.js"));
 exports.VerbMethods = {};
 exports.VerbMethods.Verb = function (parser, name) {
     var c = parser.GetNext();

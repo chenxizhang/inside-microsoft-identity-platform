@@ -22,12 +22,10 @@ var MmlVisitor = (function (_super) {
     __extends(MmlVisitor, _super);
     function MmlVisitor(factory) {
         if (factory === void 0) { factory = null; }
-        var _this = this;
         if (!factory) {
             factory = new MmlFactory_js_1.MmlFactory();
         }
-        _this = _super.call(this, factory) || this;
-        return _this;
+        return _super.call(this, factory) || this;
     }
     MmlVisitor.prototype.visitTextNode = function (_node) {
         var _args = [];

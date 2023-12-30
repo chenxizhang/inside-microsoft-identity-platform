@@ -130,6 +130,6 @@ var TeXFont = (function (_super) {
         '-tex-variant': 'V'
     };
     return TeXFont;
-}(tex_js_1.CommonTeXFontMixin(FontData_js_1.SVGFontData)));
+}((0, tex_js_1.CommonTeXFontMixin)(FontData_js_1.SVGFontData)));
 exports.TeXFont = TeXFont;
 //# sourceMappingURL=tex.js.map

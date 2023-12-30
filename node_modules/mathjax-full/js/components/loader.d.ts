@@ -28,6 +28,7 @@ export interface MathJaxConfig extends MJConfig {
         failed?: PackageFailed;
         require?: (url: string) => any;
         pathFilters?: PathFilterList;
+        versionWarnings?: boolean;
         [name: string]: any;
     };
 }
@@ -40,6 +41,7 @@ export interface MathJaxObject extends MJObject {
         preLoad: (...names: string[]) => void;
         defaultReady: () => void;
         getRoot: () => string;
+        checkVersion: (name: string, version: string) => boolean;
         pathFilters: FunctionList;
     };
     startup?: any;
@@ -48,11 +50,13 @@ export declare const PathFilters: {
     [name: string]: PathFilterFunction;
 };
 export declare namespace Loader {
+    const versions: Map<string, string>;
     function ready(...names: string[]): Promise<string[]>;
     function load(...names: string[]): Promise<void | string[]>;
     function preLoad(...names: string[]): void;
     function defaultReady(): void;
     function getRoot(): string;
+    function checkVersion(name: string, version: string, _type?: string): boolean;
     const pathFilters: FunctionList;
 }
 export declare const MathJax: MathJaxObject;
@@ -75,4 +79,5 @@ export declare const CONFIG: {
     failed?: PackageFailed;
     require?: (url: string) => any;
     pathFilters?: PathFilterList;
+    versionWarnings?: boolean;
 };

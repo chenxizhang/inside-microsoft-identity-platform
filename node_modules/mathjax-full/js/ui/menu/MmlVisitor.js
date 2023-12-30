@@ -33,7 +33,7 @@ var MmlVisitor = (function (_super) {
         if (math === void 0) { math = null; }
         if (options === void 0) { options = {}; }
         this.mathItem = math;
-        Options_js_1.userOptions(this.options, options);
+        (0, Options_js_1.userOptions)(this.options, options);
         return this.visitNode(node, '');
     };
     MmlVisitor.prototype.visitTeXAtomNode = function (node, space) {

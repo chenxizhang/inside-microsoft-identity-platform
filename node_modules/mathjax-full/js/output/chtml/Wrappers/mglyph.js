@@ -26,6 +26,10 @@ var CHTMLmglyph = (function (_super) {
     }
     CHTMLmglyph.prototype.toCHTML = function (parent) {
         var chtml = this.standardCHTMLnode(parent);
+        if (this.charWrapper) {
+            this.charWrapper.toCHTML(chtml);
+            return;
+        }
         var _a = this.node.attributes.getList('src', 'alt'), src = _a.src, alt = _a.alt;
         var styles = {
             width: this.em(this.width),
@@ -46,6 +50,6 @@ var CHTMLmglyph = (function (_super) {
         }
     };
     return CHTMLmglyph;
-}(mglyph_js_1.CommonMglyphMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mglyph_js_1.CommonMglyphMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmglyph = CHTMLmglyph;
 //# sourceMappingURL=mglyph.js.map

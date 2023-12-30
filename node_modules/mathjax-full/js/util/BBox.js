@@ -1,17 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BBox = exports.BBoxStyleAdjust = void 0;
+exports.BBox = void 0;
 var lengths_js_1 = require("./lengths.js");
-exports.BBoxStyleAdjust = [
-    ['borderTopWidth', 'h'],
-    ['borderRightWidth', 'w'],
-    ['borderBottomWidth', 'd'],
-    ['borderLeftWidth', 'w', 0],
-    ['paddingTop', 'h'],
-    ['paddingRight', 'w'],
-    ['paddingBottom', 'd'],
-    ['paddingLeft', 'w', 0]
-];
 var BBox = (function () {
     function BBox(def) {
         if (def === void 0) { def = { w: 0, h: -lengths_js_1.BIGDIMEN, d: -lengths_js_1.BIGDIMEN }; }
@@ -79,6 +69,16 @@ var BBox = (function () {
         }
     };
     BBox.fullWidth = '100%';
+    BBox.StyleAdjust = [
+        ['borderTopWidth', 'h'],
+        ['borderRightWidth', 'w'],
+        ['borderBottomWidth', 'd'],
+        ['borderLeftWidth', 'w', 0],
+        ['paddingTop', 'h'],
+        ['paddingRight', 'w'],
+        ['paddingBottom', 'd'],
+        ['paddingLeft', 'w', 0]
+    ];
     return BBox;
 }());
 exports.BBox = BBox;

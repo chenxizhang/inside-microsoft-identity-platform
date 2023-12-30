@@ -100,6 +100,6 @@ var CHTMLmpadded = (function (_super) {
         }
     };
     return CHTMLmpadded;
-}(mpadded_js_1.CommonMpaddedMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mpadded_js_1.CommonMpaddedMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmpadded = CHTMLmpadded;
 //# sourceMappingURL=mpadded.js.map

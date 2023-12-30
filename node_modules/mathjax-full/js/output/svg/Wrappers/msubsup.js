@@ -44,7 +44,7 @@ var SVGmsub = (function (_super) {
     }
     SVGmsub.kind = msubsup_js_4.MmlMsub.prototype.kind;
     return SVGmsub;
-}(msubsup_js_1.CommonMsubMixin(scriptbase_js_1.SVGscriptbase)));
+}((0, msubsup_js_1.CommonMsubMixin)(scriptbase_js_1.SVGscriptbase)));
 exports.SVGmsub = SVGmsub;
 var SVGmsup = (function (_super) {
     __extends(SVGmsup, _super);
@@ -53,7 +53,7 @@ var SVGmsup = (function (_super) {
     }
     SVGmsup.kind = msubsup_js_4.MmlMsup.prototype.kind;
     return SVGmsup;
-}(msubsup_js_2.CommonMsupMixin(scriptbase_js_1.SVGscriptbase)));
+}((0, msubsup_js_2.CommonMsupMixin)(scriptbase_js_1.SVGscriptbase)));
 exports.SVGmsup = SVGmsup;
 var SVGmsubsup = (function (_super) {
     __extends(SVGmsubsup, _super);
@@ -74,6 +74,6 @@ var SVGmsubsup = (function (_super) {
     };
     SVGmsubsup.kind = msubsup_js_4.MmlMsubsup.prototype.kind;
     return SVGmsubsup;
-}(msubsup_js_3.CommonMsubsupMixin(scriptbase_js_1.SVGscriptbase)));
+}((0, msubsup_js_3.CommonMsubsupMixin)(scriptbase_js_1.SVGscriptbase)));
 exports.SVGmsubsup = SVGmsubsup;
 //# sourceMappingURL=msubsup.js.map

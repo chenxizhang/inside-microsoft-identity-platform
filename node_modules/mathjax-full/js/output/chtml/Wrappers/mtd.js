@@ -91,6 +91,6 @@ var CHTMLmtd = (function (_super) {
         }
     };
     return CHTMLmtd;
-}(mtd_js_1.CommonMtdMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mtd_js_1.CommonMtdMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmtd = CHTMLmtd;
 //# sourceMappingURL=mtd.js.map

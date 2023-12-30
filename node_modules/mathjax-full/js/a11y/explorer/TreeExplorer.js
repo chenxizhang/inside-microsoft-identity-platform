@@ -14,10 +14,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TreeColorer = exports.FlameColorer = exports.AbstractTreeExplorer = void 0;
 var Explorer_js_1 = require("./Explorer.js");
-require("../sre.js");
+var sre_js_1 = __importDefault(require("../sre.js"));
 var AbstractTreeExplorer = (function (_super) {
     __extends(AbstractTreeExplorer, _super);
     function AbstractTreeExplorer(document, region, node, mml) {
@@ -53,7 +56,7 @@ var FlameColorer = (function (_super) {
     };
     FlameColorer.prototype.Stop = function () {
         if (this.active) {
-            this.highlighter.unhighlightAll(this.node);
+            this.highlighter.unhighlightAll();
         }
         this.active = false;
     };
@@ -69,7 +72,7 @@ var TreeColorer = (function (_super) {
         if (this.active)
             return;
         this.active = true;
-        var generator = sre.SpeechGeneratorFactory.generator('Color');
+        var generator = sre_js_1.default.getSpeechGenerator('Color');
         if (!this.node.hasAttribute('hasforegroundcolor')) {
             generator.generateSpeech(this.node, this.mml);
             this.node.setAttribute('hasforegroundcolor', 'true');

@@ -26,16 +26,23 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RequireConfiguration = exports.options = exports.RequireMethods = exports.RequireLoad = void 0;
 var Configuration_js_1 = require("../Configuration.js");
 var SymbolMap_js_1 = require("../SymbolMap.js");
-var TexError_js_1 = require("../TexError.js");
+var TexError_js_1 = __importDefault(require("../TexError.js"));
 var global_js_1 = require("../../../components/global.js");
 var package_js_1 = require("../../../components/package.js");
 var loader_js_1 = require("../../../components/loader.js");
@@ -105,7 +112,7 @@ exports.RequireLoad = RequireLoad;
 function config(_config, jax) {
     jax.parseOptions.packageData.set('require', {
         jax: jax,
-        required: __spreadArray([], __read(jax.options.packages)),
+        required: __spreadArray([], __read(jax.options.packages), false),
         configured: new Map()
     });
     var options = jax.parseOptions.options.require;
@@ -129,7 +136,7 @@ exports.RequireMethods = {
 };
 exports.options = {
     require: {
-        allow: Options_js_1.expandable({
+        allow: (0, Options_js_1.expandable)({
             base: false,
             'all-packages': false,
             autoload: false,

@@ -30,10 +30,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -65,7 +69,7 @@ function CommonMmultiscriptsMixin(Base) {
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            var _this = _super.apply(this, __spreadArray([], __read(args))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(args), false)) || this;
             _this.scriptData = null;
             _this.firstPrescript = 0;
             _this.getScriptData();
@@ -123,7 +127,7 @@ function CommonMmultiscriptsMixin(Base) {
                         script = 'psubList';
                     }
                     else {
-                        lists[script].push(child.getBBox());
+                        lists[script].push(child.getOuterBBox());
                         script = exports.NextScript[script];
                     }
                 }

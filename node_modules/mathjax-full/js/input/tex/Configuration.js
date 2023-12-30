@@ -203,8 +203,8 @@ var ParserConfiguration = (function () {
             finally { if (e_4) throw e_4.error; }
         }
         Tags_js_1.TagsFactory.addTags(config.tags);
-        Options_js_1.defaultOptions(parser.options, config.options);
-        Options_js_1.userOptions(parser.options, options);
+        (0, Options_js_1.defaultOptions)(parser.options, config.options);
+        (0, Options_js_1.userOptions)(parser.options, options);
         this.addFilters(jax, config);
         if (config.config) {
             config.config(this, jax);
@@ -213,7 +213,7 @@ var ParserConfiguration = (function () {
     ParserConfiguration.prototype.getPackage = function (name) {
         var config = ConfigurationHandler.get(name);
         if (config && this.parsers.indexOf(config.parser) < 0) {
-            throw Error("Package " + name + " doesn't target the proper parser");
+            throw Error("Package ".concat(name, " doesn't target the proper parser"));
         }
         return config;
     };
@@ -228,7 +228,7 @@ var ParserConfiguration = (function () {
         this.handlers.add(config.handler, config.fallback, priority);
         Object.assign(this.items, config.items);
         Object.assign(this.tags, config.tags);
-        Options_js_1.defaultOptions(this.options, config.options);
+        (0, Options_js_1.defaultOptions)(this.options, config.options);
         Object.assign(this.nodes, config.nodes);
     };
     ParserConfiguration.prototype.addFilters = function (jax, config) {

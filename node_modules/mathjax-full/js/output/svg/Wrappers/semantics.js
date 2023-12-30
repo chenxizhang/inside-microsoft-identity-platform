@@ -33,7 +33,7 @@ var SVGsemantics = (function (_super) {
     };
     SVGsemantics.kind = semantics_js_2.MmlSemantics.prototype.kind;
     return SVGsemantics;
-}(semantics_js_1.CommonSemanticsMixin(Wrapper_js_1.SVGWrapper)));
+}((0, semantics_js_1.CommonSemanticsMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGsemantics = SVGsemantics;
 var SVGannotation = (function (_super) {
     __extends(SVGannotation, _super);
@@ -81,7 +81,7 @@ var SVGxml = (function (_super) {
             y: this.jax.fixed(-h * em) + 'px',
             width: this.jax.fixed(w * em) + 'px',
             height: this.jax.fixed((h + d) * em) + 'px',
-            transform: "scale(" + scale + ") matrix(1 0 0 -1 0 0)"
+            transform: "scale(".concat(scale, ") matrix(1 0 0 -1 0 0)")
         }, [xml]));
     };
     SVGxml.prototype.computeBBox = function (bbox, _recompute) {

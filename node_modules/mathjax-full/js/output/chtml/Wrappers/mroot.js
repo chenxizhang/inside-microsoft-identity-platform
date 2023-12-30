@@ -51,6 +51,6 @@ var CHTMLmroot = (function (_super) {
     };
     CHTMLmroot.kind = mroot_js_2.MmlMroot.prototype.kind;
     return CHTMLmroot;
-}(mroot_js_1.CommonMrootMixin(msqrt_js_1.CHTMLmsqrt)));
+}((0, mroot_js_1.CommonMrootMixin)(msqrt_js_1.CHTMLmsqrt)));
 exports.CHTMLmroot = CHTMLmroot;
 //# sourceMappingURL=mroot.js.map

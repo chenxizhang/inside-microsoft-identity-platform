@@ -41,16 +41,19 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TeX = void 0;
 var InputJax_js_1 = require("../core/InputJax.js");
 var Options_js_1 = require("../util/Options.js");
 var FindTeX_js_1 = require("./tex/FindTeX.js");
-var FilterUtil_js_1 = require("./tex/FilterUtil.js");
-var NodeUtil_js_1 = require("./tex/NodeUtil.js");
-var TexParser_js_1 = require("./tex/TexParser.js");
-var TexError_js_1 = require("./tex/TexError.js");
-var ParseOptions_js_1 = require("./tex/ParseOptions.js");
+var FilterUtil_js_1 = __importDefault(require("./tex/FilterUtil.js"));
+var NodeUtil_js_1 = __importDefault(require("./tex/NodeUtil.js"));
+var TexParser_js_1 = __importDefault(require("./tex/TexParser.js"));
+var TexError_js_1 = __importDefault(require("./tex/TexError.js"));
+var ParseOptions_js_1 = __importDefault(require("./tex/ParseOptions.js"));
 var Tags_js_1 = require("./tex/Tags.js");
 var Configuration_js_1 = require("./tex/Configuration.js");
 require("./tex/base/BaseConfiguration.js");
@@ -59,14 +62,14 @@ var TeX = (function (_super) {
     function TeX(options) {
         if (options === void 0) { options = {}; }
         var _this = this;
-        var _a = __read(Options_js_1.separateOptions(options, TeX.OPTIONS, FindTeX_js_1.FindTeX.OPTIONS), 3), rest = _a[0], tex = _a[1], find = _a[2];
+        var _a = __read((0, Options_js_1.separateOptions)(options, TeX.OPTIONS, FindTeX_js_1.FindTeX.OPTIONS), 3), rest = _a[0], tex = _a[1], find = _a[2];
         _this = _super.call(this, tex) || this;
         _this.findTeX = _this.options['FindTeX'] || new FindTeX_js_1.FindTeX(find);
         var packages = _this.options.packages;
         var configuration = _this.configuration = TeX.configure(packages);
         var parseOptions = _this._parseOptions =
             new ParseOptions_js_1.default(configuration, [_this.options, Tags_js_1.TagsFactory.OPTIONS]);
-        Options_js_1.userOptions(parseOptions.options, rest);
+        (0, Options_js_1.userOptions)(parseOptions.options, rest);
         configuration.config(_this);
         TeX.tags(parseOptions, configuration);
         _this.postFilters.add(FilterUtil_js_1.default.cleanSubSup, -6);

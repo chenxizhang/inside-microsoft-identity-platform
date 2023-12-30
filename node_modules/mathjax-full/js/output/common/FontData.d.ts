@@ -103,6 +103,8 @@ export declare type FontParameters = {
 };
 export declare class FontData<C extends CharOptions, V extends VariantData<C>, D extends DelimiterData> {
     static OPTIONS: OptionList;
+    static JAX: string;
+    static NAME: string;
     static defaultVariants: string[][];
     static defaultCssFonts: CssFontMap;
     protected static defaultCssFamilyPrefix: string;

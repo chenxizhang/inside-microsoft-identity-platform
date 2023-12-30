@@ -439,7 +439,7 @@ function replace(match, entity) {
         var file = (entity.match(/^[a-zA-Z](fr|scr|opf)$/) ? RegExp.$1 : entity.charAt(0).toLowerCase());
         if (!loaded[file]) {
             loaded[file] = true;
-            Retries_js_1.retryAfter(AsyncLoad_js_1.asyncLoad('./util/entities/' + file + '.js'));
+            (0, Retries_js_1.retryAfter)((0, AsyncLoad_js_1.asyncLoad)('./util/entities/' + file + '.js'));
         }
     }
     return match;

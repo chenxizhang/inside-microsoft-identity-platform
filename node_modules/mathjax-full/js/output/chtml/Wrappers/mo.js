@@ -179,6 +179,6 @@ var CHTMLmo = (function (_super) {
         }
     };
     return CHTMLmo;
-}(mo_js_1.CommonMoMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mo_js_1.CommonMoMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmo = CHTMLmo;
 //# sourceMappingURL=mo.js.map

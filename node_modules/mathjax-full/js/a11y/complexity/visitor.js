@@ -50,7 +50,7 @@ var ComplexityVisitor = (function (_super) {
             glyph: 2
         };
         var CLASS = _this.constructor;
-        _this.options = Options_js_1.userOptions(Options_js_1.defaultOptions({}, CLASS.OPTIONS), options);
+        _this.options = (0, Options_js_1.userOptions)((0, Options_js_1.defaultOptions)({}, CLASS.OPTIONS), options);
         _this.collapse = new _this.options.Collapse(_this);
         _this.factory = factory;
         return _this;

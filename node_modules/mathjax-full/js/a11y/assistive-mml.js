@@ -41,10 +41,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -73,7 +77,7 @@ var LimitedMmlVisitor = (function (_super) {
     return LimitedMmlVisitor;
 }(SerializedMmlVisitor_js_1.SerializedMmlVisitor));
 exports.LimitedMmlVisitor = LimitedMmlVisitor;
-MathItem_js_1.newState('ASSISTIVEMML', 153);
+(0, MathItem_js_1.newState)('ASSISTIVEMML', 153);
 function AssistiveMmlMathItemMixin(BaseMathItem) {
     return (function (_super) {
         __extends(class_1, _super);
@@ -110,7 +114,7 @@ function AssistiveMmlMathDocumentMixin(BaseDocument) {
                 for (var _i = 0; _i < arguments.length; _i++) {
                     args[_i] = arguments[_i];
                 }
-                var _this = _super.apply(this, __spreadArray([], __read(args))) || this;
+                var _this = _super.apply(this, __spreadArray([], __read(args), false)) || this;
                 var CLASS = _this.constructor;
                 var ProcessBits = CLASS.ProcessBits;
                 if (!ProcessBits.has('assistive-mml')) {
@@ -157,7 +161,7 @@ function AssistiveMmlMathDocumentMixin(BaseDocument) {
             };
             return BaseClass;
         }(BaseDocument)),
-        _a.OPTIONS = __assign(__assign({}, BaseDocument.OPTIONS), { enableAssistiveMml: true, renderActions: Options_js_1.expandable(__assign(__assign({}, BaseDocument.OPTIONS.renderActions), { assistiveMml: [MathItem_js_1.STATE.ASSISTIVEMML] })) }),
+        _a.OPTIONS = __assign(__assign({}, BaseDocument.OPTIONS), { enableAssistiveMml: true, renderActions: (0, Options_js_1.expandable)(__assign(__assign({}, BaseDocument.OPTIONS.renderActions), { assistiveMml: [MathItem_js_1.STATE.ASSISTIVEMML] })) }),
         _a.assistiveStyles = {
             'mjx-assistive-mml': {
                 position: 'absolute !important',

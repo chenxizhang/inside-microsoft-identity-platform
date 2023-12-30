@@ -30,10 +30,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -46,9 +50,12 @@ var __values = (this && this.__values) || function(o) {
     };
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseItem = exports.MmlStack = void 0;
-var TexError_js_1 = require("./TexError.js");
+var TexError_js_1 = __importDefault(require("./TexError.js"));
 var MmlStack = (function () {
     function MmlStack(_nodes) {
         this._nodes = _nodes;
@@ -66,7 +73,7 @@ var MmlStack = (function () {
         for (var _i = 0; _i < arguments.length; _i++) {
             nodes[_i] = arguments[_i];
         }
-        (_a = this._nodes).push.apply(_a, __spreadArray([], __read(nodes)));
+        (_a = this._nodes).push.apply(_a, __spreadArray([], __read(nodes), false));
     };
     MmlStack.prototype.Pop = function () {
         return this._nodes.pop();
@@ -116,7 +123,7 @@ var MmlStack = (function () {
         for (var _i = 1; _i < arguments.length; _i++) {
             rest[_i - 1] = arguments[_i];
         }
-        return (_a = this.factory.configuration.nodeFactory).create.apply(_a, __spreadArray([kind], __read(rest)));
+        return (_a = this.factory.configuration.nodeFactory).create.apply(_a, __spreadArray([kind], __read(rest), false));
     };
     return MmlStack;
 }());

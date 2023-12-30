@@ -30,10 +30,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -58,7 +62,7 @@ function CommonMrowMixin(Base) {
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            var _this = _super.apply(this, __spreadArray([], __read(args))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(args), false)) || this;
             _this.stretchChildren();
             try {
                 for (var _b = __values(_this.childNodes), _c = _b.next(); !_c.done; _c = _b.next()) {
@@ -113,7 +117,7 @@ function CommonMrowMixin(Base) {
                         var child = _g.value;
                         var noStretch = (child.stretch.dir === 0);
                         if (all || noStretch) {
-                            var _h = child.getBBox(noStretch), h = _h.h, d = _h.d, rscale = _h.rscale;
+                            var _h = child.getOuterBBox(noStretch), h = _h.h, d = _h.d, rscale = _h.rscale;
                             h *= rscale;
                             d *= rscale;
                             if (h > H)

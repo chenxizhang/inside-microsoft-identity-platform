@@ -78,6 +78,7 @@ export declare class Menu {
         [key: string]: any;
     }): void;
     protected getA11y(option: string): any;
+    protected applySettings(): void;
     protected setScale(scale: string): void;
     protected setRenderer(jax: string): void;
     protected setOutputJax(jax: string): void;

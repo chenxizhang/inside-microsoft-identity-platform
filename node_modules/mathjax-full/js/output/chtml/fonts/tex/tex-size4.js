@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.texSize4 = void 0;
 var FontData_js_1 = require("../../FontData.js");
 var tex_size4_js_1 = require("../../../common/fonts/tex/tex-size4.js");
-exports.texSize4 = FontData_js_1.AddCSS(tex_size4_js_1.texSize4, {
+exports.texSize4 = (0, FontData_js_1.AddCSS)(tex_size4_js_1.texSize4, {
     0x2044: { c: '/' },
     0x2329: { c: '\\27E8' },
     0x232A: { c: '\\27E9' },

@@ -1,9 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var SymbolMap_js_1 = require("../SymbolMap.js");
-var PhysicsMethods_js_1 = require("./PhysicsMethods.js");
+var PhysicsMethods_js_1 = __importDefault(require("./PhysicsMethods.js"));
 var TexConstants_js_1 = require("../TexConstants.js");
-var ParseMethods_js_1 = require("../ParseMethods.js");
+var ParseMethods_js_1 = __importDefault(require("../ParseMethods.js"));
 var MmlNode_js_1 = require("../../../core/MmlTree/MmlNode.js");
 new SymbolMap_js_1.CommandMap('Physics-automatic-bracing-macros', {
     'quantity': 'Quantity',
@@ -26,13 +29,15 @@ new SymbolMap_js_1.CommandMap('Physics-automatic-bracing-macros', {
     'poissonbracket': ['Commutator', '\\{', '\\}'],
     'pb': ['Commutator', '\\{', '\\}']
 }, PhysicsMethods_js_1.default);
-new SymbolMap_js_1.CharacterMap('Physics-vector-chars', ParseMethods_js_1.default.mathchar0mi, {
+new SymbolMap_js_1.CharacterMap('Physics-vector-mo', ParseMethods_js_1.default.mathchar0mo, {
     dotproduct: ['\u22C5', { mathvariant: TexConstants_js_1.TexConstant.Variant.BOLD }],
     vdot: ['\u22C5', { mathvariant: TexConstants_js_1.TexConstant.Variant.BOLD }],
     crossproduct: '\u00D7',
     cross: '\u00D7',
     cp: '\u00D7',
-    gradientnabla: ['\u2207', { mathvariant: TexConstants_js_1.TexConstant.Variant.BOLD }],
+    gradientnabla: ['\u2207', { mathvariant: TexConstants_js_1.TexConstant.Variant.BOLD }]
+});
+new SymbolMap_js_1.CharacterMap('Physics-vector-mi', ParseMethods_js_1.default.mathchar0mi, {
     real: ['\u211C', { mathvariant: TexConstants_js_1.TexConstant.Variant.NORMAL }],
     imaginary: ['\u2111', { mathvariant: TexConstants_js_1.TexConstant.Variant.NORMAL }]
 });

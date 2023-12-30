@@ -10,13 +10,16 @@ var __values = (this && this.__values) || function(o) {
     };
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CenternotConfiguration = exports.filterCenterOver = void 0;
 var Configuration_js_1 = require("../Configuration.js");
-var TexParser_js_1 = require("../TexParser.js");
-var NodeUtil_js_1 = require("../NodeUtil.js");
+var TexParser_js_1 = __importDefault(require("../TexParser.js"));
+var NodeUtil_js_1 = __importDefault(require("../NodeUtil.js"));
 var SymbolMap_js_1 = require("../SymbolMap.js");
-var BaseMethods_js_1 = require("../base/BaseMethods.js");
+var BaseMethods_js_1 = __importDefault(require("../base/BaseMethods.js"));
 new SymbolMap_js_1.CommandMap('centernot', {
     centerOver: 'CenterOver',
     centernot: ['Macro', '\\centerOver{#1}{{\u29F8}}', 1]

@@ -30,10 +30,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommonMsqrtMixin = void 0;
@@ -46,10 +50,10 @@ function CommonMsqrtMixin(Base) {
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            var _this = _super.apply(this, __spreadArray([], __read(args))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(args), false)) || this;
             var surd = _this.createMo('\u221A');
             surd.canStretch(1);
-            var _a = _this.childNodes[_this.base].getBBox(), h = _a.h, d = _a.d;
+            var _a = _this.childNodes[_this.base].getOuterBBox(), h = _a.h, d = _a.d;
             var t = _this.font.params.rule_thickness;
             var p = (_this.node.attributes.get('displaystyle') ? _this.font.params.x_height : t);
             _this.surdH = h + d + 2 * t + p / 4;
@@ -85,7 +89,7 @@ function CommonMsqrtMixin(Base) {
         class_1.prototype.computeBBox = function (bbox, recompute) {
             if (recompute === void 0) { recompute = false; }
             var surdbox = this.childNodes[this.surd].getBBox();
-            var basebox = new BBox_js_1.BBox(this.childNodes[this.base].getBBox());
+            var basebox = new BBox_js_1.BBox(this.childNodes[this.base].getOuterBBox());
             var q = this.getPQ(surdbox)[1];
             var t = this.font.params.rule_thickness;
             var H = basebox.h + q + t;

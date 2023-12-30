@@ -38,6 +38,7 @@ var init = function (config) {
 };
 exports.AmsConfiguration = Configuration_js_1.Configuration.create('ams', {
     handler: {
+        character: ['AMSmath-operatorLetter'],
         delimiter: ['AMSsymbols-delimiter', 'AMSmath-delimiter'],
         macro: ['AMSsymbols-mathchar0mi', 'AMSsymbols-mathchar0mo',
             'AMSsymbols-delimiter', 'AMSsymbols-macros',

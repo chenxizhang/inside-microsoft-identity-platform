@@ -7,6 +7,6 @@ export declare class CHTMLmmultiscripts<N, T, D> extends CHTMLmmultiscripts_base
     static kind: string;
     static styles: StyleList;
     toCHTML(parent: N): void;
-    protected addScripts(u: number, v: number, isPre: boolean, sub: BBox, sup: BBox, i: number, n: number): void;
+    protected addScripts(u: number, v: number, isPre: boolean, sub: BBox, sup: BBox, i: number, n: number): N;
 }
 export {};

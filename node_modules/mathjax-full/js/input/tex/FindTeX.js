@@ -74,11 +74,11 @@ var FindTeX = (function (_super) {
     };
     FindTeX.prototype.addPattern = function (starts, delims, display) {
         var _a = __read(delims, 2), open = _a[0], close = _a[1];
-        starts.push(string_js_1.quotePattern(open));
+        starts.push((0, string_js_1.quotePattern)(open));
         this.end[open] = [close, display, this.endPattern(close)];
     };
     FindTeX.prototype.endPattern = function (end, endp) {
-        return new RegExp((endp || string_js_1.quotePattern(end)) + '|\\\\(?:[a-zA-Z]|.)|[{}]', 'g');
+        return new RegExp((endp || (0, string_js_1.quotePattern)(end)) + '|\\\\(?:[a-zA-Z]|.)|[{}]', 'g');
     };
     FindTeX.prototype.findEnd = function (text, n, start, end) {
         var _a = __read(end, 3), close = _a[0], display = _a[1], pattern = _a[2];
@@ -86,7 +86,7 @@ var FindTeX = (function (_super) {
         var match, braces = 0;
         while ((match = pattern.exec(text))) {
             if ((match[1] || match[0]) === close && braces === 0) {
-                return MathItem_js_1.protoItem(start[0], text.substr(i, match.index - i), match[0], n, start.index, match.index + match[0].length, display);
+                return (0, MathItem_js_1.protoItem)(start[0], text.substr(i, match.index - i), match[0], n, start.index, match.index + match[0].length, display);
             }
             else if (match[0] === '{') {
                 braces++;
@@ -102,7 +102,7 @@ var FindTeX = (function (_super) {
         this.start.lastIndex = 0;
         while ((start = this.start.exec(text))) {
             if (start[this.env] !== undefined && this.env) {
-                var end = '\\\\end\\s*(\\{' + string_js_1.quotePattern(start[this.env]) + '\\})';
+                var end = '\\\\end\\s*(\\{' + (0, string_js_1.quotePattern)(start[this.env]) + '\\})';
                 match = this.findEnd(text, n, start, ['{' + start[this.env] + '}', true, this.endPattern(null, end)]);
                 if (match) {
                     match.math = match.open + match.math + match.close;
@@ -113,10 +113,10 @@ var FindTeX = (function (_super) {
                 var math_1 = start[this.sub];
                 var end = start.index + start[this.sub].length;
                 if (math_1.length === 2) {
-                    match = MathItem_js_1.protoItem('', math_1.substr(1), '', n, start.index, end);
+                    match = (0, MathItem_js_1.protoItem)('', math_1.substr(1), '', n, start.index, end);
                 }
                 else {
-                    match = MathItem_js_1.protoItem('', math_1, '', n, start.index, end, false);
+                    match = (0, MathItem_js_1.protoItem)('', math_1, '', n, start.index, end, false);
                 }
             }
             else {

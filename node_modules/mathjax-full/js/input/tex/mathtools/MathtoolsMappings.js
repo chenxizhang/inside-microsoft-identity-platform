@@ -1,6 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var ParseMethods_js_1 = require("../ParseMethods.js");
+var ParseMethods_js_1 = __importDefault(require("../ParseMethods.js"));
 var SymbolMap_js_1 = require("../SymbolMap.js");
 var TexConstants_js_1 = require("../TexConstants.js");
 var MathtoolsMethods_js_1 = require("./MathtoolsMethods.js");
@@ -44,9 +47,12 @@ new SymbolMap_js_1.CommandMap('mathtools-macros', {
     shortvdotswithin: 'ShortVDotsWithin',
     MTFlushSpaceAbove: 'FlushSpaceAbove',
     MTFlushSpaceBelow: 'FlushSpaceBelow',
-    DeclarePairedDelimiters: 'DeclarePairedDelimiters',
-    DeclarePairedDelimitersX: 'DeclarePairedDelimitersX',
-    DeclarePairedDelimitersXPP: 'DeclarePairedDelimitersXPP',
+    DeclarePairedDelimiter: 'DeclarePairedDelimiter',
+    DeclarePairedDelimiterX: 'DeclarePairedDelimiterX',
+    DeclarePairedDelimiterXPP: 'DeclarePairedDelimiterXPP',
+    DeclarePairedDelimiters: 'DeclarePairedDelimiter',
+    DeclarePairedDelimitersX: 'DeclarePairedDelimiterX',
+    DeclarePairedDelimitersXPP: 'DeclarePairedDelimiterXPP',
     centercolon: ['CenterColon', true, true],
     ordinarycolon: ['CenterColon', false],
     MTThinColon: ['CenterColon', true, true, true],

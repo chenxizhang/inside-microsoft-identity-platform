@@ -26,6 +26,6 @@ var SVGmi = (function (_super) {
     }
     SVGmi.kind = mi_js_2.MmlMi.prototype.kind;
     return SVGmi;
-}(mi_js_1.CommonMiMixin(Wrapper_js_1.SVGWrapper)));
+}((0, mi_js_1.CommonMiMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGmi = SVGmi;
 //# sourceMappingURL=mi.js.map

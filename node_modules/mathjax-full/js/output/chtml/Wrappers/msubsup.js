@@ -44,7 +44,7 @@ var CHTMLmsub = (function (_super) {
     }
     CHTMLmsub.kind = msubsup_js_4.MmlMsub.prototype.kind;
     return CHTMLmsub;
-}(msubsup_js_1.CommonMsubMixin(scriptbase_js_1.CHTMLscriptbase)));
+}((0, msubsup_js_1.CommonMsubMixin)(scriptbase_js_1.CHTMLscriptbase)));
 exports.CHTMLmsub = CHTMLmsub;
 var CHTMLmsup = (function (_super) {
     __extends(CHTMLmsup, _super);
@@ -53,7 +53,7 @@ var CHTMLmsup = (function (_super) {
     }
     CHTMLmsup.kind = msubsup_js_4.MmlMsup.prototype.kind;
     return CHTMLmsup;
-}(msubsup_js_2.CommonMsupMixin(scriptbase_js_1.CHTMLscriptbase)));
+}((0, msubsup_js_2.CommonMsupMixin)(scriptbase_js_1.CHTMLscriptbase)));
 exports.CHTMLmsup = CHTMLmsup;
 var CHTMLmsubsup = (function (_super) {
     __extends(CHTMLmsubsup, _super);
@@ -86,11 +86,11 @@ var CHTMLmsubsup = (function (_super) {
             'padding-right': '.05em',
             'padding-left': '.033em'
         },
-        'mjx-script > *': {
+        'mjx-script > mjx-spacer': {
             display: 'block'
         }
     };
     return CHTMLmsubsup;
-}(msubsup_js_3.CommonMsubsupMixin(scriptbase_js_1.CHTMLscriptbase)));
+}((0, msubsup_js_3.CommonMsubsupMixin)(scriptbase_js_1.CHTMLscriptbase)));
 exports.CHTMLmsubsup = CHTMLmsubsup;
 //# sourceMappingURL=msubsup.js.map

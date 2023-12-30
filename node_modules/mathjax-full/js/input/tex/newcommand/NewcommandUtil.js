@@ -1,7 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var ParseUtil_js_1 = require("../ParseUtil.js");
-var TexError_js_1 = require("../TexError.js");
+var ParseUtil_js_1 = __importDefault(require("../ParseUtil.js"));
+var TexError_js_1 = __importDefault(require("../TexError.js"));
 var Symbol_js_1 = require("../Symbol.js");
 var NewcommandUtil;
 (function (NewcommandUtil) {

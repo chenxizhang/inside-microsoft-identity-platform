@@ -22,7 +22,7 @@ var HTMLDomStrings = (function () {
     function HTMLDomStrings(options) {
         if (options === void 0) { options = null; }
         var CLASS = this.constructor;
-        this.options = Options_js_1.userOptions(Options_js_1.defaultOptions({}, CLASS.OPTIONS), options);
+        this.options = (0, Options_js_1.userOptions)((0, Options_js_1.defaultOptions)({}, CLASS.OPTIONS), options);
         this.init();
         this.getPatterns();
     }
@@ -34,9 +34,9 @@ var HTMLDomStrings = (function () {
         this.stack = [];
     };
     HTMLDomStrings.prototype.getPatterns = function () {
-        var skip = Options_js_1.makeArray(this.options['skipHtmlTags']);
-        var ignore = Options_js_1.makeArray(this.options['ignoreHtmlClass']);
-        var process = Options_js_1.makeArray(this.options['processHtmlClass']);
+        var skip = (0, Options_js_1.makeArray)(this.options['skipHtmlTags']);
+        var ignore = (0, Options_js_1.makeArray)(this.options['ignoreHtmlClass']);
+        var process = (0, Options_js_1.makeArray)(this.options['processHtmlClass']);
         this.skipHtmlTags = new RegExp('^(?:' + skip.join('|') + ')$', 'i');
         this.ignoreHtmlClass = new RegExp('(?:^| )(?:' + ignore.join('|') + ')(?: |$)');
         this.processHtmlClass = new RegExp('(?:^| )(?:' + process + ')(?: |$)');

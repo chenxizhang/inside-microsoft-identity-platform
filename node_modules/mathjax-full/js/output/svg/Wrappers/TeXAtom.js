@@ -39,6 +39,6 @@ var SVGTeXAtom = (function (_super) {
     };
     SVGTeXAtom.kind = TeXAtom_js_2.TeXAtom.prototype.kind;
     return SVGTeXAtom;
-}(TeXAtom_js_1.CommonTeXAtomMixin(Wrapper_js_1.SVGWrapper)));
+}((0, TeXAtom_js_1.CommonTeXAtomMixin)(Wrapper_js_1.SVGWrapper)));
 exports.SVGTeXAtom = SVGTeXAtom;
 //# sourceMappingURL=TeXAtom.js.map

@@ -41,10 +41,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FunctionList = void 0;
@@ -63,7 +67,7 @@ var FunctionList = (function (_super) {
         try {
             for (var _b = __values(this), _c = _b.next(); !_c.done; _c = _b.next()) {
                 var item = _c.value;
-                var result = item.item.apply(item, __spreadArray([], __read(data)));
+                var result = item.item.apply(item, __spreadArray([], __read(data), false));
                 if (result === false) {
                     return false;
                 }
@@ -89,7 +93,7 @@ var FunctionList = (function (_super) {
             (function execute() {
                 var _a;
                 while (++i < items.length) {
-                    var result = (_a = items[i]).item.apply(_a, __spreadArray([], __read(data)));
+                    var result = (_a = items[i]).item.apply(_a, __spreadArray([], __read(data), false));
                     if (result instanceof Promise) {
                         result.then(execute).catch(function (err) { return fail(err); });
                         return;

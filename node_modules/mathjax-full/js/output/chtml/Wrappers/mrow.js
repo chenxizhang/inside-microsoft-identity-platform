@@ -68,7 +68,7 @@ var CHTMLmrow = (function (_super) {
     };
     CHTMLmrow.kind = mrow_js_3.MmlMrow.prototype.kind;
     return CHTMLmrow;
-}(mrow_js_1.CommonMrowMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mrow_js_1.CommonMrowMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmrow = CHTMLmrow;
 var CHTMLinferredMrow = (function (_super) {
     __extends(CHTMLinferredMrow, _super);
@@ -77,6 +77,6 @@ var CHTMLinferredMrow = (function (_super) {
     }
     CHTMLinferredMrow.kind = mrow_js_3.MmlInferredMrow.prototype.kind;
     return CHTMLinferredMrow;
-}(mrow_js_2.CommonInferredMrowMixin(CHTMLmrow)));
+}((0, mrow_js_2.CommonInferredMrowMixin)(CHTMLmrow)));
 exports.CHTMLinferredMrow = CHTMLinferredMrow;
 //# sourceMappingURL=mrow.js.map

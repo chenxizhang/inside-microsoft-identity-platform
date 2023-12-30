@@ -133,8 +133,17 @@ var AbstractNode = (function () {
         if (i !== null) {
             this.childNodes[i] = newChild;
             newChild.parent = this;
+            oldChild.parent = null;
         }
         return newChild;
+    };
+    AbstractNode.prototype.removeChild = function (child) {
+        var i = this.childIndex(child);
+        if (i !== null) {
+            this.childNodes.splice(i, 1);
+            child.parent = null;
+        }
+        return child;
     };
     AbstractNode.prototype.childIndex = function (node) {
         var i = this.childNodes.indexOf(node);

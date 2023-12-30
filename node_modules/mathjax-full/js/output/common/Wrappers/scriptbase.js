@@ -30,10 +30,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -48,6 +52,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommonScriptbaseMixin = void 0;
+var MmlNode_js_1 = require("../../../core/MmlTree/MmlNode.js");
 function CommonScriptbaseMixin(Base) {
     var _a;
     return _a = (function (_super) {
@@ -57,7 +62,7 @@ function CommonScriptbaseMixin(Base) {
                 for (var _i = 0; _i < arguments.length; _i++) {
                     args[_i] = arguments[_i];
                 }
-                var _this = _super.apply(this, __spreadArray([], __read(args))) || this;
+                var _this = _super.apply(this, __spreadArray([], __read(args), false)) || this;
                 _this.baseScale = 1;
                 _this.baseIc = 0;
                 _this.baseRemoveIc = false;
@@ -99,7 +104,8 @@ function CommonScriptbaseMixin(Base) {
                 var core = this.getSemanticBase() || this.childNodes[0];
                 while (core &&
                     ((core.childNodes.length === 1 &&
-                        (core.node.isKind('mrow') || core.node.isKind('TeXAtom') ||
+                        (core.node.isKind('mrow') ||
+                            (core.node.isKind('TeXAtom') && core.node.texClass !== MmlNode_js_1.TEXCLASS.VCENTER) ||
                             core.node.isKind('mstyle') || core.node.isKind('mpadded') ||
                             core.node.isKind('mphantom') || core.node.isKind('semantics'))) ||
                         (core.node.isKind('munderover') && core.isMathAccent))) {
@@ -155,17 +161,17 @@ function CommonScriptbaseMixin(Base) {
                 var child = this.baseCore;
                 var scale = 1;
                 while (child && child !== this) {
-                    var bbox = child.getBBox();
+                    var bbox = child.getOuterBBox();
                     scale *= bbox.rscale;
                     child = child.parent;
                 }
                 return scale;
             };
             class_1.prototype.getBaseIc = function () {
-                return this.baseCore.getBBox().ic * this.baseScale;
+                return this.baseCore.getOuterBBox().ic * this.baseScale;
             };
             class_1.prototype.getAdjustedIc = function () {
-                var bbox = this.baseCore.getBBox();
+                var bbox = this.baseCore.getOuterBBox();
                 return (bbox.ic ? 1.05 * bbox.ic + .05 : 0) * this.baseScale;
             };
             class_1.prototype.isCharBase = function () {
@@ -194,15 +200,15 @@ function CommonScriptbaseMixin(Base) {
                 return (node.isToken && node.getText() === '\u2015');
             };
             class_1.prototype.getBaseWidth = function () {
-                var bbox = this.baseChild.getBBox();
+                var bbox = this.baseChild.getOuterBBox();
                 return bbox.w * bbox.rscale - (this.baseRemoveIc ? this.baseIc : 0) + this.font.params.extra_ic;
             };
             class_1.prototype.computeBBox = function (bbox, recompute) {
                 if (recompute === void 0) { recompute = false; }
                 var w = this.getBaseWidth();
                 var _a = __read(this.getOffset(), 2), x = _a[0], y = _a[1];
-                bbox.append(this.baseChild.getBBox());
-                bbox.combine(this.scriptChild.getBBox(), w + x, y);
+                bbox.append(this.baseChild.getOuterBBox());
+                bbox.combine(this.scriptChild.getOuterBBox(), w + x, y);
                 bbox.w += this.font.params.scriptspace;
                 bbox.clean();
                 this.setChildPWidths(recompute);
@@ -216,15 +222,15 @@ function CommonScriptbaseMixin(Base) {
                 return (this.baseIsChar && !largeop && scale === 1 ? 0 : n);
             };
             class_1.prototype.getV = function () {
-                var bbox = this.baseCore.getBBox();
-                var sbox = this.scriptChild.getBBox();
+                var bbox = this.baseCore.getOuterBBox();
+                var sbox = this.scriptChild.getOuterBBox();
                 var tex = this.font.params;
                 var subscriptshift = this.length2em(this.node.attributes.get('subscriptshift'), tex.sub1);
                 return Math.max(this.baseCharZero(bbox.d * this.baseScale + tex.sub_drop * sbox.rscale), subscriptshift, sbox.h * sbox.rscale - (4 / 5) * tex.x_height);
             };
             class_1.prototype.getU = function () {
-                var bbox = this.baseCore.getBBox();
-                var sbox = this.scriptChild.getBBox();
+                var bbox = this.baseCore.getOuterBBox();
+                var sbox = this.scriptChild.getOuterBBox();
                 var tex = this.font.params;
                 var attr = this.node.attributes.getList('displaystyle', 'superscriptshift');
                 var prime = this.node.getProperty('texprimestyle');
@@ -263,7 +269,7 @@ function CommonScriptbaseMixin(Base) {
                 var align = this.node.attributes.get('align');
                 var widths = boxes.map(function (box) { return box.w * box.rscale; });
                 widths[0] -= (this.baseRemoveIc && !this.baseCore.node.attributes.get('largeop') ? this.baseIc : 0);
-                var w = Math.max.apply(Math, __spreadArray([], __read(widths)));
+                var w = Math.max.apply(Math, __spreadArray([], __read(widths), false));
                 var dw = [];
                 var m = 0;
                 try {
@@ -304,7 +310,7 @@ function CommonScriptbaseMixin(Base) {
             class_1.prototype.getDelta = function (noskew) {
                 if (noskew === void 0) { noskew = false; }
                 var accent = this.node.attributes.get('accent');
-                var _a = this.baseCore.getBBox(), sk = _a.sk, ic = _a.ic;
+                var _a = this.baseCore.getOuterBBox(), sk = _a.sk, ic = _a.ic;
                 return ((accent && !noskew ? sk : 0) + this.font.skewIcFactor * ic) * this.baseScale;
             };
             class_1.prototype.stretchChildren = function () {
@@ -335,7 +341,7 @@ function CommonScriptbaseMixin(Base) {
                             var child = _g.value;
                             var noStretch = (child.stretch.dir === 0);
                             if (all || noStretch) {
-                                var _h = child.getBBox(noStretch), w = _h.w, rscale = _h.rscale;
+                                var _h = child.getOuterBBox(noStretch), w = _h.w, rscale = _h.rscale;
                                 if (w * rscale > W)
                                     W = w * rscale;
                             }

@@ -10,10 +10,13 @@ var __values = (this && this.__values) || function(o) {
     };
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BoldsymbolConfiguration = exports.rewriteBoldTokens = exports.createBoldToken = exports.BoldsymbolMethods = void 0;
 var Configuration_js_1 = require("../Configuration.js");
-var NodeUtil_js_1 = require("../NodeUtil.js");
+var NodeUtil_js_1 = __importDefault(require("../NodeUtil.js"));
 var TexConstants_js_1 = require("../TexConstants.js");
 var SymbolMap_js_1 = require("../SymbolMap.js");
 var NodeFactory_js_1 = require("../NodeFactory.js");

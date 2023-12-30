@@ -206,6 +206,6 @@ var CHTMLmfrac = (function (_super) {
         }
     };
     return CHTMLmfrac;
-}(mfrac_js_1.CommonMfracMixin(Wrapper_js_1.CHTMLWrapper)));
+}((0, mfrac_js_1.CommonMfracMixin)(Wrapper_js_1.CHTMLWrapper)));
 exports.CHTMLmfrac = CHTMLmfrac;
 //# sourceMappingURL=mfrac.js.map

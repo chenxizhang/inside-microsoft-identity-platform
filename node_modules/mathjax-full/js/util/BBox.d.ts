@@ -1,4 +1,3 @@
-export declare const BBoxStyleAdjust: (string | number)[][];
 export declare type BBoxData = {
     w?: number;
     h?: number;
@@ -6,6 +5,7 @@ export declare type BBoxData = {
 };
 export declare class BBox {
     static fullWidth: string;
+    static StyleAdjust: [string, string, number?][];
     w: number;
     h: number;
     d: number;
